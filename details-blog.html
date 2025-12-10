@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Détails Article - FretPal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ['"DM Sans"', 'sans-serif'] },
+            colors: {
+              'accent-1': '#ffdc00',
+              'accent-2': '#F28555',
+              'dark-1': '#05073C',
+              'light-1': '#F5F5F5',
+              'light-2': '#717171',
+            },
+            borderRadius: { 'xl': '12px' }
+          }
+        }
+      }
+    </script>
+    <style>body { font-family: 'DM Sans', sans-serif; }</style>
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="flex flex-col min-h-screen text-dark-1 bg-white">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 bg-white z-50 border-b border-gray-100 h-[80px] flex items-center">
+      <div class="container mx-auto px-4 md:px-6 flex items-center justify-between">
+        <a href="index.html" class="flex items-center gap-2 z-50">
+          <div class="w-10 h-10 bg-gradient-to-br from-accent-1 to-accent-2 rounded-xl flex items-center justify-center">
+            <i data-lucide="package" class="text-white w-6 h-6"></i>
+          </div>
+          <span class="text-2xl font-bold tracking-tight">FretPal</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-8">
+          <a href="index.html" class="font-medium text-dark-1 hover:text-accent-2 transition-colors">Accueil</a>
+          <a href="search.html" class="font-medium text-dark-1 hover:text-accent-2 transition-colors">Trouver un trajet</a>
+          <a href="blog.html" class="font-medium text-accent-1 transition-colors">Blog</a>
+        </nav>
+        <button id="mobile-menu-btn" class="lg:hidden z-50"><i data-lucide="menu"></i></button>
+      </div>
+      <div id="mobile-menu" class="hidden fixed inset-0 bg-white z-40 flex flex-col pt-24 px-6 gap-6 lg:hidden">
+        <a href="index.html" class="text-xl font-medium">Accueil</a>
+        <a href="blog.html" class="text-xl font-medium text-accent-2">Blog</a>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow pt-[80px]">
+      
+      <!-- Article Header -->
+      <div class="w-full h-64 md:h-96 relative">
+        <img src="https://picsum.photos/1200/600?random=10" alt="Cover" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+          <div class="container mx-auto px-4 text-center text-white">
+            <span class="bg-accent-1 text-dark-1 px-3 py-1 rounded-full text-sm font-bold uppercase mb-4 inline-block">Économies</span>
+            <h1 class="text-3xl md:text-5xl font-bold max-w-4xl mx-auto leading-tight">Comment envoyer un colis à l'international à bas prix ?</h1>
+          </div>
+        </div>
+      </div>
+
+      <!-- Article Content -->
+      <div class="container mx-auto px-4 py-12 max-w-3xl">
+        <div class="flex items-center gap-4 mb-8 border-b border-gray-100 pb-8">
+          <img src="https://picsum.photos/50/50" class="w-12 h-12 rounded-full" alt="Author">
+          <div>
+            <p class="font-bold text-dark-1">Par Équipe FretPal</p>
+            <p class="text-sm text-gray-500">Publié le 10 Oct 2023</p>
+          </div>
+        </div>
+
+        <div class="prose lg:prose-xl text-gray-600 leading-relaxed space-y-6">
+          <p class="text-xl font-medium text-dark-1">
+            Les frais postaux internationaux explosent. Le crowd-shipping est la solution pour réduire vos coûts jusqu'à 70%. Découvrez comment profiter de l'espace vide dans les valises des voyageurs.
+          </p>
+          <p>
+            L'envoi de colis traditionnel vers l'international peut rapidement devenir un gouffre financier. Entre les tarifs de base élevés, les surcharges carburant et les délais parfois incertains, il est temps de chercher des alternatives.
+          </p>
+          <h2 class="text-2xl font-bold text-dark-1 mt-8 mb-4">Le principe du Co-valisage</h2>
+          <p>
+            Aussi appelé "Crowd-shipping", le co-valisage consiste à utiliser l'espace libre dans les bagages d'un voyageur particulier pour acheminer un bien. C'est du gagnant-gagnant :
+          </p>
+          <ul class="list-disc pl-6 space-y-2">
+            <li><strong>Pour l'expéditeur :</strong> un coût réduit (généralement 10 à 15€ le kilo).</li>
+            <li><strong>Pour le voyageur :</strong> une façon de rentabiliser son billet d'avion.</li>
+            <li><strong>Pour la planète :</strong> on optimise un trajet qui existe déjà.</li>
+          </ul>
+          <h2 class="text-2xl font-bold text-dark-1 mt-8 mb-4">La sécurité avant tout</h2>
+          <p>
+            Sur FretPal, nous vérifions l'identité de chaque utilisateur. De plus, la règle d'or est simple : <strong>le voyageur doit toujours vérifier le contenu du colis</strong> avant de l'accepter. Le colis voyage ouvert jusqu'à sa remise en main propre ou son enregistrement.
+          </p>
+        </div>
+
+        <div class="mt-12 pt-8 border-t border-gray-100 text-center">
+          <h3 class="text-2xl font-bold mb-4">Prêt à essayer ?</h3>
+          <a href="search.html" class="inline-block px-8 py-4 bg-accent-1 text-dark-1 font-bold rounded-xl hover:bg-yellow-400 transition-colors shadow-lg">
+            Trouver un voyageur maintenant
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark-1 text-white pt-8 pb-8">
+      <div class="container mx-auto px-4 text-center">
+        <p class="text-gray-500 text-sm">© 2023 FretPal. Tous droits réservés.</p>
+      </div>
+    </footer>
+
+    <script>lucide.createIcons();</script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

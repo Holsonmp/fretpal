@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Suivi de Colis - FretPal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ['"DM Sans"', 'sans-serif'] },
+            colors: {
+              'accent-1': '#ffdc00',
+              'accent-2': '#F28555',
+              'dark-1': '#05073C',
+              'light-1': '#F5F5F5',
+              'light-2': '#717171',
+            },
+            borderRadius: { 'xl': '12px' }
+          }
+        }
+      }
+    </script>
+    <style>body { font-family: 'DM Sans', sans-serif; }</style>
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="flex flex-col min-h-screen text-dark-1 bg-gray-50">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 bg-white z-50 border-b border-gray-100 h-[80px] flex items-center">
+      <div class="container mx-auto px-4 md:px-6 flex items-center justify-between">
+        <a href="index.html" class="flex items-center gap-2 z-50">
+          <div class="w-10 h-10 bg-gradient-to-br from-accent-1 to-accent-2 rounded-xl flex items-center justify-center">
+            <i data-lucide="package" class="text-white w-6 h-6"></i>
+          </div>
+          <span class="text-2xl font-bold tracking-tight">FretPal</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-8">
+          <a href="index.html" class="font-medium text-dark-1 hover:text-accent-2 transition-colors">Accueil</a>
+          <a href="search.html" class="font-medium text-dark-1 hover:text-accent-2 transition-colors">Trouver un trajet</a>
+        </nav>
+        <button id="mobile-menu-btn" class="lg:hidden z-50"><i data-lucide="menu"></i></button>
+      </div>
+      <div id="mobile-menu" class="hidden fixed inset-0 bg-white z-40 flex flex-col pt-24 px-6 gap-6 lg:hidden">
+        <a href="index.html" class="text-xl font-medium">Accueil</a>
+      </div>
+    </header>
+
+    <main class="flex-grow pt-[80px] py-12">
+      <div class="container mx-auto px-4 max-w-2xl">
+        <div class="text-center mb-10">
+          <h1 class="text-3xl font-bold mb-4">Suivre mon colis</h1>
+          <p class="text-gray-500">Entrez votre numéro de suivi pour voir l'état d'avancement.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 mb-8">
+          <div class="flex flex-col md:flex-row gap-4">
+            <input type="text" placeholder="Ex: FR-8923-PL" class="flex-1 px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-accent-1 bg-gray-50">
+            <button class="px-6 py-3 bg-dark-1 text-white font-bold rounded-xl hover:bg-blue-900 transition-colors">
+              Suivre
+            </button>
+          </div>
+        </div>
+
+        <!-- Result (Mock) -->
+        <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+          <div class="flex items-center justify-between mb-8 pb-6 border-b border-gray-100">
+            <div>
+              <p class="text-sm text-gray-500 mb-1">Numéro de suivi</p>
+              <p class="font-bold text-lg">FR-8923-PL</p>
+            </div>
+            <div class="text-right">
+              <span class="inline-block px-3 py-1 bg-blue-100 text-blue-700 text-sm font-bold rounded-full">En transit</span>
+            </div>
+          </div>
+
+          <div class="relative pl-8 space-y-8 before:absolute before:left-3 before:top-2 before:bottom-2 before:w-0.5 before:bg-gray-200">
+            
+            <!-- Step 1 -->
+            <div class="relative">
+              <div class="absolute -left-[41px] w-6 h-6 rounded-full bg-green-500 border-4 border-white shadow-sm"></div>
+              <div>
+                <p class="font-bold text-dark-1">Colis pris en charge</p>
+                <p class="text-sm text-gray-500">14 Nov 10:30 • Remis au voyageur (Paris)</p>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="relative">
+              <div class="absolute -left-[41px] w-6 h-6 rounded-full bg-blue-500 border-4 border-white shadow-sm animate-pulse"></div>
+              <div>
+                <p class="font-bold text-blue-600">En cours d'acheminement</p>
+                <p class="text-sm text-gray-500">15 Nov 08:00 • Vol AF406 vers New York</p>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="relative">
+              <div class="absolute -left-[41px] w-6 h-6 rounded-full bg-gray-200 border-4 border-white"></div>
+              <div>
+                <p class="font-bold text-gray-400">Arrivé à destination</p>
+                <p class="text-sm text-gray-400">Prévu le 15 Nov 14:00 (Local)</p>
+              </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="relative">
+              <div class="absolute -left-[41px] w-6 h-6 rounded-full bg-gray-200 border-4 border-white"></div>
+              <div>
+                <p class="font-bold text-gray-400">Livré</p>
+                <p class="text-sm text-gray-400">Confirmation code destinataire</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <footer class="bg-dark-1 text-white pt-8 pb-8">
+      <div class="container mx-auto px-4 text-center">
+        <p class="text-gray-500 text-sm">© 2023 FretPal. Tous droits réservés.</p>
+      </div>
+    </footer>
+
+    <script>lucide.createIcons();</script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

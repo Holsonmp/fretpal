@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog FretPal - Conseils et Actualités</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ['"DM Sans"', 'sans-serif'] },
+            colors: {
+              'accent-1': '#ffdc00',
+              'accent-2': '#F28555',
+              'dark-1': '#05073C',
+              'light-1': '#F5F5F5',
+              'light-2': '#717171',
+            },
+            borderRadius: { 'xl': '12px' }
+          }
+        }
+      }
+    </script>
+    <style>body { font-family: 'DM Sans', sans-serif; }</style>
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="flex flex-col min-h-screen text-dark-1 bg-white">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 bg-white z-50 border-b border-gray-100 h-[80px] flex items-center">
+      <div class="container mx-auto px-4 md:px-6 flex items-center justify-between">
+        <a href="index.html" class="flex items-center gap-2 z-50">
+          <div class="w-10 h-10 bg-gradient-to-br from-accent-1 to-accent-2 rounded-xl flex items-center justify-center">
+            <i data-lucide="package" class="text-white w-6 h-6"></i>
+          </div>
+          <span class="text-2xl font-bold tracking-tight">FretPal</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-8">
+          <a href="index.html" class="font-medium text-dark-1 hover:text-accent-2 transition-colors">Accueil</a>
+          <a href="search.html" class="font-medium text-dark-1 hover:text-accent-2 transition-colors">Trouver un trajet</a>
+          <a href="how-it-works.html" class="font-medium text-dark-1 hover:text-accent-2 transition-colors">Comment ça marche</a>
+          <a href="blog.html" class="font-medium text-accent-1 transition-colors">Blog</a>
+        </nav>
+        <div class="hidden lg:flex items-center gap-4">
+          <a href="login.html" class="px-4 py-2 text-sm font-medium bg-dark-1 text-white hover:bg-blue-900 rounded-full transition-colors">Connexion</a>
+        </div>
+        <button id="mobile-menu-btn" class="lg:hidden z-50"><i data-lucide="menu"></i></button>
+      </div>
+      <div id="mobile-menu" class="hidden fixed inset-0 bg-white z-40 flex flex-col pt-24 px-6 gap-6 lg:hidden">
+        <a href="index.html" class="text-xl font-medium">Accueil</a>
+        <a href="search.html" class="text-xl font-medium">Rechercher</a>
+        <a href="blog.html" class="text-xl font-medium text-accent-2">Blog</a>
+        <a href="login.html" class="w-full text-center px-6 py-3 bg-accent-1 text-dark-1 font-bold rounded-xl">Se connecter</a>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow pt-[80px] py-16">
+      <div class="container mx-auto px-4">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h1 class="text-4xl md:text-5xl font-bold mb-4 text-dark-1">Le Blog FretPal</h1>
+          <p class="text-xl text-gray-500">Conseils, astuces et guides pour le transport collaboratif de colis.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Article 1 -->
+          <article class="flex flex-col group rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300">
+            <div class="relative h-48 overflow-hidden">
+              <img src="https://picsum.photos/800/400?random=10" alt="Envoi colis international" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-dark-1 uppercase tracking-wide">Économies</div>
+            </div>
+            <div class="flex-1 p-6 flex flex-col">
+              <div class="flex items-center gap-2 text-xs text-gray-400 mb-3">
+                <span>10 Oct 2023</span>
+                <span>•</span>
+                <span>Équipe FretPal</span>
+              </div>
+              <h2 class="text-xl font-bold mb-3 text-dark-1 group-hover:text-accent-2 transition-colors line-clamp-2">
+                <a href="details-blog.html">Comment envoyer un colis à l'international à bas prix ?</a>
+              </h2>
+              <p class="text-gray-500 mb-6 line-clamp-3 flex-1">
+                Les frais postaux internationaux explosent. Le crowd-shipping est la solution pour réduire vos coûts.
+              </p>
+              <a href="details-blog.html" class="inline-flex items-center text-accent-2 font-bold hover:underline mt-auto">
+                Lire l'article <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- Article 2 -->
+          <article class="flex flex-col group rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300">
+            <div class="relative h-48 overflow-hidden">
+              <img src="https://picsum.photos/800/400?random=11" alt="Rentabiliser voyage" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-dark-1 uppercase tracking-wide">Voyageurs</div>
+            </div>
+            <div class="flex-1 p-6 flex flex-col">
+              <div class="flex items-center gap-2 text-xs text-gray-400 mb-3">
+                <span>15 Oct 2023</span>
+                <span>•</span>
+                <span>Alice D.</span>
+              </div>
+              <h2 class="text-xl font-bold mb-3 text-dark-1 group-hover:text-accent-2 transition-colors line-clamp-2">
+                <a href="details-blog.html">Comment rentabiliser ses voyages en transportant des colis ?</a>
+              </h2>
+              <p class="text-gray-500 mb-6 line-clamp-3 flex-1">
+                Chaque kilo disponible dans ta valise peut te rapporter. Imagine rembourser 30% de ton billet.
+              </p>
+              <a href="details-blog.html" class="inline-flex items-center text-accent-2 font-bold hover:underline mt-auto">
+                Lire l'article <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- Article 3 -->
+          <article class="flex flex-col group rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300">
+            <div class="relative h-48 overflow-hidden">
+              <img src="https://picsum.photos/800/400?random=12" alt="Sécurité" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-dark-1 uppercase tracking-wide">Sécurité</div>
+            </div>
+            <div class="flex-1 p-6 flex flex-col">
+              <div class="flex items-center gap-2 text-xs text-gray-400 mb-3">
+                <span>20 Oct 2023</span>
+                <span>•</span>
+                <span>Marc S.</span>
+              </div>
+              <h2 class="text-xl font-bold mb-3 text-dark-1 group-hover:text-accent-2 transition-colors line-clamp-2">
+                <a href="details-blog.html">La sécurité dans le transport collaboratif : nos garanties</a>
+              </h2>
+              <p class="text-gray-500 mb-6 line-clamp-3 flex-1">
+                Est-ce sûr d'envoyer un colis avec un inconnu ? Tout savoir sur la vérification d'identité et les assurances.
+              </p>
+              <a href="details-blog.html" class="inline-flex items-center text-accent-2 font-bold hover:underline mt-auto">
+                Lire l'article <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark-1 text-white pt-8 pb-8 mt-auto">
+      <div class="container mx-auto px-4 text-center">
+        <p class="text-gray-500 text-sm">© 2023 FretPal. Tous droits réservés.</p>
+      </div>
+    </footer>
+
+    <script>lucide.createIcons();</script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

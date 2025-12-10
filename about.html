@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>À Propos - FretPal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ['"DM Sans"', 'sans-serif'] },
+            colors: {
+              'accent-1': '#ffdc00',
+              'accent-2': '#F28555',
+              'dark-1': '#05073C',
+              'light-1': '#F5F5F5',
+              'light-2': '#717171',
+            },
+            borderRadius: { 'xl': '12px' }
+          }
+        }
+      }
+    </script>
+    <style>body { font-family: 'DM Sans', sans-serif; }</style>
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="flex flex-col min-h-screen text-dark-1 bg-white">
+
+    <!-- Header same as index -->
+    <header class="fixed top-0 left-0 right-0 bg-white z-50 border-b border-gray-100 h-[80px] flex items-center">
+        <div class="container mx-auto px-4 md:px-6 flex items-center justify-between">
+          <a href="index.html" class="flex items-center gap-2 z-50">
+            <div class="w-10 h-10 bg-gradient-to-br from-accent-1 to-accent-2 rounded-xl flex items-center justify-center">
+              <i data-lucide="package" class="text-white w-6 h-6"></i>
+            </div>
+            <span class="text-2xl font-bold tracking-tight">FretPal</span>
+          </a>
+          <nav class="hidden lg:flex items-center gap-8">
+            <a href="index.html" class="font-medium text-dark-1 hover:text-accent-2 transition-colors">Accueil</a>
+            <a href="about.html" class="font-medium text-accent-1 transition-colors">À propos</a>
+            <a href="contact.html" class="font-medium text-dark-1 hover:text-accent-2 transition-colors">Contact</a>
+          </nav>
+          <button id="mobile-menu-btn" class="lg:hidden z-50"><i data-lucide="menu"></i></button>
+        </div>
+        <!-- Mobile menu logic via JS -->
+    </header>
+
+    <main class="flex-grow pt-[80px]">
+        <!-- Hero -->
+        <section class="py-20 bg-gray-50">
+            <div class="container mx-auto px-4 text-center max-w-3xl">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">Connecter le monde,<br>une valise à la fois.</h1>
+                <p class="text-xl text-gray-500">
+                    FretPal est né d'une idée simple : pourquoi payer des fortunes pour envoyer un colis alors que des millions de voyageurs partent avec des valises à moitié vides ?
+                </p>
+            </div>
+        </section>
+
+        <!-- Mission -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Team" class="rounded-3xl shadow-xl">
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-bold mb-6">Notre Mission</h2>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            Nous démocratisons l'envoi de colis en créant le plus grand réseau de transport collaboratif au monde. Nous croyons en une logistique plus humaine, plus écologique et plus accessible.
+                        </p>
+                        <p class="text-gray-600 leading-relaxed">
+                            Fondé en 2023, FretPal aide aujourd'hui des milliers de personnes à envoyer des cadeaux à leurs proches, à déménager léger ou à rentabiliser leurs voyages.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team -->
+        <section class="py-20 bg-light-1">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold mb-12 text-center">L'équipe</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-2xl text-center">
+                        <img src="https://picsum.photos/150/150?random=20" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
+                        <h3 class="font-bold text-lg">Thomas D.</h3>
+                        <p class="text-accent-2 text-sm">Co-fondateur & CEO</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl text-center">
+                        <img src="https://picsum.photos/150/150?random=21" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
+                        <h3 class="font-bold text-lg">Sarah L.</h3>
+                        <p class="text-accent-2 text-sm">Directrice Produit</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl text-center">
+                        <img src="https://picsum.photos/150/150?random=22" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
+                        <h3 class="font-bold text-lg">Karim B.</h3>
+                        <p class="text-accent-2 text-sm">CTO</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark-1 text-white pt-8 pb-8">
+      <div class="container mx-auto px-4 text-center">
+        <p class="text-gray-500 text-sm">© 2023 FretPal. Tous droits réservés.</p>
+      </div>
+    </footer>
+
+    <script>lucide.createIcons();</script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

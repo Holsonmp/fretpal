@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rechercher un colis - FretPal</title>
+    <meta name="description" content="Voyageurs, rentabilisez votre trajet en transportant des colis. Trouvez des objets à livrer sur votre itinéraire." />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ['"DM Sans"', 'sans-serif'] },
+            colors: {
+              'accent-1': '#ffdc00',
+              'accent-2': '#F28555',
+              'dark-1': '#05073C',
+              'light-1': '#F5F5F5',
+              'light-2': '#717171',
+            },
+            borderRadius: { 'xl': '12px' }
+          }
+        }
+      }
+    </script>
+    <style>body { font-family: 'DM Sans', sans-serif; }</style>
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="flex flex-col min-h-screen text-dark-1 bg-gray-50">
+
+    <header class="fixed top-0 left-0 right-0 bg-white z-50 border-b border-gray-100 h-[80px] flex items-center">
+      <div class="container mx-auto px-4 md:px-6 flex items-center justify-between">
+        <a href="index.html" class="flex items-center gap-2 z-50">
+          <div class="w-10 h-10 bg-gradient-to-br from-accent-1 to-accent-2 rounded-xl flex items-center justify-center">
+            <i data-lucide="package" class="text-white w-6 h-6"></i>
+          </div>
+          <span class="text-2xl font-bold tracking-tight">FretPal</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-8">
+          <a href="search.html" class="font-medium text-dark-1 hover:text-accent-2 transition-colors">Trouver un trajet</a>
+          <a href="search-package.html" class="font-medium text-accent-1 transition-colors">Transporter un colis</a>
+          <a href="how-it-works.html" class="font-medium text-dark-1 hover:text-accent-2 transition-colors">Comment ça marche</a>
+        </nav>
+        <div class="hidden lg:flex items-center gap-4">
+          <a href="login.html" class="px-4 py-2 text-sm font-medium bg-dark-1 text-white hover:bg-blue-900 rounded-full transition-colors">Connexion</a>
+        </div>
+        <button id="mobile-menu-btn" class="lg:hidden z-50"><i data-lucide="menu"></i></button>
+      </div>
+      <!-- Mobile Menu omitted for brevity, logic in main.js -->
+    </header>
+
+    <main class="flex-grow pt-[80px] py-8">
+      <div class="container mx-auto px-4">
+        
+        <div class="flex flex-col lg:flex-row gap-8">
+          <!-- Sidebar Filters -->
+          <aside class="w-full lg:w-80 flex-shrink-0">
+            <div class="bg-white p-6 rounded-xl border border-gray-200 sticky top-24">
+              <div class="flex items-center justify-between mb-6">
+                <h3 class="font-bold text-lg">Filtres</h3>
+                <button class="text-sm text-accent-2 font-medium">Réinitialiser</button>
+              </div>
+
+              <div class="space-y-6">
+                <div>
+                  <h4 class="font-medium mb-3">Récompense min.</h4>
+                  <input type="range" min="10" max="200" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-accent-1">
+                  <div class="flex justify-between text-sm text-gray-500 mt-2">
+                    <span>10€</span>
+                    <span>200€+</span>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 class="font-medium mb-3">Poids du colis</h4>
+                  <div class="space-y-2">
+                    <label class="flex items-center gap-2 text-sm cursor-pointer">
+                      <input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
+                      Petit (-1kg)
+                    </label>
+                    <label class="flex items-center gap-2 text-sm cursor-pointer">
+                      <input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1" checked>
+                      Moyen (1-5kg)
+                    </label>
+                    <label class="flex items-center gap-2 text-sm cursor-pointer">
+                      <input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
+                      Gros (+5kg)
+                    </label>
+                  </div>
+                </div>
+                
+                <div>
+                  <h4 class="font-medium mb-3">Urgence</h4>
+                  <label class="flex items-center gap-2 text-sm cursor-pointer">
+                    <input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
+                    Départ dans les 48h
+                  </label>
+                </div>
+              </div>
+            </div>
+          </aside>
+
+          <!-- Results List -->
+          <div class="flex-1">
+            <div class="flex justify-between items-end mb-6">
+              <h1 class="text-2xl font-bold">Colis à transporter</h1>
+              <span class="text-gray-500 text-sm">12 résultats pertinents</span>
+            </div>
+            
+            <div class="space-y-4">
+              
+              <!-- Package Card 1 -->
+              <div class="bg-white p-6 rounded-xl border border-gray-200 hover:shadow-md transition-shadow flex flex-col md:flex-row gap-6">
+                <div class="md:w-48 flex-shrink-0 flex flex-col items-center md:items-start border-b md:border-b-0 md:border-r border-gray-100 pb-4 md:pb-0 md:pr-4">
+                  <div class="relative mb-2">
+                    <img src="https://picsum.photos/64/64?random=4" alt="Jean K." class="w-16 h-16 rounded-full object-cover">
+                  </div>
+                  <h3 class="font-bold text-center md:text-left">Jean K.</h3>
+                  <div class="text-sm text-gray-500 mb-1">Expéditeur</div>
+                  <span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full font-medium flex items-center gap-1">
+                    <i data-lucide="shield-check" class="w-3 h-3"></i> Vérifié
+                  </span>
+                </div>
+
+                <div class="flex-1 space-y-4">
+                  <div>
+                    <div class="flex flex-wrap items-center gap-2 text-lg font-bold mb-1">
+                      Paris <i data-lucide="arrow-right" class="text-gray-300 w-5 h-5"></i> Dakar
+                    </div>
+                    <div class="flex items-center gap-4 text-sm text-gray-500">
+                      <span class="flex items-center gap-1"><i data-lucide="calendar" class="w-4 h-4 text-red-500"></i> Avant le 10 Nov</span>
+                      <span class="flex items-center gap-1"><i data-lucide="box" class="w-4 h-4"></i> Documents & Cadeaux</span>
+                    </div>
+                  </div>
+                  
+                  <div class="flex gap-4">
+                    <div class="bg-gray-50 px-3 py-2 rounded-lg">
+                      <span class="block text-xs text-gray-500">Poids</span>
+                      <span class="font-bold text-dark-1">2 kg</span>
+                    </div>
+                    <div class="bg-gray-50 px-3 py-2 rounded-lg">
+                      <span class="block text-xs text-gray-500">Taille</span>
+                      <span class="font-bold text-dark-1">A4 (Plat)</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="md:w-40 flex-shrink-0 flex flex-col justify-between items-end">
+                  <div class="text-right mb-4 md:mb-0">
+                    <span class="block text-xs text-gray-500 uppercase tracking-wide">Récompense</span>
+                    <span class="block text-3xl font-bold text-accent-2">40€</span>
+                  </div>
+                  <a href="details-colis.html" class="w-full px-6 py-3 bg-dark-1 hover:bg-blue-900 text-white text-center font-medium rounded-xl transition-colors">
+                    Voir
+                  </a>
+                </div>
+              </div>
+
+              <!-- Package Card 2 -->
+              <div class="bg-white p-6 rounded-xl border border-gray-200 hover:shadow-md transition-shadow flex flex-col md:flex-row gap-6">
+                <div class="md:w-48 flex-shrink-0 flex flex-col items-center md:items-start border-b md:border-b-0 md:border-r border-gray-100 pb-4 md:pb-0 md:pr-4">
+                  <img src="https://picsum.photos/64/64?random=5" alt="Marie L." class="w-16 h-16 rounded-full object-cover mb-2">
+                  <h3 class="font-bold text-center md:text-left">Marie L.</h3>
+                  <div class="text-sm text-gray-500 mb-1">Expéditeur</div>
+                </div>
+                <div class="flex-1 space-y-4">
+                  <div>
+                    <div class="flex flex-wrap items-center gap-2 text-lg font-bold mb-1">
+                      Londres <i data-lucide="arrow-right" class="text-gray-300 w-5 h-5"></i> Paris
+                    </div>
+                    <div class="flex items-center gap-4 text-sm text-gray-500">
+                      <span class="flex items-center gap-1"><i data-lucide="calendar" class="w-4 h-4"></i> Flexible</span>
+                      <span class="flex items-center gap-1"><i data-lucide="box" class="w-4 h-4"></i> Vêtements</span>
+                    </div>
+                  </div>
+                  <div class="flex gap-4">
+                    <div class="bg-gray-50 px-3 py-2 rounded-lg">
+                      <span class="block text-xs text-gray-500">Poids</span>
+                      <span class="font-bold text-dark-1">5 kg</span>
+                    </div>
+                    <div class="bg-gray-50 px-3 py-2 rounded-lg">
+                      <span class="block text-xs text-gray-500">Format</span>
+                      <span class="font-bold text-dark-1">Sac cabine</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="md:w-40 flex-shrink-0 flex flex-col justify-between items-end">
+                  <div class="text-right mb-4 md:mb-0">
+                    <span class="block text-xs text-gray-500 uppercase tracking-wide">Récompense</span>
+                    <span class="block text-3xl font-bold text-accent-2">30€</span>
+                  </div>
+                  <a href="details-colis.html" class="w-full px-6 py-3 bg-dark-1 hover:bg-blue-900 text-white text-center font-medium rounded-xl transition-colors">
+                    Voir
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="bg-dark-1 text-white pt-8 pb-8 mt-auto">
+      <div class="container mx-auto px-4 text-center">
+        <p class="text-gray-500 text-sm">© 2023 FretPal. Tous droits réservés.</p>
+      </div>
+    </footer>
+
+    <script>lucide.createIcons();</script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

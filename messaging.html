@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Messagerie - FretPal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ['"DM Sans"', 'sans-serif'] },
+            colors: {
+              'accent-1': '#ffdc00',
+              'accent-2': '#F28555',
+              'dark-1': '#05073C',
+              'light-1': '#F5F5F5',
+              'light-2': '#717171',
+            },
+            borderRadius: { 'xl': '12px' }
+          }
+        }
+      }
+    </script>
+    <style>body { font-family: 'DM Sans', sans-serif; }</style>
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="flex flex-col h-screen text-dark-1 bg-gray-50 overflow-hidden">
+
+    <header class="bg-white border-b border-gray-100 h-[70px] flex-shrink-0 flex items-center px-4">
+      <div class="flex items-center gap-2">
+        <a href="dashboard.html" class="p-2 hover:bg-gray-100 rounded-full text-gray-500">
+            <i data-lucide="arrow-left" class="w-5 h-5"></i>
+        </a>
+        <h1 class="text-xl font-bold">Messagerie</h1>
+      </div>
+    </header>
+
+    <main class="flex-grow flex overflow-hidden">
+        <!-- Sidebar Conversations -->
+        <aside class="w-full md:w-80 bg-white border-r border-gray-100 flex flex-col">
+            <div class="p-4 border-b border-gray-100">
+                <input type="text" placeholder="Rechercher une conversation..." class="w-full px-4 py-2 bg-gray-50 rounded-lg border border-gray-200 focus:outline-none text-sm">
+            </div>
+            <div class="flex-grow overflow-y-auto">
+                <!-- Conv 1 Active -->
+                <div class="p-4 flex gap-3 hover:bg-gray-50 cursor-pointer bg-blue-50 border-l-4 border-accent-2">
+                    <img src="https://picsum.photos/50/50?random=1" class="w-12 h-12 rounded-full object-cover">
+                    <div class="overflow-hidden">
+                        <div class="flex justify-between items-baseline">
+                            <h4 class="font-bold text-sm">Alice Dupont</h4>
+                            <span class="text-xs text-gray-500">10:30</span>
+                        </div>
+                        <p class="text-sm text-gray-600 truncate">Parfait, on se retrouve à l'aéroport...</p>
+                    </div>
+                </div>
+                <!-- Conv 2 -->
+                <div class="p-4 flex gap-3 hover:bg-gray-50 cursor-pointer">
+                    <img src="https://picsum.photos/50/50?random=3" class="w-12 h-12 rounded-full object-cover">
+                    <div class="overflow-hidden">
+                        <div class="flex justify-between items-baseline">
+                            <h4 class="font-bold text-sm">Sophie Martin</h4>
+                            <span class="text-xs text-gray-500">Hier</span>
+                        </div>
+                        <p class="text-sm text-gray-600 truncate">Est-ce que 5kg c'est possible ?</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Chat Area -->
+        <section class="hidden md:flex flex-col flex-1 bg-white">
+            <!-- Header Chat -->
+            <div class="h-16 border-b border-gray-100 flex items-center px-6 justify-between">
+                <div class="flex items-center gap-3">
+                    <img src="https://picsum.photos/50/50?random=1" class="w-10 h-10 rounded-full object-cover">
+                    <div>
+                        <h3 class="font-bold text-dark-1">Alice Dupont</h3>
+                        <p class="text-xs text-green-600 font-medium">En ligne</p>
+                    </div>
+                </div>
+                <div class="flex gap-2">
+                    <button class="p-2 hover:bg-gray-50 rounded-full text-gray-500" title="Détails du voyage"><i data-lucide="info"></i></button>
+                    <button class="p-2 hover:bg-gray-50 rounded-full text-gray-500" title="Signaler"><i data-lucide="flag"></i></button>
+                </div>
+            </div>
+
+            <!-- Messages List -->
+            <div class="flex-grow overflow-y-auto p-6 space-y-4 bg-gray-50">
+                <div class="text-center text-xs text-gray-400 my-4">Aujourd'hui</div>
+                
+                <div class="flex justify-end">
+                    <div class="bg-accent-1 text-dark-1 px-4 py-2 rounded-2xl rounded-tr-none max-w-[70%]">
+                        <p class="text-sm">Bonjour Alice, j'ai vu votre voyage pour New York. Est-ce toujours dispo ?</p>
+                    </div>
+                </div>
+
+                <div class="flex justify-start">
+                    <img src="https://picsum.photos/50/50?random=1" class="w-8 h-8 rounded-full object-cover mr-2 self-end">
+                    <div class="bg-white border border-gray-200 text-gray-800 px-4 py-2 rounded-2xl rounded-tl-none max-w-[70%]">
+                        <p class="text-sm">Bonjour ! Oui, il me reste 10kg. C'est pour quel type d'objet ?</p>
+                    </div>
+                </div>
+
+                <div class="flex justify-end">
+                    <div class="bg-accent-1 text-dark-1 px-4 py-2 rounded-2xl rounded-tr-none max-w-[70%]">
+                        <p class="text-sm">Juste des documents et quelques vêtements. Environ 2kg.</p>
+                    </div>
+                </div>
+
+                <div class="flex justify-start">
+                    <img src="https://picsum.photos/50/50?random=1" class="w-8 h-8 rounded-full object-cover mr-2 self-end">
+                    <div class="bg-white border border-gray-200 text-gray-800 px-4 py-2 rounded-2xl rounded-tl-none max-w-[70%]">
+                        <p class="text-sm">Parfait, on se retrouve à l'aéroport terminal 2E ?</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="p-4 bg-white border-t border-gray-100">
+                <div class="flex gap-2 items-end">
+                    <button class="p-3 text-gray-400 hover:text-dark-1"><i data-lucide="paperclip"></i></button>
+                    <textarea rows="1" placeholder="Écrivez votre message..." class="flex-grow px-4 py-3 bg-gray-50 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-accent-1 resize-none"></textarea>
+                    <button class="p-3 bg-dark-1 text-white rounded-xl hover:bg-blue-900"><i data-lucide="send"></i></button>
+                </div>
+                <p class="text-xs text-gray-400 mt-2 text-center flex items-center justify-center gap-1">
+                    <i data-lucide="lock" class="w-3 h-3"></i> Ne partagez pas vos coordonnées bancaires.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <script>lucide.createIcons();</script>
+  </body>
+</html>
