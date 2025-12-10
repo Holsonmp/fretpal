@@ -1,68 +1,116 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Comment ça marche - FretPal</title>
-    <meta name="description" content="Découvrez comment fonctionne le crowd-shipping avec FretPal. Un guide simple en 3 étapes pour expédier ou transporter des colis en toute sécurité." />
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: { sans: ['"DM Sans"', 'sans-serif'] },
-            colors: {
-              'accent-1': '#ffdc00',
-              'accent-2': '#F28555',
-              'dark-1': '#05073C',
-              'light-1': '#F5F5F5',
-              'light-2': '#717171',
-            },
-            borderRadius: { 'xl': '12px' }
-          }
-        }
-      }
-    </script>
-    <style>body { font-family: 'DM Sans', sans-serif; }</style>
-    <script src="https://unpkg.com/lucide@latest"></script>
-  </head>
-  <body class="flex flex-col min-h-screen text-dark-1 bg-white">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Comment ça marche - FretPal</title>
+	<meta name="description" content="Découvrez comment fonctionne le crowd-shipping avec FretPal. Un guide simple en 3 étapes pour expédier ou transporter des colis en toute sécurité." />
 
-    <!-- Header -->
-    <header class="fixed top-0 left-0 right-0 bg-white z-50 border-b border-gray-100 h-[80px] flex items-center">
-      <div class="container mx-auto px-4 md:px-6 flex items-center justify-between">
-        <a href="index.html" class="flex items-center gap-2 z-50">
-<img src="img/logo.svg" alt="logo icon">
-        </a>
-        <nav class="hidden lg:flex items-center gap-8">
-          <a href="index.html" class="font-medium text-dark-1 hover:text-accent-2 transition-colors">Accueil</a>
-          <a href="search.html" class="font-medium text-dark-1 hover:text-accent-2 transition-colors">Trouver un trajet</a>
-          <a href="how-it-works.html" class="font-medium text-accent-1 transition-colors">Comment ça marche</a>
-          <a href="#" class="font-medium text-dark-1 hover:text-accent-2 transition-colors">Blog</a>
-        </nav>
-        <div class="hidden lg:flex items-center gap-4">
-          <a href="publish-trip.html" class="px-4 py-2 text-sm font-medium text-dark-1 hover:bg-gray-100 rounded-xl transition-colors">Publier un voyage</a>
-          <a href="login.html" class="px-4 py-2 text-sm font-medium bg-dark-1 text-white hover:bg-blue-900 rounded-full transition-colors">Connexion</a>
-        </div>
-        <button id="mobile-menu-btn" class="lg:hidden z-50"><i data-lucide="menu"></i></button>
-      </div>
-      <div id="mobile-menu" class="hidden fixed inset-0 bg-white z-40 flex flex-col pt-24 px-6 gap-6 lg:hidden">
-        <a href="index.html" class="text-xl font-medium">Accueil</a>
-        <a href="search.html" class="text-xl font-medium">Rechercher</a>
-        <a href="how-it-works.html" class="text-xl font-medium text-accent-2">Comment ça marche</a>
-        <a href="publish-trip.html" class="text-xl font-medium">Publier un voyage</a>
-        <div class="h-px bg-gray-100 w-full my-2"></div>
-        <a href="login.html" class="w-full text-center px-6 py-3 bg-accent-1 text-dark-1 font-bold rounded-xl">Se connecter</a>
-      </div>
-    </header>
+	
+	
+	
+	<meta name="description"
+		content="FretPal connecte voyageurs et expéditeurs pour un transport collaboratif de colis sécurisé, rapide et économique." />
 
-    <!-- Main Content -->
-    <main class="flex-grow pt-[80px]">
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap"
+		rel="stylesheet">
+
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/vendors.css">
+	<!-- Tailwind CSS -->
+	<script src="https://cdn.tailwindcss.com"></script>
+	<link rel="icon" href="./favicon.ico" type="image/x-icon">
+	<style>
+
+		@media (min-width:1536px) {
+			.container{
+				max-width: 1320px!important
+			}
+		}
+	</style>
+
+	<script>
+		tailwind.config = {
+			theme: {
+				extend: {
+					fontFamily: { sans: ['"DM Sans"', 'sans-serif'] },
+					colors: {
+						'accent-1': '#ffdc00',
+						'accent-2': '#F28555',
+						'dark-1': '#05073C',
+						'light-1': '#F5F5F5',
+						'light-2': '#717171',
+					},
+					borderRadius: { 'xl': '12px' }
+				}
+			}
+		}
+	</script>
+
+
+	<style>
+		body {
+			font-family: 'DM Sans', sans-serif;
+		}
+	</style>
+	<!-- Icons -->
+	<script src="https://unpkg.com/lucide@latest"></script>
+	<script type="importmap">
+	{
+	"imports": {
+		"react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+		"react": "https://aistudiocdn.com/react@^19.2.1",
+		"react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.10.1",
+		"react/": "https://aistudiocdn.com/react@^19.2.1/",
+		"lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0"
+	}
+	}
+	</script>
+</head>
+<body class="flex flex-col min-h-screen text-dark-1 bg-white">
+
+	
+	<header class="fixed top-0 left-0 right-0 bg-white z-50 border-b border-gray-100 h-[80px] flex items-center">
+		<div class="container mx-auto px-4 md:px-6 flex items-center justify-between">
+			<a href="index.html" class="flex items-center gap-2 z-50">
+				<img src="img/logo.svg" alt="logo icon">
+			</a>
+
+			<nav class="hidden lg:flex items-center gap-8">
+				<a href="index.html" class="font-medium text-accent-2 transition-colors">Accueil</a>
+				<a href="search.html" class="font-medium text-dark-1 hover:text-accent-2 transition-colors">Trouver un trajet</a>
+				<a href="how-it-works.html" class="font-medium text-dark-1 hover:text-accent-2 transition-colors">Comment ça marche</a>
+				<a href="blog.html" class="font-medium text-dark-1 hover:text-accent-2 transition-colors">Blog</a>
+			</nav>
+
+			<div class="hidden lg:flex items-center gap-4">
+				<a href="publish-trip.html" class="px-4 py-2 text-sm font-medium text-dark-1 hover:bg-gray-100 rounded-xl transition-colors">Publier un voyage</a>
+				<a href="login.html" class="button -sm -dark-1 bg-accent-1 rounded-200 ml-30">Connexion</a>
+			</div>
+
+			<button id="mobile-menu-btn" class="lg:hidden z-50"><i data-lucide="menu"></i></button>
+		</div>
+
+		<div id="mobile-menu" class="hidden fixed inset-0 bg-white z-40 flex flex-col pt-24 px-6 gap-6 lg:hidden">
+			<a href="index.html" class="text-xl font-medium text-accent-2">Accueil</a>
+			<a href="search.html" class="text-xl font-medium">Rechercher</a>
+			<a href="how-it-works.html" class="text-xl font-medium">Comment ça marche</a>
+			<a href="blog.html" class="text-xl font-medium">Blog</a>
+			<a href="dashboard.html" class="text-xl font-medium">Mon Compte</a>
+			<div class="h-px bg-gray-100 w-full my-2"></div>
+			<a href="login.html" class="w-full text-center px-6 py-3 bg-accent-1 text-dark-1 font-bold rounded-xl">Se
+				connecter</a>
+		</div>
+	</header>
+
+	
+
+	<main class="flex-grow pt-[80px]">
+
       
       <!-- Hero Header -->
       <section class="bg-dark-1 text-white py-20">
@@ -165,39 +213,145 @@
         </div>
       </section>
 
-    </main>
+    
+	</main>
 
-    <!-- Footer -->
-    <footer class="bg-dark-1 text-white pt-16 pb-8">
-      <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-          <div>
-            <div class="flex items-center gap-2 mb-6">
-              <div class="w-8 h-8 bg-accent-1 rounded-lg flex items-center justify-center">
-                <i data-lucide="package" class="text-dark-1 w-5 h-5"></i>
-              </div>
-              <span class="text-xl font-bold">FretPal</span>
-            </div>
-            <p class="text-gray-400 text-sm leading-relaxed">
-              La première plateforme de transport collaboratif de colis.
-            </p>
-          </div>
-          <div>
-            <h4 class="font-bold text-lg mb-6">Liens utiles</h4>
-            <ul class="space-y-4 text-gray-400 text-sm">
-              <li><a href="#" class="hover:text-accent-1">Accueil</a></li>
-              <li><a href="#" class="hover:text-accent-1">Recherche</a></li>
-              <li><a href="#" class="hover:text-accent-1">Connexion</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="border-t border-white/10 pt-8 text-sm text-gray-500">
-          <p>© 2023 FretPal. Tous droits réservés.</p>
-        </div>
-      </div>
-    </footer>
+	<footer class="footer -type-1">
+		<div class="footer__main">
+			<div class="container">
+				<div class="footer__info">
+					<div class="row y-gap-20 justify-between">
+						<div class="col-auto">
+							<div class="row y-gap-20 items-center">
+								<div class="col-auto">
+									<i class="icon-headphone text-50"></i>
+								</div>
 
-    <script>lucide.createIcons();</script>
-    <script src="js/main.js"></script>
-  </body>
+								<div class="col-auto">
+									<div class="text-20 fw-500">
+										Speak to our expert at <span class="text-accent-2">243 820 325 003</span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-auto">
+							<div class="footerSocials">
+								<div class="footerSocials__title">
+									Follow Us
+								</div>
+
+								<div class="footerSocials__icons">
+									<a href="#" class="icon-facebook"></a>
+									<a href="#" class="icon-twitter"></a>
+									<a href="#" class="icon-instagram"></a>
+									<a href="#" class="icon-linkedin"></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="footer__content">
+					<div class="row y-gap-40 justify-between">
+						<div class="col-lg-4 col-md-6">
+							<a href="index.html" class="flex items-center gap-2 z-50">
+								<img src="img/logo.svg" alt="logo icon">
+							</a>
+							<div class="y-gap-10 mt-4">
+								<p>La première plateforme de transport collaboratif de colis. Rentabilisez vos voyages ou envoyez moins cher. .</p>
+								<a class="d-block" href="#">hi@fretepal.com</a>
+							</div>
+						</div>
+
+						<div class="col-lg-auto col-6">
+							<h4 class="text-20 fw-500">Company</h4>
+
+							<div class="y-gap-10 mt-4">
+
+								<a class="d-block fw-500" href="about.html">
+									À propos
+								</a>
+
+								<a class="d-block fw-500" href="blog.html">
+									Blog
+								</a>
+
+								<a class="d-block fw-500" href="contact.html">
+									Nous contacter
+								</a>
+
+								<a class="d-block fw-500" href="trust.html">
+									Confiance et Sécurité
+								</a>
+
+							</div>
+						</div>
+
+						<div class="col-lg-auto col-6">
+							<h4 class="text-20 fw-500">Support</h4>
+
+							<div class="y-gap-10 mt-4">
+
+								<a class="d-block fw-500" href="suivi-colis.html">
+									Suivi de colis
+								</a>
+
+								<a class="d-block fw-500" href="faq.html">
+									FAQ
+								</a>
+
+								<a class="d-block fw-500" href="cgu.html">
+									CGU
+								</a>
+
+								<a class="d-block fw-500" href="how-it-works.html">
+									Comment ça marche ?
+								</a>
+
+							</div>
+						</div>
+
+						<div class="col-lg-3 col-md-6">
+							<h4 class="text-20 fw-500">Newsletter</h4>
+							<p class="mt-4">Subscribe to the free newsletter and stay up to date</p>
+
+							<div class="footer__newsletter">
+								<input type="Email" placeholder="Your email address">
+								<button>Send</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="container">
+			<div class="footer__bottom">
+				<div class="row y-gap-5 justify-between items-center">
+					<div class="col-auto">
+						<div>&copy; Copyright Fretpal 2023</div>
+					</div>
+
+					<div class="col-auto">
+						<div class="footer__images d-flex items-center x-gap-10">
+							<img src="img/footer/cards/1.png" alt="image">
+							<img src="img/footer/cards/2.png" alt="image">
+							<img src="img/footer/cards/3.png" alt="image">
+							<img src="img/footer/cards/4.png" alt="image">
+							<img src="img/footer/cards/5.png" alt="image">
+							<img src="img/footer/cards/6.png" alt="image">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Init Icons -->
+	<script>lucide.createIcons();</script>
+	<script src="js/mains.js"></script>
+    
+</body>
 </html>
