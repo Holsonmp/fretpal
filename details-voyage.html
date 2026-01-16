@@ -1,16 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Voyage Paris - New York - FretPal</title>
-	<meta name="description" content="" />
-
-	
-	
-	
-	<meta name="description"
-		content="FretPal connecte voyageurs et expéditeurs pour un transport collaboratif de colis sécurisé, rapide et économique." />
+	<title>Voyage Paris - Kinshasa - FretPal</title>
 
 	<!-- Google Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,16 +17,14 @@
 	<link rel="stylesheet" href="css/vendors.css">
 	<!-- Tailwind CSS -->
 	<script src="https://cdn.tailwindcss.com"></script>
-	<link rel="icon" href="./favicon.ico" type="image/x-icon">
-	<style>
 
+	<style>
 		@media (min-width:1536px) {
-			.container{
-				max-width: 1320px!important
+			.container {
+				max-width: 1320px !important
 			}
 		}
 	</style>
-
 	<script>
 		tailwind.config = {
 			theme: {
@@ -50,8 +42,6 @@
 			}
 		}
 	</script>
-
-
 	<style>
 		body {
 			font-family: 'DM Sans', sans-serif;
@@ -59,21 +49,10 @@
 	</style>
 	<!-- Icons -->
 	<script src="https://unpkg.com/lucide@latest"></script>
-	<script type="importmap">
-	{
-	"imports": {
-		"react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
-		"react": "https://aistudiocdn.com/react@^19.2.1",
-		"react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.10.1",
-		"react/": "https://aistudiocdn.com/react@^19.2.1/",
-		"lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0"
-	}
-	}
-	</script>
 </head>
-<body class="flex flex-col min-h-screen text-dark-1 bg-white">
 
-	
+<body class="flex flex-col min-h-screen text-dark-1 bg-white pb-20">
+
 	<header class="fixed top-0 left-0 right-0 bg-white z-50 border-b border-gray-100 h-[80px] flex items-center">
 		<div class="container mx-auto px-4 md:px-6 flex items-center justify-between">
 			<a href="index.html" class="flex items-center gap-2 z-50">
@@ -81,14 +60,16 @@
 			</a>
 
 			<nav class="hidden lg:flex items-center gap-8">
-				<a href="index.html" class="font-medium text-accent-2 transition-colors">Accueil</a>
-				<a href="search.html" class="font-medium text-dark-1 hover:text-accent-2 transition-colors">Trouver un trajet</a>
+				<a href="index.html" class="font-medium  text-dark-1  hover:text-accent-2 transition-colors">Accueil</a>
+				<a href="search.html" class="font-medium  text-dark-1  hover:text-accent-2 transition-colors">Trouver un trajet</a>
 				<a href="how-it-works.html" class="font-medium text-dark-1 hover:text-accent-2 transition-colors">Comment ça marche</a>
 				<a href="blog.html" class="font-medium text-dark-1 hover:text-accent-2 transition-colors">Blog</a>
 			</nav>
 
 			<div class="hidden lg:flex items-center gap-4">
-				<a href="publish-trip.html" class="px-4 py-2 text-sm font-medium text-dark-1 hover:bg-gray-100 rounded-xl transition-colors">Publier un voyage</a>
+				<a href="publish-trip.html"
+					class="px-4 py-2 text-sm font-medium text-dark-1 hover:bg-gray-100 rounded-xl transition-colors">Publier
+					un voyage</a>
 				<a href="login.html" class="button -sm -dark-1 bg-accent-1 rounded-200 ml-30">Connexion</a>
 			</div>
 
@@ -107,103 +88,106 @@
 		</div>
 	</header>
 
-	
+	<!-- Map Placeholder -->
+	<div class="h-64 bg-gray-200 relative mt-[80px]">
+		<div class="absolute inset-0 flex items-center justify-center text-gray-400 font-bold text-xl">
+			<i data-lucide="map" class="w-8 h-8 mr-2"></i> Carte de l'itinéraire
+		</div>
+	</div>
 
-	<main class="flex-grow pt-[80px]">
+	<main class="container mx-auto px-0 lg:px-4 -mt-20 relative z-10">
+		<div class="bg-white rounded-xl p-6 md:p-8 grid md:grid-cols-3 gap-8 border border-gray-100">
 
-      <div class="bg-white rounded-xl shadow-xl p-6 md:p-8 grid md:grid-cols-3 gap-8 border border-gray-100">
-        
-        <!-- Main Info -->
-        <div class="md:col-span-2 space-y-8">
-          <div>
-            <h1 class="text-3xl font-bold text-dark-1 mb-2">Voyage vers New York, USA</h1>
-            <div class="flex flex-wrap gap-4 text-gray-500 mt-4">
-              <span class="flex items-center gap-1 bg-gray-100 px-3 py-1 rounded-full text-sm"><i data-lucide="map-pin" class="w-4 h-4"></i> Départ : Paris</span>
-              <span class="flex items-center gap-1 bg-gray-100 px-3 py-1 rounded-full text-sm"><i data-lucide="calendar" class="w-4 h-4"></i> 15 Nov 2023</span>
-              <span class="flex items-center gap-1 bg-gray-100 px-3 py-1 rounded-full text-sm"><i data-lucide="weight" class="w-4 h-4"></i> Avion</span>
-            </div>
-          </div>
+			<!-- Main Info -->
+			<div class="md:col-span-2 space-y-8">
+				<div>
+					<h1 class="text-3xl font-bold text-dark-1 mb-2">Voyage vers Kinshasa, Congo-Kinshasa</h1>
+					<div class="flex flex-wrap gap-4 text-gray-500 mt-4">
+						<span class="flex items-center gap-1 bg-gray-100 px-3 py-1 rounded-full text-sm"><i data-lucide="map-pin" class="w-4 h-4"></i> Départ : Paris</span>
+						<span class="flex items-center gap-1 bg-gray-100 px-3 py-1 rounded-full text-sm"><i data-lucide="calendar" class="w-4 h-4"></i> 15 Nov 2023</span>
+						<span class="flex items-center gap-1 bg-gray-100 px-3 py-1 rounded-full text-sm"><i data-lucide="weight" class="w-4 h-4"></i> Avion</span>
+					</div>
+				</div>
 
-          <!-- Traveler Profile -->
-          <div class="flex items-center gap-4 bg-gray-50 p-4 rounded-xl border border-gray-100">
-            <img src="https://picsum.photos/64/64?random=1" alt="Alice" class="w-16 h-16 rounded-full object-cover" />
-            <div>
-              <h3 class="font-bold text-lg">Alice Dupont</h3>
-              <div class="text-yellow-500 text-sm mb-1">★ 4.8 (24 avis)</div>
-              <span class="text-green-600 text-xs font-bold bg-green-100 px-2 py-1 rounded inline-flex items-center gap-1">
-                <i data-lucide="check-circle" class="w-3 h-3"></i> Identité Vérifiée
-              </span>
-            </div>
-            <div class="ml-auto">
-              <button class="p-2 border border-gray-300 rounded-full hover:bg-gray-100 transition-colors">
-                <i data-lucide="message-circle" class="w-5 h-5 text-gray-600"></i>
-              </button>
-            </div>
-          </div>
+				<div class="flex items-center gap-4 bg-gray-50 p-4 rounded-xl border border-gray-100">
+					<img src="https://picsum.photos/64/64?random=1" alt="Alice" class="w-16 h-16 rounded-full object-cover" />
+					<div>
+						<h3 class="font-bold text-lg">Alice Kapinga</h3>
+						<div class="text-yellow-500 text-sm mb-1">★ 4.8 (24 avis)</div>
+						<span class="text-green-600 text-xs font-bold bg-green-100 px-2 py-1 rounded inline-flex items-center gap-1">
+							<i data-lucide="check-circle" class="w-3 h-3"></i> Identité Vérifiée
+						</span>
+					</div>
+					<div class="ml-auto">
+						<button class="p-2 border border-gray-300 rounded-full hover:bg-gray-100 transition-colors">
+							<i data-lucide="message-circle" class="w-5 h-5 text-gray-600"></i>
+						</button>
+					</div>
+				</div>
 
-          <!-- Description & Rules -->
-          <div>
-            <h3 class="font-bold text-xl mb-4">À propos du voyage</h3>
-            <p class="text-gray-600 leading-relaxed mb-6">
-              Je pars à New York pour des vacances. J'ai une grande valise vide en soute. Je peux transporter des vêtements, documents, produits cosmétiques. 
-              Je refuse les produits liquides, alimentaires périssables et électroniques de valeur sans assurance complémentaire.
-              Je peux récupérer le colis sur Paris centre ou à l'aéroport CDG 2h avant le vol.
-            </p>
-            
-            <div class="bg-blue-50 border border-blue-100 p-4 rounded-xl flex gap-3">
-              <i data-lucide="alert-circle" class="text-blue-500 w-6 h-6 flex-shrink-0"></i>
-              <div class="text-sm text-blue-800">
-                <p class="font-bold mb-1">Rappel de sécurité</p>
-                <p>Le colis doit rester ouvert lors de la remise pour que le voyageur puisse vérifier son contenu. C'est une obligation légale pour la sécurité de tous.</p>
-              </div>
-            </div>
-          </div>
-        </div>
+				<!-- Description & Rules -->
+				<div>
+					<h3 class="font-bold text-xl mb-4">À propos du voyage</h3>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						Je pars à Kinshasa pour des vacances. J'ai une grande valise vide en soute. Je peux transporter des vêtements, documents, produits cosmétiques.
+						Je refuse les produits liquides, alimentaires périssables et électroniques de valeur sans assurance complémentaire.
+						Je peux récupérer le colis sur Paris centre ou à l'aéroport CDG 2h avant le vol.
+					</p>
 
-        <!-- Sidebar / Booking -->
-        <div>
-          <div class="border border-gray-200 rounded-xl p-6 sticky top-24 shadow-sm bg-white">
-            <div class="flex justify-between items-end mb-6">
-              <div>
-                <span class="text-3xl font-bold text-dark-1">15€</span>
-                <span class="text-gray-500"> / kg</span>
-              </div>
-              <div class="text-right">
-                <span class="block text-sm text-gray-500">Disponibilité</span>
-                <span class="font-bold text-green-600">10 kg libres</span>
-              </div>
-            </div>
+					<div class="bg-blue-50 border border-blue-100 p-4 rounded-xl flex gap-3">
+						<i data-lucide="alert-circle" class="text-blue-500 w-6 h-6 flex-shrink-0"></i>
+						<div class="text-sm text-blue-800">
+							<p class="font-bold mb-1">Rappel de sécurité</p>
+							<p>Le colis doit rester ouvert lors de la remise pour que le voyageur puisse vérifier son contenu. C'est une obligation légale pour la sécurité de tous.</p>
+						</div>
+					</div>
+				</div>
+			</div>
 
-            <div class="space-y-4 mb-6">
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Combien de kilos ?</label>
-                <select class="w-full border border-gray-300 rounded-lg p-3 bg-white focus:ring-2 focus:ring-accent-1 outline-none">
-                  <option value="1">1 kg</option>
-                  <option value="2">2 kg</option>
-                  <option value="3">3 kg</option>
-                  <option value="4">4 kg</option>
-                  <option value="5">5 kg</option>
-                  <option value="10">10 kg</option>
-                </select>
-              </div>
-              <div class="flex justify-between text-sm font-medium pt-4 border-t">
-                <span>Total estimé</span>
-                <span>15€</span>
-              </div>
-            </div>
+			<div>
+				<div class="border border-gray-200 rounded-xl p-6 sticky top-24 shadow-sm bg-white">
+					<div class="flex justify-between items-end mb-6">
+						<div>
+							<span class="text-3xl font-bold text-dark-1">15$</span>
+							<span class="text-gray-500"> / kg</span>
+						</div>
+						<div class="text-right">
+							<span class="block text-sm text-gray-500">Disponibilité</span>
+							<span class="font-bold text-green-600">10 kg libres</span>
+						</div>
+					</div>
 
-            <button class="w-full py-3 bg-accent-1 text-dark-1 font-bold rounded-xl hover:bg-yellow-400 transition-colors shadow-lg shadow-accent-1/20 mb-3">
-              Réserver maintenant
-            </button>
-            <p class="text-xs text-center text-gray-400 flex items-center justify-center gap-1">
-              <i data-lucide="shield-check" class="w-3 h-3"></i> Paiement sécurisé et garanti
-            </p>
-          </div>
-        </div>
+					<div class="space-y-4 mb-6">
+						<div>
+							<label class="block text-sm font-medium text-gray-700 mb-1">Combien de kilos ?</label>
+							<select
+								class="w-full border border-gray-300 rounded-lg p-3 bg-white focus:ring-2 focus:ring-accent-1 outline-none">
+								<option value="1">1 kg</option>
+								<option value="2">2 kg</option>
+								<option value="3">3 kg</option>
+								<option value="4">4 kg</option>
+								<option value="5">5 kg</option>
+								<option value="10">10 kg</option>
+							</select>
+						</div>
+						<div class="flex justify-between text-sm font-medium pt-4 border-t">
+							<span>Total estimé</span>
+							<span>15$</span>
+						</div>
+					</div>
 
-      </div>
-    
+					<button id="open-reservation-modal" type="button" class="w-full py-3 bg-accent-1 text-dark-1 font-bold rounded-xl hover:bg-yellow-400 transition-colors shadow-lg shadow-accent-1/20 mb-3">
+						Réserver maintenant
+					</button>
+					<p class="text-xs text-center text-gray-400 flex items-center justify-center gap-1">
+						<i data-lucide="shield-check" class="w-3 h-3"></i> Paiement sécurisé et garanti
+					</p>
+				</div>
+			</div>
+
+		</div>
 	</main>
+
 
 	<footer class="footer -type-1">
 		<div class="footer__main">
@@ -248,7 +232,8 @@
 								<img src="img/logo.svg" alt="logo icon">
 							</a>
 							<div class="y-gap-10 mt-4">
-								<p>La première plateforme de transport collaboratif de colis. Rentabilisez vos voyages ou envoyez moins cher. .</p>
+								<p>La première plateforme de transport collaboratif de colis. Rentabilisez vos voyages
+									ou envoyez moins cher. .</p>
 								<a class="d-block" href="#">hi@fretepal.com</a>
 							</div>
 						</div>
@@ -338,9 +323,479 @@
 		</div>
 	</footer>
 
-	<!-- Init Icons -->
-	<script>lucide.createIcons();</script>
-	<script src="js/mains.js"></script>
-    
+
+	<div id="reservation-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 px-4">
+		<div class="relative w-full max-w-xl mx-auto">
+			<div class="reservation-modal-panel bg-white rounded-2xl shadow-2xl overflow-hidden transform transition-all duration-200 opacity-0 scale-95">
+				<div class="flex items-center justify-between px-6 pt-3 pb-3 border-b border-gray-100">
+					<div>
+						<h2 id="reservation-modal-title" class="text-xl sm:text-2xl font-bold text-dark-1">Réserver ce trajet</h2>
+						<p class="mt-1 text-xs sm:text-sm text-gray-500">Complétez vos informations et choisissez votre mode de paiement sécurisé.</p>
+					</div>
+					<button type="button" id="close-reservation-modal" class="inline-flex items-center justify-center w-9 h-9 rounded-full border border-gray-200 text-gray-500 hover:bg-gray-100 hover:text-gray-700 transition" aria-label="Fermer la fenêtre de réservation">
+						<i data-lucide="x" class="w-4 h-4"></i>
+					</button>
+				</div>
+
+				<div class="px-6 pt-4 pb-5 max-h-[80vh] overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="reservation-modal-title">
+					<div id="reservation-alert-error" class="hidden mb-4 rounded-lg bg-red-50 border border-red-200 text-red-700 text-xs sm:text-sm px-3 py-2"></div>
+					<div id="reservation-alert-success" class="hidden mb-4 rounded-lg bg-green-50 border border-green-200 text-green-700 text-xs sm:text-sm px-3 py-2"></div>
+
+					<form id="reservation-form" class="space-y-6">
+						<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+							<div data-field-wrapper>
+								<label for="reservation-firstname" class="block text-xs sm:text-sm font-medium text-gray-700 mb-1">Prénom</label>
+								<input id="reservation-firstname" name="firstname" type="text" autocomplete="given-name" data-validate data-type="text" class="w-full rounded-xl border border-gray-300 px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-accent-1 focus:border-accent-1">
+								<p data-error class="mt-1 text-xs text-red-500 hidden">Merci d’indiquer votre prénom.</p>
+							</div>
+							<div data-field-wrapper>
+								<label for="reservation-lastname" class="block text-xs sm:text-sm font-medium text-gray-700 mb-1">Nom</label>
+								<input id="reservation-lastname" name="lastname" type="text" autocomplete="family-name" data-validate data-type="text" class="w-full rounded-xl border border-gray-300 px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-accent-1 focus:border-accent-1">
+								<p data-error class="mt-1 text-xs text-red-500 hidden">Merci d’indiquer votre nom.</p>
+							</div>
+						</div>
+
+						<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+							<div data-field-wrapper>
+								<label for="reservation-email" class="block text-xs sm:text-sm font-medium text-gray-700 mb-1">Email</label>
+								<input id="reservation-email" name="email" type="email" autocomplete="email" data-validate data-type="email" class="w-full rounded-xl border border-gray-300 px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-accent-1 focus:border-accent-1">
+								<p data-error class="mt-1 text-xs text-red-500 hidden">Saisissez une adresse email valide.</p>
+							</div>
+							<div data-field-wrapper>
+								<label for="reservation-phone" class="block text-xs sm:text-sm font-medium text-gray-700 mb-1">Téléphone</label>
+								<input id="reservation-phone" name="phone" type="tel" autocomplete="tel" data-validate data-type="phone" class="w-full rounded-xl border border-gray-300 px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-accent-1 focus:border-accent-1" placeholder="+33 6 12 34 56 78">
+								<p data-error class="mt-1 text-xs text-red-500 hidden">Saisissez un numéro de téléphone valide.</p>
+							</div>
+						</div>
+
+						<div>
+							<span class="block text-xs sm:text-sm font-medium text-gray-700 mb-2">Options supplémentaires</span>
+							<div class="space-y-2">
+								<label class="flex items-center gap-2 text-xs sm:text-sm text-gray-700">
+									<input id="reservation-option-insurance" name="option_insurance" type="checkbox" class="rounded border-gray-300 text-accent-1 focus:ring-accent-1">
+									<span>Assurance complémentaire pour objets de valeur</span>
+								</label>
+								<label class="flex items-center gap-2 text-xs sm:text-sm text-gray-700">
+									<input id="reservation-option-fragile" name="option_fragile" type="checkbox" class="rounded border-gray-300 text-accent-1 focus:ring-accent-1">
+									<span>Colis fragile nécessitant une manipulation spéciale</span>
+								</label>
+							</div>
+						</div>
+
+						<div class="border-t border-gray-100 pt-4">
+							<p class="text-xs font-semibold text-gray-500 mb-3 uppercase tracking-wide">Mode de paiement sécurisé</p>
+
+							<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+								<button type="button" data-payment-option="mobile_money" class="payment-method-button flex items-center justify-between rounded-xl border border-gray-300 px-3 py-2.5 text-xs sm:text-sm font-medium text-gray-700 hover:border-accent-1 hover:bg-yellow-50 transition">
+									<span class="flex items-center gap-2">
+										<i data-lucide="smartphone" class="w-4 h-4 text-accent-2"></i>
+										<span>Mobile Money</span>
+									</span>
+									<span class="text-[10px] sm:text-xs text-gray-500">Orange, Airtel...</span>
+								</button>
+								<button type="button" data-payment-option="card" class="payment-method-button flex items-center justify-between rounded-xl border border-gray-300 px-3 py-2.5 text-xs sm:text-sm font-medium text-gray-700 hover:border-accent-1 hover:bg-yellow-50 transition">
+									<span class="flex items-center gap-2">
+										<i data-lucide="credit-card" class="w-4 h-4 text-accent-2"></i>
+										<span>Carte de crédit</span>
+									</span>
+									<span class="text-[10px] sm:text-xs text-gray-500">Visa, Mastercard...</span>
+								</button>
+							</div>
+
+							<input type="hidden" id="reservation-payment-method" name="payment_method" value="mobile_money">
+
+							<div id="payment-mobile-money" class="space-y-3">
+								<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+									<div data-field-wrapper>
+										<label for="reservation-mm-provider" class="block text-xs sm:text-sm font-medium text-gray-700 mb-1">Fournisseur</label>
+										<select id="reservation-mm-provider" name="mm_provider" data-validate data-type="text" class="w-full rounded-xl border border-gray-300 px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-accent-1 focus:border-accent-1">
+											<option value="">Sélectionner</option>
+											<option value="orange-money">Orange Money</option>
+											<option value="mpesa">M-pesa</option>
+											<option value="airtel-money">Airtel Money</option>
+										</select>
+										<p data-error class="mt-1 text-xs text-red-500 hidden">Sélectionnez un fournisseur.</p>
+									</div>
+									<div data-field-wrapper>
+										<label for="reservation-mm-phone" class="block text-xs sm:text-sm font-medium text-gray-700 mb-1">Numéro Mobile Money</label>
+										<input id="reservation-mm-phone" name="mm_phone" type="tel" data-validate data-type="phone" class="w-full rounded-xl border border-gray-300 px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-accent-1 focus:border-accent-1" placeholder="+243 81 234 56 78">
+										<p data-error class="mt-1 text-xs text-red-500 hidden">Saisissez un numéro Mobile Money valide.</p>
+									</div>
+								</div>
+								<p class="text-[10px] sm:text-xs text-gray-500">Vous serez redirigé vers votre application Mobile Money pour confirmer la transaction.</p>
+							</div>
+
+							<div id="payment-card" class="mt-3 space-y-3 hidden">
+								<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+									<div data-field-wrapper class="sm:col-span-2">
+										<label for="reservation-card-number" class="block text-xs sm:text-sm font-medium text-gray-700 mb-1">Numéro de carte</label>
+										<input id="reservation-card-number" name="card_number" type="text" inputmode="numeric" autocomplete="cc-number" data-validate data-type="card" class="w-full rounded-xl border border-gray-300 px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-accent-1 focus:border-accent-1" placeholder="1234 5678 9012 3456">
+										<p data-error class="mt-1 text-xs text-red-500 hidden">Saisissez un numéro de carte valide.</p>
+									</div>
+									<div data-field-wrapper>
+										<label for="reservation-card-exp" class="block text-xs sm:text-sm font-medium text-gray-700 mb-1">Expiration</label>
+										<input id="reservation-card-exp" name="card_exp" type="text" inputmode="numeric" autocomplete="cc-exp" data-validate data-type="exp" class="w-full rounded-xl border border-gray-300 px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-accent-1 focus:border-accent-1" placeholder="MM/AA">
+										<p data-error class="mt-1 text-xs text-red-500 hidden">Format MM/AA requis.</p>
+									</div>
+									<div data-field-wrapper>
+										<label for="reservation-card-cvc" class="block text-xs sm:text-sm font-medium text-gray-700 mb-1">CVC</label>
+										<input id="reservation-card-cvc" name="card_cvc" type="password" inputmode="numeric" autocomplete="cc-csc" maxlength="4" data-validate data-type="cvc" class="w-full rounded-xl border border-gray-300 px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-accent-1 focus:border-accent-1" placeholder="123">
+										<p data-error class="mt-1 text-xs text-red-500 hidden">CVC à 3 ou 4 chiffres.</p>
+									</div>
+								</div>
+								<p class="text-[10px] sm:text-xs text-gray-500">Les données de carte sont traitées via un prestataire certifié PCI-DSS (type Stripe). Aucune donnée sensible n’est stockée par FretPal.</p>
+							</div>
+						</div>
+
+						<div class="border-t border-gray-100 pt-4 space-y-2">
+							<p class="text-[10px] sm:text-xs text-gray-500">Remboursement possible jusqu’à 7 jours avant la date de départ, selon les conditions générales en vigueur.</p>
+							<p class="text-[10px] sm:text-xs text-gray-500">Les transactions par carte respectent les normes de sécurité PCI-DSS. Vos données personnelles sont traitées conformément à notre politique de confidentialité et au RGPD.</p>
+						</div>
+
+						<div class="pt-2 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+							<button type="button" id="cancel-reservation" class="w-full sm:w-auto px-4 py-2.5 rounded-xl border border-gray-300 text-xs sm:text-sm font-medium text-gray-600 hover:bg-gray-100 transition">
+								Annuler
+							</button>
+							<button type="submit" id="submit-reservation" class="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-accent-1 text-dark-1 text-xs sm:text-sm font-bold hover:bg-yellow-400 transition-colors flex items-center justify-center gap-2">
+								<span id="submit-reservation-label">Confirmer et payer</span>
+								<span id="submit-reservation-spinner" class="hidden h-4 w-4 border-2 border-dark-1 border-t-transparent rounded-full animate-spin"></span>
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		(function () {
+			var openButton = document.getElementById('open-reservation-modal');
+			var modal = document.getElementById('reservation-modal');
+			if (!openButton || !modal) return;
+
+			var modalPanel = modal.querySelector('.reservation-modal-panel');
+			var closeButton = document.getElementById('close-reservation-modal');
+			var cancelButton = document.getElementById('cancel-reservation');
+			var form = document.getElementById('reservation-form');
+			var submitButton = document.getElementById('submit-reservation');
+			var submitLabel = document.getElementById('submit-reservation-label');
+			var submitSpinner = document.getElementById('submit-reservation-spinner');
+			var alertError = document.getElementById('reservation-alert-error');
+			var alertSuccess = document.getElementById('reservation-alert-success');
+			var paymentMethodInput = document.getElementById('reservation-payment-method');
+			var paymentMobileMoney = document.getElementById('payment-mobile-money');
+			var paymentCard = document.getElementById('payment-card');
+			var paymentButtons = Array.prototype.slice.call(document.querySelectorAll('.payment-method-button'));
+			var firstField = document.getElementById('reservation-firstname');
+			var lastFocusedElement = null;
+			var isProcessing = false;
+
+			function openModal() {
+				if (isProcessing) return;
+				lastFocusedElement = document.activeElement;
+				modal.classList.remove('hidden');
+				modal.classList.add('flex');
+				requestAnimationFrame(function () {
+					modalPanel.classList.remove('opacity-0', 'scale-95');
+					modalPanel.classList.add('opacity-100', 'scale-100');
+				});
+				if (firstField) firstField.focus();
+				document.addEventListener('keydown', handleKeydown);
+			}
+
+			function closeModal() {
+				if (isProcessing) return;
+				modalPanel.classList.remove('opacity-100', 'scale-100');
+				modalPanel.classList.add('opacity-0', 'scale-95');
+				setTimeout(function () {
+					modal.classList.remove('flex');
+					modal.classList.add('hidden');
+					resetFormState();
+					document.removeEventListener('keydown', handleKeydown);
+					if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+						lastFocusedElement.focus();
+					}
+				}, 180);
+			}
+
+			function handleKeydown(e) {
+				if (e.key === 'Escape') {
+					closeModal();
+				}
+			}
+
+			function isClickOutsidePanel(event) {
+				return event.target === modal;
+			}
+
+			function showError(message) {
+				if (!alertError) return;
+				alertError.textContent = message;
+				alertError.classList.remove('hidden');
+			}
+
+			function clearError() {
+				if (!alertError) return;
+				alertError.textContent = '';
+				alertError.classList.add('hidden');
+			}
+
+			function showSuccess(message) {
+				if (!alertSuccess) return;
+				alertSuccess.textContent = message;
+				alertSuccess.classList.remove('hidden');
+			}
+
+			function clearSuccess() {
+				if (!alertSuccess) return;
+				alertSuccess.textContent = '';
+				alertSuccess.classList.add('hidden');
+			}
+
+			function setProcessing(state) {
+				isProcessing = state;
+				if (!submitButton || !submitLabel || !submitSpinner) return;
+				submitButton.disabled = state;
+				if (state) {
+					submitSpinner.classList.remove('hidden');
+					submitLabel.textContent = 'Traitement en cours...';
+				} else {
+					submitSpinner.classList.add('hidden');
+					submitLabel.textContent = 'Confirmer et payer';
+				}
+			}
+
+			function normalizeCardNumber(value) {
+				return value.replace(/\D/g, '');
+			}
+
+			function validateField(field) {
+				if (!field || !field.dataset || !field.dataset.type) return true;
+				var value = (field.value || '').trim();
+				var type = field.dataset.type;
+				var valid = true;
+
+				if (type === 'text') {
+					valid = value.length > 1;
+				} else if (type === 'email') {
+					valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+				} else if (type === 'phone') {
+					valid = value.replace(/\D/g, '').length >= 8;
+				} else if (type === 'date') {
+					valid = !!value;
+				} else if (type === 'number') {
+					var n = parseInt(value, 10);
+					valid = !isNaN(n) && n >= 1 && n <= 10;
+				} else if (type === 'card') {
+					var digits = normalizeCardNumber(value);
+					valid = digits.length >= 13 && digits.length <= 19;
+				} else if (type === 'exp') {
+					valid = /^(0[1-9]|1[0-2])\/\d{2}$/.test(value);
+				} else if (type === 'cvc') {
+					valid = /^\d{3,4}$/.test(value);
+				}
+
+				var wrapper = field.closest('[data-field-wrapper]');
+				if (!wrapper) return valid;
+				var errorEl = wrapper.querySelector('[data-error]');
+				if (!errorEl) return valid;
+
+				if (!valid) {
+					field.classList.add('border-red-500', 'focus:ring-red-500');
+					errorEl.classList.remove('hidden');
+				} else {
+					field.classList.remove('border-red-500', 'focus:ring-red-500');
+					errorEl.classList.add('hidden');
+				}
+
+				return valid;
+			}
+
+			function validateAll() {
+				var fields = Array.prototype.slice.call(form.querySelectorAll('[data-validate]'));
+				var allValid = true;
+				fields.forEach(function (field) {
+					if (!field.offsetParent) return;
+					var fieldValid = validateField(field);
+					if (!fieldValid) allValid = false;
+				});
+				return allValid;
+			}
+
+			function selectPaymentMethod(method) {
+				if (!paymentMethodInput) return;
+				paymentMethodInput.value = method;
+				paymentButtons.forEach(function (btn) {
+					var isActive = btn.getAttribute('data-payment-option') === method;
+					if (isActive) {
+						btn.classList.add('border-accent-1', 'bg-yellow-50');
+					} else {
+						btn.classList.remove('border-accent-1', 'bg-yellow-50');
+					}
+				});
+				if (paymentMobileMoney && paymentCard) {
+					if (method === 'mobile_money') {
+						paymentMobileMoney.classList.remove('hidden');
+						paymentCard.classList.add('hidden');
+					} else {
+						paymentMobileMoney.classList.add('hidden');
+						paymentCard.classList.remove('hidden');
+					}
+				}
+			}
+
+			function logTransaction(status, payload) {
+				var data = {
+					status: status,
+					amount: payload && payload.amount ? payload.amount : null,
+					method: payload && payload.method ? payload.method : null,
+					createdAt: new Date().toISOString(),
+					reference: payload && payload.reference ? payload.reference : null
+				};
+				try {
+					console.info('Reservation transaction', data);
+					var existing = [];
+					var raw = localStorage.getItem('fretpal_transactions');
+					if (raw) {
+						existing = JSON.parse(raw);
+						if (!Array.isArray(existing)) existing = [];
+					}
+					existing.push(data);
+					if (existing.length > 50) existing = existing.slice(existing.length - 50);
+					localStorage.setItem('fretpal_transactions', JSON.stringify(existing));
+				} catch (e) {
+				}
+			}
+
+			function simulatePayment(method, amount) {
+				return new Promise(function (resolve) {
+					setTimeout(function () {
+						resolve({
+							status: 'success',
+							reference: 'FP-' + Date.now(),
+							method: method,
+							amount: amount
+						});
+					}, 1200);
+				});
+			}
+
+			function computeAmount() {
+				var seatsInput = document.getElementById('reservation-seats');
+				var price = 15;
+				var seats = 1;
+				if (seatsInput && seatsInput.value) {
+					var v = parseInt(seatsInput.value, 10);
+					if (!isNaN(v) && v > 0) seats = v;
+				}
+				return price * seats;
+			}
+
+			function resetFormState() {
+				if (form) form.reset();
+				selectPaymentMethod('mobile_money');
+				clearError();
+				clearSuccess();
+				var fields = form ? Array.prototype.slice.call(form.querySelectorAll('[data-validate]')) : [];
+				fields.forEach(function (field) {
+					field.classList.remove('border-red-500', 'focus:ring-red-500');
+				});
+				setProcessing(false);
+			}
+
+			openButton.addEventListener('click', openModal);
+			if (closeButton) closeButton.addEventListener('click', closeModal);
+			if (cancelButton) cancelButton.addEventListener('click', closeModal);
+
+			modal.addEventListener('click', function (event) {
+				if (isClickOutsidePanel(event)) {
+					closeModal();
+				}
+			});
+
+			var validateInputs = Array.prototype.slice.call(form.querySelectorAll('[data-validate]'));
+			validateInputs.forEach(function (field) {
+				field.addEventListener('input', function () {
+					validateField(field);
+					clearError();
+					clearSuccess();
+				});
+				field.addEventListener('blur', function () {
+					validateField(field);
+				});
+			});
+
+			paymentButtons.forEach(function (btn) {
+				btn.addEventListener('click', function () {
+					var method = btn.getAttribute('data-payment-option') || 'mobile_money';
+					selectPaymentMethod(method);
+					clearError();
+					clearSuccess();
+				});
+			});
+
+			if (form) {
+				form.addEventListener('submit', function (event) {
+					event.preventDefault();
+					clearError();
+					clearSuccess();
+
+					var valid = validateAll();
+					if (!valid) {
+						showError('Merci de vérifier les champs indiqués en rouge.');
+						return;
+					}
+
+					var method = paymentMethodInput ? paymentMethodInput.value : 'mobile_money';
+					var amount = computeAmount();
+
+					setProcessing(true);
+					simulatePayment(method, amount).then(function (result) {
+						if (!result || result.status !== 'success') {
+							setProcessing(false);
+							showError('Le paiement a été refusé. Merci de réessayer ou de choisir un autre moyen de paiement.');
+							logTransaction('error', {
+								method: method,
+								amount: amount,
+								reference: result && result.reference ? result.reference : null
+							});
+							return;
+						}
+
+						logTransaction('success', {
+							method: method,
+							amount: amount,
+							reference: result.reference
+						});
+
+						setProcessing(false);
+						showSuccess('Votre réservation est confirmée. Un email de confirmation vous sera envoyé avec le récapitulatif du paiement.');
+
+						setTimeout(function () {
+							closeModal();
+						}, 2400);
+					}).catch(function () {
+						setProcessing(false);
+						showError('Une erreur technique est survenue pendant le paiement. Aucune somme n’a été débitée.');
+						logTransaction('error', {
+							method: method,
+							amount: amount,
+							reference: null
+						});
+					});
+				});
+			}
+
+			selectPaymentMethod('mobile_money');
+		})();
+	</script>
+
+	<!-- Initialize Lucide Icons -->
+	<script>
+		lucide.createIcons();
+	</script>
+
+	<script src="js/main.js"></script>
 </body>
+
 </html>

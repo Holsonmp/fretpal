@@ -5,8 +5,7 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Trouver un trajet - FretPal</title>
-	<meta name="description"
-		content="Recherchez un voyageur pour transporter votre colis. Comparez les prix, les dates et les avis pour un envoi collaboratif sécurisé." />
+	<meta name="description" content="Recherchez un voyageur pour transporter votre colis. Comparez les prix, les dates et les avis pour un envoi collaboratif sécurisé." />
 
 	<!-- Google Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -73,7 +72,7 @@
 	<script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
-<body class="flex flex-col min-h-screen text-dark-1 bg-gray-50">
+<body class="flex flex-col min-h-screen text-dark-1 bg-white">
 	<!-- Header -->
 	<header class="fixed top-0 left-0 right-0 bg-white z-50 border-b border-gray-100 h-[80px] flex items-center">
 		<div class="container mx-auto px-4 md:px-6 flex items-center justify-between">
@@ -113,8 +112,39 @@
 
 
 	<!-- Main Content -->
-	<main class="flex-grow pt-[80px] py-8">
-		<div class="container mx-auto px-4">
+	<main class="flex-grow pt-[80px] py-8 ">
+		<section class="relative pt-20 pb-32 lg:pt-32 lg:pb-40 overflow-hidden">
+			<div class="absolute inset-0 z-0">
+				<img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-4.0.3&auto=format&fit=crop&w=2021&q=80" alt="Voyageur" class="w-full h-full object-cover opacity-10" />
+				<div class="absolute inset-0 bg-gradient-to-b from-white/0 to-white"></div>
+			</div>
+
+			<div class="container mx-auto px-4 relative z-10 text-center">
+				<div class="bg-white p-4 rounded-2xl shadow-xl max-w-4xl mx-auto border border-gray-100 flex flex-col md:flex-row gap-4">
+					<div class="flex-1 flex items-center bg-light-1 rounded-xl px-4 py-3">
+						<i data-lucide="map-pin" class="text-light-2 w-5 h-5 mr-3"></i>
+						<div class="text-left w-full">
+							<label class="block text-xs font-bold text-dark-1 uppercase">Départ</label>
+							<input type="text" placeholder="Paris, France" class="w-full bg-transparent outline-none text-sm" />
+						</div>
+					</div>
+					<div class="flex-1 flex items-center bg-light-1 rounded-xl px-4 py-3">
+						<i data-lucide="map-pin" class="text-light-2 w-5 h-5 mr-3"></i>
+						<div class="text-left w-full">
+							<label class="block text-xs font-bold text-dark-1 uppercase">Arrivée</label>
+							<input type="text" placeholder="Kinshasa, RDC" class="w-full bg-transparent outline-none text-sm" />
+						</div>
+					</div>
+					<div class="md:w-48">
+						<a href="search.html"
+							class="flex items-center justify-center w-full h-full px-6 py-3 bg-accent-1 hover:bg-yellow-400 text-dark-1 font-bold rounded-xl transition-colors">
+							Rechercher
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+		<div class="container mx-auto px-4 ">
 			<div class="flex flex-col lg:flex-row gap-8">
 				<!-- Sidebar Filters -->
 				<aside class="w-full lg:w-80 flex-shrink-0">
@@ -626,8 +656,6 @@
 		lucide.createIcons();
 	</script>
 
-
-	<!-- Custom JS -->
 	<script src="js/main.js"></script>
 </body>
 

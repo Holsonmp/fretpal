@@ -1,18 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Publier un voyage - FretPal</title>
-	<meta name="description" content="Rentabilisez votre voyage en transportant des colis. Publiez votre trajet en quelques clics." />
-
-	
-	
-	
 	<meta name="description"
-		content="FretPal connecte voyageurs et expéditeurs pour un transport collaboratif de colis sécurisé, rapide et économique." />
+		content="Rentabilisez votre voyage en transportant des colis. Publiez votre trajet en quelques clics." />
 
-	<!-- Google Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link
@@ -25,10 +20,9 @@
 	<script src="https://cdn.tailwindcss.com"></script>
 	<link rel="icon" href="./favicon.ico" type="image/x-icon">
 	<style>
-
 		@media (min-width:1536px) {
-			.container{
-				max-width: 1320px!important
+			.container {
+				max-width: 1320px !important
 			}
 		}
 	</style>
@@ -71,9 +65,10 @@
 	}
 	</script>
 </head>
+
 <body class="flex flex-col min-h-screen text-dark-1 bg-white">
 
-	
+
 	<header class="fixed top-0 left-0 right-0 bg-white z-50 border-b border-gray-100 h-[80px] flex items-center">
 		<div class="container mx-auto px-4 md:px-6 flex items-center justify-between">
 			<a href="index.html" class="flex items-center gap-2 z-50">
@@ -81,14 +76,16 @@
 			</a>
 
 			<nav class="hidden lg:flex items-center gap-8">
-				<a href="index.html" class="font-medium text-accent-2 transition-colors">Accueil</a>
+				<a href="index.html" class="font-medium text-dark-1 hover:text-accent-2 transition-colors">Accueil</a>
 				<a href="search.html" class="font-medium text-dark-1 hover:text-accent-2 transition-colors">Trouver un trajet</a>
 				<a href="how-it-works.html" class="font-medium text-dark-1 hover:text-accent-2 transition-colors">Comment ça marche</a>
 				<a href="blog.html" class="font-medium text-dark-1 hover:text-accent-2 transition-colors">Blog</a>
 			</nav>
 
 			<div class="hidden lg:flex items-center gap-4">
-				<a href="publish-trip.html" class="px-4 py-2 text-sm font-medium text-dark-1 hover:bg-gray-100 rounded-xl transition-colors">Publier un voyage</a>
+				<a href="publish-trip.html"
+					class="px-4 py-2 text-sm font-medium text-dark-1 hover:bg-gray-100 rounded-xl transition-colors">Publier
+					un voyage</a>
 				<a href="login.html" class="button -sm -dark-1 bg-accent-1 rounded-200 ml-30">Connexion</a>
 			</div>
 
@@ -107,92 +104,105 @@
 		</div>
 	</header>
 
-	
 
-	<main class="flex-grow pt-[80px]">
 
-      <div class="container mx-auto px-4 max-w-2xl">
-        <div class="mb-8 text-center">
-          <h1 class="text-3xl md:text-4xl font-bold mb-4">Proposer un voyage</h1>
-          <p class="text-gray-500">Remplissez les détails de votre trajet pour trouver des expéditeurs.</p>
-        </div>
+	<main class="flex-grow pt-[80px] py-8 ">
 
-        <form class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 space-y-6">
-          
-          <!-- Itinerary -->
-          <div class="space-y-4">
-            <h2 class="text-xl font-bold flex items-center gap-2"><i data-lucide="map-pin" class="w-5 h-5 text-accent-2"></i> Itinéraire</h2>
-            <div class="grid md:grid-cols-2 gap-4">
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Ville de départ</label>
-                <input type="text" placeholder="Ex: Paris" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-accent-1 bg-gray-50">
-              </div>
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Ville d'arrivée</label>
-                <input type="text" placeholder="Ex: Dakar" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-accent-1 bg-gray-50">
-              </div>
-            </div>
-          </div>
+		<div class="container mx-auto px-4 max-w-4xl pt-[80px]">
+			<div class="mb-8 text-center">
+				<h1 class="text-3xl md:text-4xl font-bold mb-4">Proposer un voyage</h1>
+				<p class="text-gray-500">Remplissez les détails de votre trajet pour trouver des expéditeurs.</p>
+			</div>
+			
+			<div class="max-w-4xl mx-auto  flex flex-col md:flex-row">
+				<form class="bg-white md:p-8 md:rounded-2xl md:shadow-sm md:border md:border-gray-100 md:space-y-6 mx-auto ">
 
-          <!-- Date & Transport -->
-          <div class="space-y-4 pt-4 border-t border-gray-100">
-            <h2 class="text-xl font-bold flex items-center gap-2"><i data-lucide="calendar" class="w-5 h-5 text-accent-2"></i> Détails du trajet</h2>
-            <div class="grid md:grid-cols-2 gap-4">
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Date de départ</label>
-                <input type="date" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-accent-1 bg-gray-50">
-              </div>
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Moyen de transport</label>
-                <select class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-accent-1 bg-gray-50">
-                  <option>Avion</option>
-                  <option>Train</option>
-                  <option>Voiture</option>
-                  <option>Bateau</option>
-                </select>
-              </div>
-            </div>
-          </div>
+					<!-- Itinerary -->
+					<div class="space-y-4">
+						<h2 class="text-xl font-bold flex items-center gap-2"><i data-lucide="map-pin" class="w-5 h-5 text-accent-2"></i> Itinéraire</h2>
+						<div class="grid md:grid-cols-2 gap-4">
+							<div>
+								<label class="block text-sm font-medium text-gray-700 mb-1">Ville de départ</label>
+								<input type="text" placeholder="Ex: Paris"
+									class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-accent-1 bg-gray-50">
+							</div>
+							<div>
+								<label class="block text-sm font-medium text-gray-700 mb-1">Ville d'arrivée</label>
+								<input type="text" placeholder="Ex: Kinshasa"
+									class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-accent-1 bg-gray-50">
+							</div>
+						</div>
+					</div>
 
-          <!-- Capacity & Price -->
-          <div class="space-y-4 pt-4 border-t border-gray-100">
-            <h2 class="text-xl font-bold flex items-center gap-2"><i data-lucide="weight" class="w-5 h-5 text-accent-2"></i> Capacité & Prix</h2>
-            <div class="grid md:grid-cols-2 gap-4">
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Kilos disponibles</label>
-                <div class="relative">
-                  <input type="number" placeholder="23" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-accent-1 bg-gray-50 pr-10">
-                  <span class="absolute right-4 top-3 text-gray-400 text-sm font-medium">kg</span>
-                </div>
-              </div>
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Prix par kilo souhaité</label>
-                <div class="relative">
-                  <input type="number" placeholder="10" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-accent-1 bg-gray-50 pr-10">
-                  <span class="absolute right-4 top-3 text-gray-400 text-sm font-medium">€</span>
-                </div>
-              </div>
-            </div>
-          </div>
+					<!-- Date & Transport -->
+					<div class="space-y-4 pt-4 border-t border-gray-100">
+						<h2 class="text-xl font-bold flex items-center gap-2"><i data-lucide="calendar"
+								class="w-5 h-5 text-accent-2"></i> Détails du trajet</h2>
+						<div class="grid md:grid-cols-2 gap-4">
+							<div>
+								<label class="block text-sm font-medium text-gray-700 mb-1">Date de départ</label>
+								<input type="date"
+									class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-accent-1 bg-gray-50">
+							</div>
+							<div>
+								<label class="block text-sm font-medium text-gray-700 mb-1">Moyen de transport</label>
+								<select
+									class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-accent-1 bg-gray-50">
+									<option>Avion</option>
+									<option>Train</option>
+									<option>Voiture</option>
+									<option>Bateau</option>
+								</select>
+							</div>
+						</div>
+					</div>
 
-          <!-- Description -->
-          <div class="pt-4 border-t border-gray-100">
-            <label class="block text-sm font-medium text-gray-700 mb-1">Précisions (optionnel)</label>
-            <textarea rows="4" placeholder="Ex: Je peux récupérer le colis à l'aéroport. Pas de liquides svp." class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-accent-1 bg-gray-50"></textarea>
-          </div>
+					<!-- Capacity & Price -->
+					<div class="space-y-4 pt-4 border-t border-gray-100">
+						<h2 class="text-xl font-bold flex items-center gap-2"><i data-lucide="weight"
+								class="w-5 h-5 text-accent-2"></i> Capacité & Prix</h2>
+						<div class="grid md:grid-cols-2 gap-4">
+							<div>
+								<label class="block text-sm font-medium text-gray-700 mb-1">Kilos disponibles</label>
+								<div class="relative">
+									<input type="number" placeholder="23"
+										class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-accent-1 bg-gray-50 pr-10">
+									<span class="absolute right-4 top-3 text-gray-400 text-sm font-medium">kg</span>
+								</div>
+							</div>
+							<div>
+								<label class="block text-sm font-medium text-gray-700 mb-1">Prix par kilo souhaité</label>
+								<div class="relative">
+									<input type="number" placeholder="10"
+										class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-accent-1 bg-gray-50 pr-10">
+									<span class="absolute right-4 top-3 text-gray-400 text-sm font-medium">€</span>
+								</div>
+							</div>
+						</div>
+					</div>
 
-          <!-- Submit -->
-          <button type="submit" class="w-full py-4 bg-accent-1 hover:bg-yellow-400 text-dark-1 font-bold rounded-xl shadow-lg shadow-accent-1/20 transition-all mt-6">
-            Publier mon annonce
-          </button>
-          
-          <p class="text-xs text-gray-400 text-center mt-4">
-            En publiant cette annonce, vous acceptez les <a href="#" class="underline">CGU</a> de FretPal et certifiez ne pas transporter d'objets interdits.
-          </p>
+					<!-- Description -->
+					<div class="pt-4 border-t border-gray-100">
+						<label class="block text-sm font-medium text-gray-700 mb-1">Précisions (optionnel)</label>
+						<textarea rows="4" placeholder="Ex: Je peux récupérer le colis à l'aéroport. Pas de liquides svp."
+							class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-accent-1 bg-gray-50"></textarea>
+					</div>
 
-        </form>
-      </div>
-    
+					<!-- Submit -->
+					<button type="submit"
+						class="w-full py-4 bg-accent-1 hover:bg-yellow-400 text-dark-1 font-bold rounded-xl shadow-lg shadow-accent-1/20 transition-all mt-6">
+						Publier mon annonce
+					</button>
+
+					<p class="text-xs text-gray-400 text-center mt-4">
+						En publiant cette annonce, vous acceptez les <a href="#" class="underline">CGU</a> de FretPal et
+						certifiez ne pas transporter d'objets interdits.
+					</p>
+
+				</form>
+			</div>
+		</div>
+
 	</main>
 
 	<footer class="footer -type-1">
@@ -238,7 +248,8 @@
 								<img src="img/logo.svg" alt="logo icon">
 							</a>
 							<div class="y-gap-10 mt-4">
-								<p>La première plateforme de transport collaboratif de colis. Rentabilisez vos voyages ou envoyez moins cher. .</p>
+								<p>La première plateforme de transport collaboratif de colis. Rentabilisez vos voyages
+									ou envoyez moins cher. .</p>
 								<a class="d-block" href="#">hi@fretepal.com</a>
 							</div>
 						</div>
@@ -331,6 +342,7 @@
 	<!-- Init Icons -->
 	<script>lucide.createIcons();</script>
 	<script src="js/mains.js"></script>
-    
+
 </body>
+
 </html>
