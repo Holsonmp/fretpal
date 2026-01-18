@@ -103,7 +103,7 @@
 	<!-- Main Content -->
 	<main class="flex-grow pt-[80px]">
 		<!-- Hero Section -->
-		<section class="relative pt-20 pb-10 overflow-hidden">
+		<section class="relative pt-20 pb-10 ">
 			<div class="absolute inset-0 z-0">
 				<img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-4.0.3&auto=format&fit=crop&w=2021&q=80"
 					alt="Voyageur" class="w-full h-full object-cover opacity-10" />
@@ -119,7 +119,7 @@
 					notre communauté.
 				</p>
 
-				<div class="bg-white p-4 rounded-2xl shadow-xl max-w-4xl mx-auto border border-gray-100 flex flex-col md:flex-row gap-4">
+				<div class="bg-white p-4 rounded-2xl shadow-xl max-w-6xl mx-auto border border-gray-100 flex flex-col md:flex-row gap-4 relative">
 					<div class="flex-1 flex items-center bg-light-1 rounded-xl px-4 py-3">
 						<i data-lucide="map-pin" class="text-light-2 w-5 h-5 mr-3"></i>
 						<div class="text-left w-full">
@@ -132,6 +132,66 @@
 						<div class="text-left w-full">
 							<label class="block text-xs font-bold text-dark-1 uppercase">Arrivée</label>
 							<input type="text" placeholder="Kinshasa, RDC" class="w-full bg-transparent outline-none text-sm" />
+						</div>
+					</div>
+					<div class="flex-1 relative">
+						<button type="button"
+							id="hero-date-trigger"
+							class="w-full flex items-center bg-light-1 rounded-xl px-4 py-3 border border-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-1 focus-visible:ring-offset-2 focus-visible:ring-offset-white transition-colors"
+							aria-haspopup="dialog"
+							aria-expanded="false"
+							aria-controls="hero-date-popover"
+						>
+							<i data-lucide="calendar" class="text-light-2 w-5 h-5 mr-3"></i>
+							<div class="text-left w-full">
+								<span class="block text-xs font-bold text-dark-1 uppercase">Périodes</span>
+								<span id="hero-date-label" class="block text-sm text-light-2">Dates du voyage</span>
+							</div>
+						</button>
+
+						<div
+							id="hero-date-popover"
+							class="absolute z-90 mt-2 w-full md:w-[340px] right-0 origin-top-right bg-white rounded-2xl shadow-2xl border border-gray-100 p-4 opacity-0 scale-95 pointer-events-none transform transition-all duration-200"
+							role="dialog"
+							aria-label="Sélection des dates de voyage"
+						>
+							<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+								<div>
+									<label for="hero-date-start" class="block text-xs font-medium text-gray-600 mb-1">Date de début</label>
+									<input
+										id="hero-date-start"
+										type="date"
+										class="w-full rounded-xl border border-gray-300 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-accent-1 focus:border-accent-1"
+									>
+								</div>
+								<div>
+									<label for="hero-date-end" class="block text-xs font-medium text-gray-600 mb-1">Date de fin</label>
+									<input
+										id="hero-date-end"
+										type="date"
+										class="w-full rounded-xl border border-gray-300 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-accent-1 focus:border-accent-1"
+									>
+								</div>
+							</div>
+							<div class="flex items-center justify-between pt-2 border-t border-gray-100">
+								<button
+									type="button"
+									id="hero-date-clear"
+									class="text-xs sm:text-sm text-gray-500 hover:text-gray-700 px-2 py-1 rounded-lg transition-colors"
+								>
+									Effacer
+								</button>
+								<div class="flex items-center gap-2">
+									<span id="hero-date-summary" class="hidden text-xs text-gray-500"></span>
+									<button
+										type="button"
+										id="hero-date-apply"
+										class="px-4 py-2 rounded-xl bg-accent-1 text-dark-1 text-xs sm:text-sm font-semibold hover:bg-yellow-400 transition-colors"
+									>
+										Appliquer
+									</button>
+								</div>
+							</div>
 						</div>
 					</div>
 					<div class="md:w-48">
@@ -466,6 +526,157 @@
 		</div>
 	</footer>
 
+
+	<script>
+		(function () {
+			var trigger = document.getElementById('hero-date-trigger');
+			var popover = document.getElementById('hero-date-popover');
+			if (!trigger || !popover) return;
+
+			var startInput = document.getElementById('hero-date-start');
+			var endInput = document.getElementById('hero-date-end');
+			var clearButton = document.getElementById('hero-date-clear');
+			var applyButton = document.getElementById('hero-date-apply');
+			var label = document.getElementById('hero-date-label');
+			var summary = document.getElementById('hero-date-summary');
+			var lastFocusedElement = null;
+			var isOpen = false;
+
+			function formatDisplay(start, end) {
+				if (!start && !end) return 'Dates du voyage';
+				var options = { day: '2-digit', month: 'short' };
+				var hasStart = !!start;
+				var hasEnd = !!end;
+				var startDate = hasStart ? new Date(start) : null;
+				var endDate = hasEnd ? new Date(end) : null;
+				if (startDate && endDate) {
+					return startDate.toLocaleDateString('fr-FR', options) + ' – ' + endDate.toLocaleDateString('fr-FR', options);
+				}
+				if (startDate) {
+					return 'À partir du ' + startDate.toLocaleDateString('fr-FR', options);
+				}
+				return 'Jusqu’au ' + endDate.toLocaleDateString('fr-FR', options);
+			}
+
+			function updateTriggerState(active) {
+				if (!trigger) return;
+				if (active) {
+					trigger.classList.add('border-accent-1', 'bg-accent-1/20');
+				} else {
+					trigger.classList.remove('border-accent-1', 'bg-accent-1/20');
+				}
+			}
+
+			function syncDates() {
+				if (!startInput || !endInput) return;
+				var startValue = startInput.value;
+				var endValue = endInput.value;
+				if (startValue && endValue && endValue < startValue) {
+					endInput.value = startValue;
+					endValue = startValue;
+				}
+				var text = formatDisplay(startValue, endValue);
+				if (label) {
+					label.textContent = text;
+				}
+				if (summary) {
+					if (startValue || endValue) {
+						summary.textContent = text;
+						summary.classList.remove('hidden');
+					} else {
+						summary.textContent = '';
+						summary.classList.add('hidden');
+					}
+				}
+				updateTriggerState(!!(startValue || endValue));
+			}
+
+			function handleDocumentClick(event) {
+				if (!popover.contains(event.target) && !trigger.contains(event.target)) {
+					closePopover();
+				}
+			}
+
+			function handleKeydown(event) {
+				if (event.key === 'Escape') {
+					event.preventDefault();
+					closePopover();
+				}
+			}
+
+			function openPopover() {
+				if (isOpen) return;
+				isOpen = true;
+				lastFocusedElement = document.activeElement;
+				popover.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+				popover.classList.add('opacity-100', 'scale-100', 'pointer-events-auto');
+				trigger.setAttribute('aria-expanded', 'true');
+				if (startInput) {
+					startInput.focus();
+				}
+				document.addEventListener('click', handleDocumentClick);
+				document.addEventListener('keydown', handleKeydown);
+			}
+
+			function closePopover() {
+				if (!isOpen) return;
+				isOpen = false;
+				popover.classList.remove('opacity-100', 'scale-100', 'pointer-events-auto');
+				popover.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+				trigger.setAttribute('aria-expanded', 'false');
+				document.removeEventListener('click', handleDocumentClick);
+				document.removeEventListener('keydown', handleKeydown);
+				if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+					lastFocusedElement.focus();
+				} else {
+					trigger.focus();
+				}
+			}
+
+			trigger.addEventListener('click', function () {
+				if (isOpen) {
+					closePopover();
+				} else {
+					openPopover();
+				}
+			});
+
+			trigger.addEventListener('keydown', function (event) {
+				if (event.key === 'Enter' || event.key === ' ') {
+					event.preventDefault();
+					if (isOpen) {
+						closePopover();
+					} else {
+						openPopover();
+					}
+				}
+			});
+
+			if (startInput) {
+				startInput.addEventListener('change', syncDates);
+			}
+			if (endInput) {
+				endInput.addEventListener('change', syncDates);
+			}
+
+			if (clearButton) {
+				clearButton.addEventListener('click', function () {
+					if (startInput) startInput.value = '';
+					if (endInput) endInput.value = '';
+					syncDates();
+				});
+			}
+
+			if (applyButton) {
+				applyButton.addEventListener('click', function () {
+					syncDates();
+					closePopover();
+				});
+			}
+
+			syncDates();
+		})();
+	</script>
 
 	<!-- Init Icons -->
 	<script>lucide.createIcons();</script>
