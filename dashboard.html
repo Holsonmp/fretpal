@@ -6,18 +6,12 @@
 	<title>Tableau de Bord - FretPal</title>
 	<meta name="description" content="" />
 
-	
-	
-	
-	<meta name="description"
-		content="FretPal connecte voyageurs et expéditeurs pour un transport collaboratif de colis sécurisé, rapide et économique." />
+	<meta name="description" content="FretPal connecte voyageurs et expéditeurs pour un transport collaboratif de colis sécurisé, rapide et économique." />
 
 	<!-- Google Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link
-		href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap"
-		rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
 
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="css/vendors.css">
@@ -25,10 +19,9 @@
 	<script src="https://cdn.tailwindcss.com"></script>
 	<link rel="icon" href="./favicon.ico" type="image/x-icon">
 	<style>
-
 		@media (min-width:1536px) {
-			.container{
-				max-width: 1320px!important
+			.container {
+				max-width: 1320px !important
 			}
 		}
 	</style>
@@ -49,9 +42,22 @@
 				}
 			}
 		}
+		tailwind.config = {
+			theme: {
+				extend: {
+					fontFamily: { sans: ['"DM Sans"', 'sans-serif'] },
+					colors: {
+						'accent-1': '#ffdc00',
+						'accent-2': '#F28555',
+						'dark-1': '#05073C',
+						'light-1': '#F5F5F5',
+						'light-2': '#717171',
+					},
+					borderRadius: { 'xl': '12px' }
+				}
+			}
+		}
 	</script>
-
-
 	<style>
 		body {
 			font-family: 'DM Sans', sans-serif;
@@ -59,17 +65,6 @@
 	</style>
 	<!-- Icons -->
 	<script src="https://unpkg.com/lucide@latest"></script>
-	<script type="importmap">
-	{
-	"imports": {
-		"react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
-		"react": "https://aistudiocdn.com/react@^19.2.1",
-		"react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.10.1",
-		"react/": "https://aistudiocdn.com/react@^19.2.1/",
-		"lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0"
-	}
-	}
-	</script>
 </head>
 <body class="flex flex-col min-h-screen text-dark-1 bg-white">
 

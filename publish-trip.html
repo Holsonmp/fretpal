@@ -5,9 +5,9 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Publier un voyage - FretPal</title>
-	<meta name="description"
-		content="Rentabilisez votre voyage en transportant des colis. Publiez votre trajet en quelques clics." />
+	<meta name="description" content="Rentabilisez votre voyage en transportant des colis. Publiez votre trajet en quelques clics." />
 
+	<!-- Google Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
@@ -41,9 +41,22 @@
 				}
 			}
 		}
+		tailwind.config = {
+			theme: {
+				extend: {
+					fontFamily: { sans: ['"DM Sans"', 'sans-serif'] },
+					colors: {
+						'accent-1': '#ffdc00',
+						'accent-2': '#F28555',
+						'dark-1': '#05073C',
+						'light-1': '#F5F5F5',
+						'light-2': '#717171',
+					},
+					borderRadius: { 'xl': '12px' }
+				}
+			}
+		}
 	</script>
-
-
 	<style>
 		body {
 			font-family: 'DM Sans', sans-serif;
@@ -51,17 +64,6 @@
 	</style>
 	<!-- Icons -->
 	<script src="https://unpkg.com/lucide@latest"></script>
-	<script type="importmap">
-	{
-	"imports": {
-		"react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
-		"react": "https://aistudiocdn.com/react@^19.2.1",
-		"react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.10.1",
-		"react/": "https://aistudiocdn.com/react@^19.2.1/",
-		"lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0"
-	}
-	}
-	</script>
 </head>
 
 <body class="flex flex-col min-h-screen text-dark-1 bg-white">

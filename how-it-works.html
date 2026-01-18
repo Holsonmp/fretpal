@@ -6,18 +6,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Comment ça marche - FretPal</title>
 	<meta name="description" content="Découvrez comment fonctionne le crowd-shipping avec FretPal. Un guide simple en 3 étapes pour expédier ou transporter des colis en toute sécurité." />
-
-
-
-
-	<meta name="description" content="FretPal connecte voyageurs et expéditeurs pour un transport collaboratif de colis sécurisé, rapide et économique." />
-
 	<!-- Google Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link
-		href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap"
-		rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
 
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="css/vendors.css">
@@ -48,9 +40,22 @@
 				}
 			}
 		}
+		tailwind.config = {
+			theme: {
+				extend: {
+					fontFamily: { sans: ['"DM Sans"', 'sans-serif'] },
+					colors: {
+						'accent-1': '#ffdc00',
+						'accent-2': '#F28555',
+						'dark-1': '#05073C',
+						'light-1': '#F5F5F5',
+						'light-2': '#717171',
+					},
+					borderRadius: { 'xl': '12px' }
+				}
+			}
+		}
 	</script>
-
-
 	<style>
 		body {
 			font-family: 'DM Sans', sans-serif;
@@ -58,17 +63,6 @@
 	</style>
 	<!-- Icons -->
 	<script src="https://unpkg.com/lucide@latest"></script>
-	<script type="importmap">
-	{
-	"imports": {
-		"react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
-		"react": "https://aistudiocdn.com/react@^19.2.1",
-		"react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.10.1",
-		"react/": "https://aistudiocdn.com/react@^19.2.1/",
-		"lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0"
-	}
-	}
-	</script>
 </head>
 
 <body class="flex flex-col min-h-screen text-dark-1 bg-white">
@@ -81,18 +75,15 @@
 			</a>
 
 			<nav class="hidden lg:flex items-center gap-8">
-				<a href="index.html" class="font-medium text-accent-2 transition-colors">Accueil</a>
-				<a href="search.html" class="font-medium text-dark-1 hover:text-accent-2 transition-colors">Trouver un
-					trajet</a>
-				<a href="how-it-works.html"
-					class="font-medium text-dark-1 hover:text-accent-2 transition-colors">Comment ça marche</a>
+				<a href="index.html" class="font-medium text-dark-1 hover:text-accent-2 transition-colors">Accueil</a>
+				<a href="search.html" class="font-medium text-dark-1 hover:text-accent-2 transition-colors">Trouver un trajet</a>
+				<a href="how-it-works.html" class="font-medium text-accent-2 transition-colors">Comment ça marche</a>
 				<a href="blog.html" class="font-medium text-dark-1 hover:text-accent-2 transition-colors">Blog</a>
 			</nav>
 
 			<div class="hidden lg:flex items-center gap-4">
 				<a href="publish-trip.html"
-					class="px-4 py-2 text-sm font-medium text-dark-1 hover:bg-gray-100 rounded-xl transition-colors">Publier
-					un voyage</a>
+					class="px-4 py-2 text-sm font-medium text-dark-1 hover:bg-gray-100 rounded-xl transition-colors">Publier un voyage</a>
 				<a href="login.html" class="button -sm -dark-1 bg-accent-1 rounded-200 ml-30">Connexion</a>
 			</div>
 
@@ -106,8 +97,7 @@
 			<a href="blog.html" class="text-xl font-medium">Blog</a>
 			<a href="dashboard.html" class="text-xl font-medium">Mon Compte</a>
 			<div class="h-px bg-gray-100 w-full my-2"></div>
-			<a href="login.html" class="w-full text-center px-6 py-3 bg-accent-1 text-dark-1 font-bold rounded-xl">Se
-				connecter</a>
+			<a href="login.html" class="w-full text-center px-6 py-3 bg-accent-1 text-dark-1 font-bold rounded-xl">Se connecter</a>
 		</div>
 	</header>
 
@@ -226,9 +216,7 @@
 		<section class="py-20 text-center">
 			<h2 class="text-3xl font-bold mb-8">Prêt à tenter l'expérience ?</h2>
 			<div class="flex justify-center gap-4">
-				<a href="search.html"
-					class="px-8 py-4 bg-accent-1 text-dark-1 font-bold rounded-xl hover:bg-yellow-400 transition-colors shadow-lg shadow-accent-1/20">Trouver
-					un trajet</a>
+				<a href="search.html" class="px-8 py-3 bg-accent-1 text-dark-1 font-bold rounded-200 hover:bg-yellow-400 transition-colors shadow-lg shadow-accent-1/20">Trouver un trajet</a>
 			</div>
 		</section>
 
