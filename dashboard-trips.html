@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Mes voyages - FretPal</title>
+	<meta name="description" content="Gérez vos voyages publiés sur FretPal : édition, suppression et création de nouveaux trajets." />
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/vendors.css">
+	<script src="https://cdn.tailwindcss.com"></script>
+	<link rel="icon" href="./favicon.ico" type="image/x-icon">
+	<style>
+		@media (min-width:1536px) {
+			.container {
+				max-width: 1320px !important
+			}
+		}
+	</style>
+
+	<script>
+		tailwind.config = {
+			theme: {
+				extend: {
+					fontFamily: { sans: ['"DM Sans"', 'sans-serif'] },
+					colors: {
+						'accent-1': '#ffdc00',
+						'accent-2': '#F28555',
+						'dark-1': '#05073C',
+						'light-1': '#F5F5F5',
+						'light-2': '#717171',
+					},
+					borderRadius: { 'xl': '12px' }
+				}
+			}
+		}
+	</script>
+	<style>
+		body {
+			font-family: 'DM Sans', sans-serif;
+		}
+	</style>
+	<script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="flex flex-col min-h-screen text-dark-1 bg-white">
+
+	<header class="fixed top-0 left-0 right-0 bg-white z-50 border-b border-gray-100 h-[80px] flex items-center">
+		<div class="container mx-auto px-4 md:px-6 flex items-center justify-between">
+			<a href="index.html" class="flex items-center gap-2 z-50">
+				<img src="img/logo.svg" alt="logo icon">
+			</a>
+
+			<nav class="hidden lg:flex items-center gap-8">
+				<a href="index.html" class="font-medium text-dark-1 hover:text-accent-2 transition-colors">Accueil</a>
+				<a href="search.html" class="font-medium text-dark-1 hover:text-accent-2 transition-colors">Trouver un trajet</a>
+				<a href="how-it-works.html" class="font-medium text-dark-1 hover:text-accent-2 transition-colors">Comment ça marche</a>
+				<a href="blog.html" class="font-medium text-dark-1 hover:text-accent-2 transition-colors">Blog</a>
+			</nav>
+
+			<div class="hidden lg:flex items-center gap-4">
+				<a href="publish-trip.html" class="px-4 py-2 text-sm font-medium text-dark-1 hover:bg-gray-100 rounded-xl transition-colors">Publier un voyage</a>
+				<a href="login.html" class="button -sm -dark-1 bg-accent-1 rounded-200 ml-30">Connexion</a>
+			</div>
+
+			<button id="mobile-menu-btn" class="lg:hidden z-50"><i data-lucide="menu"></i></button>
+		</div>
+
+		<div id="mobile-menu" class="hidden fixed inset-0 bg-white z-40 flex flex-col pt-24 px-6 gap-6 lg:hidden">
+			<a href="index.html" class="text-xl font-medium text-accent-2">Accueil</a>
+			<a href="search.html" class="text-xl font-medium">Rechercher</a>
+			<a href="how-it-works.html" class="text-xl font-medium">Comment ça marche</a>
+			<a href="blog.html" class="text-xl font-medium">Blog</a>
+			<a href="dashboard.html" class="text-xl font-medium">Mon Compte</a>
+			<div class="h-px bg-gray-100 w-full my-2"></div>
+			<a href="login.html" class="w-full text-center px-6 py-3 bg-accent-1 text-dark-1 font-bold rounded-xl">Se
+				connecter</a>
+		</div>
+	</header>
+
+	<main class="flex-grow pt-[80px]">
+		<div class="container mx-auto px-4 pt-[30px] pb-16">
+			<div class="flex flex-col md:flex-row gap-8">
+
+				<aside class="w-full md:w-64 flex-shrink-0">
+					<div class="bg-white rounded-xl shadow-sm p-6">
+						<nav class="space-y-1">
+							<a href="dashboard.html" class="flex items-center gap-3 px-4 py-3 text-gray-600 hover:bg-gray-50 rounded-lg font-medium transition-colors">
+								<i data-lucide="layout-dashboard" class="w-5 h-5"></i> Vue d'ensemble
+							</a>
+							<a href="dashboard-trips.html" class="flex items-center gap-3 px-4 py-3 bg-accent-1/10 text-accent-2 rounded-lg font-medium">
+								<i data-lucide="plane" class="w-5 h-5"></i> Mes voyages
+							</a>
+							<a href="dashboard-parcels.html" class="flex items-center gap-3 px-4 py-3 text-gray-600 hover:bg-gray-50 rounded-lg font-medium transition-colors">
+								<i data-lucide="package" class="w-5 h-5"></i> Mes colis
+							</a>
+							<a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-600 hover:bg-gray-50 rounded-lg font-medium transition-colors">
+								<i data-lucide="message-square" class="w-5 h-5"></i> Messages <span class="ml-auto bg-red-500 text-white text-xs px-2 py-0.5 rounded-full">2</span>
+							</a>
+							<a href="dashboard-settings.html" class="flex items-center gap-3 px-4 py-3 text-gray-600 hover:bg-gray-50 rounded-lg font-medium transition-colors">
+								<i data-lucide="settings" class="w-5 h-5"></i> Paramètres
+							</a>
+							<div class="pt-4 mt-4 border-t border-gray-100">
+								<a href="index.html" class="flex items-center gap-3 px-4 py-3 text-red-500 hover:bg-red-50 rounded-lg font-medium transition-colors">
+									<i data-lucide="log-out" class="w-5 h-5"></i> Déconnexion
+								</a>
+							</div>
+						</nav>
+					</div>
+				</aside>
+
+				<div class="flex-1 space-y-6">
+					<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+						<div>
+							<h1 class="text-2xl md:text-3xl font-bold text-dark-1">Mes voyages</h1>
+							<p class="text-sm text-light-2 mt-1">Gérez vos trajets publiés, modifiez-les ou créez-en de nouveaux.</p>
+						</div>
+						<button
+							type="button"
+							id="open-trip-modal"
+							class="inline-flex items-center justify-center px-4 py-2.5 rounded-xl bg-accent-1 text-dark-1 text-sm font-semibold hover:bg-yellow-400 transition-colors shadow-sm"
+						>
+							<i data-lucide="plus" class="w-4 h-4 mr-2"></i> Créer un nouveau voyage
+						</button>
+					</div>
+
+					<div id="trip-alert" class="hidden rounded-xl border border-green-200 bg-green-50 text-green-700 text-sm px-4 py-3 flex items-start gap-2">
+						<i data-lucide="check-circle" class="w-4 h-4 mt-0.5"></i>
+						<div id="trip-alert-message"></div>
+					</div>
+
+					<div id="trips-list" class="space-y-4">
+						<div class="trip-card bg-white rounded-2xl shadow-sm border border-gray-100 p-5 md:p-6 transition-transform duration-150 hover:-translate-y-0.5" data-trip-id="1">
+							<div class="flex flex-col md:flex-row md:items-start gap-4">
+								<div class="flex-1">
+									<div class="flex items-center gap-2 text-xs font-medium text-light-2 uppercase tracking-wide mb-1">
+										<span class="flex items-center gap-1"><i data-lucide="plane" class="w-3 h-3"></i> Vol</span>
+										<span class="w-1 h-1 rounded-full bg-gray-300"></span>
+										<span>Récurrent</span>
+									</div>
+									<div class="flex items-center gap-2 text-lg md:text-xl font-bold text-dark-1">
+										<span class="trip-from">Paris</span>
+										<i data-lucide="arrow-right" class="w-4 h-4 text-gray-300"></i>
+										<span class="trip-to">Kinshasa</span>
+									</div>
+									<div class="mt-2 flex flex-wrap items-center gap-3 text-sm text-gray-500">
+										<span class="flex items-center gap-1">
+											<i data-lucide="calendar" class="w-4 h-4"></i>
+											<span class="trip-date">Du 15 nov 2024 au 30 nov 2024</span>
+										</span>
+										<span class="flex items-center gap-1">
+											<i data-lucide="weight" class="w-4 h-4"></i>
+											<span class="trip-weight">20 kg disponibles</span>
+										</span>
+									</div>
+								</div>
+								<div class="md:w-48 flex md:flex-col justify-between items-end gap-3">
+									<div class="text-right">
+										<div class="text-xs text-light-2">Prix</div>
+										<div class="text-2xl font-bold text-dark-1"><span class="trip-price">15</span>$</div>
+										<div class="text-xs text-light-2">par kg</div>
+									</div>
+									<div class="flex items-center gap-2">
+										<button type="button" class="trip-edit inline-flex items-center justify-center px-3 py-1.5 rounded-lg border border-gray-200 text-xs font-medium text-gray-700 hover:bg-gray-50 transition-colors">
+											<i data-lucide="edit-3" class="w-3 h-3 mr-1"></i> Modifier
+										</button>
+										<button type="button" class="trip-delete inline-flex items-center justify-center px-3 py-1.5 rounded-lg border border-red-100 text-xs font-medium text-red-600 hover:bg-red-50 transition-colors">
+											<i data-lucide="trash-2" class="w-3 h-3 mr-1"></i> Supprimer
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="trip-card bg-white rounded-2xl shadow-sm border border-gray-100 p-5 md:p-6 transition-transform duration-150 hover:-translate-y-0.5" data-trip-id="2">
+							<div class="flex flex-col md:flex-row md:items-start gap-4">
+								<div class="flex-1">
+									<div class="flex items-center gap-2 text-xs font-medium text-light-2 uppercase tracking-wide mb-1">
+										<span class="flex items-center gap-1"><i data-lucide="plane" class="w-3 h-3"></i> Vol</span>
+										<span class="w-1 h-1 rounded-full bg-gray-300"></span>
+										<span>Unique</span>
+									</div>
+									<div class="flex items-center gap-2 text-lg md:text-xl font-bold text-dark-1">
+										<span class="trip-from">Bruxelles</span>
+										<i data-lucide="arrow-right" class="w-4 h-4 text-gray-300"></i>
+										<span class="trip-to">Lubumbashi</span>
+									</div>
+									<div class="mt-2 flex flex-wrap items-center gap-3 text-sm text-gray-500">
+										<span class="flex items-center gap-1">
+											<i data-lucide="calendar" class="w-4 h-4"></i>
+											<span class="trip-date">Départ le 10 déc 2024</span>
+										</span>
+										<span class="flex items-center gap-1">
+											<i data-lucide="weight" class="w-4 h-4"></i>
+											<span class="trip-weight">12 kg disponibles</span>
+										</span>
+									</div>
+								</div>
+								<div class="md:w-48 flex md:flex-col justify-between items-end gap-3">
+									<div class="text-right">
+										<div class="text-xs text-light-2">Prix</div>
+										<div class="text-2xl font-bold text-dark-1"><span class="trip-price">18</span>$</div>
+										<div class="text-xs text-light-2">par kg</div>
+									</div>
+									<div class="flex items-center gap-2">
+										<button type="button" class="trip-edit inline-flex items-center justify-center px-3 py-1.5 rounded-lg border border-gray-200 text-xs font-medium text-gray-700 hover:bg-gray-50 transition-colors">
+											<i data-lucide="edit-3" class="w-3 h-3 mr-1"></i> Modifier
+										</button>
+										<button type="button" class="trip-delete inline-flex items-center justify-center px-3 py-1.5 rounded-lg border border-red-100 text-xs font-medium text-red-600 hover:bg-red-50 transition-colors">
+											<i data-lucide="trash-2" class="w-3 h-3 mr-1"></i> Supprimer
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="trip-card bg-white rounded-2xl shadow-sm border border-gray-100 p-5 md:p-6 transition-transform duration-150 hover:-translate-y-0.5" data-trip-id="3">
+							<div class="flex flex-col md:flex-row md:items-start gap-4">
+								<div class="flex-1">
+									<div class="flex items-center gap-2 text-xs font-medium text-light-2 uppercase tracking-wide mb-1">
+										<span class="flex items-center gap-1"><i data-lucide="train" class="w-3 h-3"></i> Train</span>
+										<span class="w-1 h-1 rounded-full bg-gray-300"></span>
+										<span>Unique</span>
+									</div>
+									<div class="flex items-center gap-2 text-lg md:text-xl font-bold text-dark-1">
+										<span class="trip-from">Lyon</span>
+										<i data-lucide="arrow-right" class="w-4 h-4 text-gray-300"></i>
+										<span class="trip-to">Paris</span>
+									</div>
+									<div class="mt-2 flex flex-wrap items-center gap-3 text-sm text-gray-500">
+										<span class="flex items-center gap-1">
+											<i data-lucide="calendar" class="w-4 h-4"></i>
+											<span class="trip-date">Départ le 22 nov 2024</span>
+										</span>
+										<span class="flex items-center gap-1">
+											<i data-lucide="weight" class="w-4 h-4"></i>
+											<span class="trip-weight">8 kg disponibles</span>
+										</span>
+									</div>
+								</div>
+								<div class="md:w-48 flex md:flex-col justify-between items-end gap-3">
+									<div class="text-right">
+										<div class="text-xs text-light-2">Prix</div>
+										<div class="text-2xl font-bold text-dark-1"><span class="trip-price">10</span>$</div>
+										<div class="text-xs text-light-2">par kg</div>
+									</div>
+									<div class="flex items-center gap-2">
+										<button type="button" class="trip-edit inline-flex items-center justify-center px-3 py-1.5 rounded-lg border border-gray-200 text-xs font-medium text-gray-700 hover:bg-gray-50 transition-colors">
+											<i data-lucide="edit-3" class="w-3 h-3 mr-1"></i> Modifier
+										</button>
+										<button type="button" class="trip-delete inline-flex items-center justify-center px-3 py-1.5 rounded-lg border border-red-100 text-xs font-medium text-red-600 hover:bg-red-50 transition-colors">
+											<i data-lucide="trash-2" class="w-3 h-3 mr-1"></i> Supprimer
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="flex justify-center mt-6">
+						<nav class="flex items-center space-x-1 text-sm" aria-label="Pagination">
+							<button type="button" class="inline-flex items-center justify-center w-9 h-9 rounded-full border border-gray-200 text-gray-400 cursor-not-allowed">
+								<i data-lucide="chevron-left" class="w-4 h-4"></i>
+							</button>
+							<button type="button" class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-accent-1 text-dark-1 font-semibold">1</button>
+							<button type="button" class="inline-flex items-center justify-center w-9 h-9 rounded-full border border-gray-200 text-gray-600 hover:bg-gray-50 transition-colors">2</button>
+							<button type="button" class="inline-flex items-center justify-center w-9 h-9 rounded-full border border-gray-200 text-gray-600 hover:bg-gray-50 transition-colors">3</button>
+							<button type="button" class="inline-flex items-center justify-center w-9 h-9 rounded-full border border-gray-200 text-gray-600 hover:bg-gray-50 transition-colors">
+								<i data-lucide="chevron-right" class="w-4 h-4"></i>
+							</button>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<div id="trip-modal-backdrop" class="fixed inset-0 z-40 hidden bg-black/40"></div>
+	<div id="trip-modal" class="fixed inset-0 z-50 flex items-center justify-center px-4 pointer-events-none">
+		<div class="w-full max-w-xl mx-auto transform opacity-0 scale-95 transition-all duration-200">
+			<div class="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden pointer-events-auto">
+				<div class="flex items-center justify-between px-6 pt-5 pb-3 border-b border-gray-100">
+					<div>
+						<h2 id="trip-modal-title" class="text-lg sm:text-xl font-bold text-dark-1">Créer un nouveau voyage</h2>
+						<p class="mt-1 text-xs sm:text-sm text-gray-500">Complétez les informations pour publier un nouveau trajet.</p>
+					</div>
+					<button type="button" id="close-trip-modal" class="inline-flex items-center justify-center w-9 h-9 rounded-full border border-gray-200 text-gray-500 hover:bg-gray-100 hover:text-gray-700 transition" aria-label="Fermer la fenêtre de création de voyage">
+						<i data-lucide="x" class="w-4 h-4"></i>
+					</button>
+				</div>
+				<div class="px-6 pt-4 pb-5 max-h-[75vh] overflow-y-auto">
+					<form id="trip-form" class="space-y-5">
+						<input type="hidden" id="trip-form-id" value="" />
+
+						<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+							<div data-field-wrapper>
+								<label for="trip-from" class="block text-xs sm:text-sm font-medium text-gray-700 mb-1">Ville de départ</label>
+								<input id="trip-from" type="text" data-validate data-type="text" class="w-full rounded-xl border border-gray-300 px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-accent-1 focus:border-accent-1">
+								<p data-error class="mt-1 text-xs text-red-500 hidden">Indiquez une ville de départ.</p>
+							</div>
+							<div data-field-wrapper>
+								<label for="trip-to" class="block text-xs sm:text-sm font-medium text-gray-700 mb-1">Ville d'arrivée</label>
+								<input id="trip-to" type="text" data-validate data-type="text" class="w-full rounded-xl border border-gray-300 px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-accent-1 focus:border-accent-1">
+								<p data-error class="mt-1 text-xs text-red-500 hidden">Indiquez une ville d'arrivée.</p>
+							</div>
+						</div>
+
+						<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+							<div data-field-wrapper>
+								<label for="trip-date-start" class="block text-xs sm:text-sm font-medium text-gray-700 mb-1">Date de départ</label>
+								<input id="trip-date-start" type="date" data-validate data-type="date" class="w-full rounded-xl border border-gray-300 px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-accent-1 focus:border-accent-1">
+								<p data-error class="mt-1 text-xs text-red-500 hidden">Choisissez une date de départ.</p>
+							</div>
+							<div data-field-wrapper>
+								<label for="trip-date-end" class="block text-xs sm:text-sm font-medium text-gray-700 mb-1">Date de retour (optionnelle)</label>
+								<input id="trip-date-end" type="date" data-validate data-type="date-optional" class="w-full rounded-xl border border-gray-300 px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-accent-1 focus:border-accent-1">
+								<p data-error class="mt-1 text-xs text-red-500 hidden">Choisissez une date de fin valide.</p>
+							</div>
+						</div>
+
+						<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+							<div data-field-wrapper>
+								<label for="trip-transport" class="block text-xs sm:text-sm font-medium text-gray-700 mb-1">Transport</label>
+								<select id="trip-transport" data-validate data-type="text" class="w-full rounded-xl border border-gray-300 px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-accent-1 focus:border-accent-1">
+									<option value="">Sélectionnez</option>
+									<option value="plane">Avion</option>
+									<option value="train">Train</option>
+									<option value="bus">Bus</option>
+								</select>
+								<p data-error class="mt-1 text-xs text-red-500 hidden">Sélectionnez un moyen de transport.</p>
+							</div>
+							<div data-field-wrapper>
+								<label for="trip-weight" class="block text-xs sm:text-sm font-medium text-gray-700 mb-1">Kilos disponibles</label>
+								<input id="trip-weight" type="number" min="1" max="50" value="10" data-validate data-type="number" class="w-full rounded-xl border border-gray-300 px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-accent-1 focus:border-accent-1">
+								<p data-error class="mt-1 text-xs text-red-500 hidden">Indiquez un nombre entre 1 et 50.</p>
+							</div>
+							<div data-field-wrapper>
+								<label for="trip-price" class="block text-xs sm:text-sm font-medium text-gray-700 mb-1">Prix / kg ($)</label>
+								<input id="trip-price" type="number" min="1" max="100" value="15" data-validate data-type="number" class="w-full rounded-xl border border-gray-300 px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-accent-1 focus:border-accent-1">
+								<p data-error class="mt-1 text-xs text-red-500 hidden">Indiquez un prix valide.</p>
+							</div>
+						</div>
+
+						<div data-field-wrapper>
+							<label for="trip-notes" class="block text-xs sm:text-sm font-medium text-gray-700 mb-1">Notes pour les expéditeurs</label>
+							<textarea id="trip-notes" rows="3" class="w-full rounded-xl border border-gray-300 px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-accent-1 focus:border-accent-1" placeholder="Précisez vos préférences (type de colis accepté, lieu de rendez-vous, etc.)."></textarea>
+						</div>
+
+						<div class="flex flex-col sm:flex-row sm:items-center sm:justify-end gap-3 pt-2">
+							<button type="button" id="cancel-trip-modal" class="w-full sm:w-auto px-4 py-2.5 rounded-xl border border-gray-200 text-xs sm:text-sm font-medium text-gray-600 hover:bg-gray-100 transition">
+								Annuler
+							</button>
+							<button type="submit" id="submit-trip" class="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-accent-1 text-dark-1 text-xs sm:text-sm font-bold hover:bg-yellow-400 transition-colors flex items-center justify-center gap-2">
+								<span id="submit-trip-label">Enregistrer le voyage</span>
+								<span id="submit-trip-spinner" class="hidden h-4 w-4 border-2 border-dark-1 border-t-transparent rounded-full animate-spin"></span>
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="trip-delete-modal-backdrop" class="fixed inset-0 z-40 hidden bg-black/40"></div>
+	<div id="trip-delete-modal" class="fixed inset-0 z-50 flex items-center justify-center px-4 pointer-events-none">
+		<div class="w-full max-w-md mx-auto transform opacity-0 scale-95 transition-all duration-200">
+			<div class="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden pointer-events-auto">
+				<div class="px-6 pt-5 pb-3 border-b border-gray-100">
+					<h2 class="text-lg font-bold text-dark-1">Supprimer ce voyage ?</h2>
+					<p class="mt-1 text-xs sm:text-sm text-gray-500">Cette action retirera le trajet de vos offres visibles. Vous pourrez toujours en recréer un plus tard.</p>
+				</div>
+				<div class="px-6 pt-4 pb-5 space-y-4">
+					<div class="flex items-start gap-3 text-xs sm:text-sm text-gray-500">
+						<i data-lucide="alert-triangle" class="w-4 h-4 text-red-500 mt-0.5"></i>
+						<p>Les réservations associées à ce voyage devront être gérées manuellement avec les expéditeurs si nécessaire.</p>
+					</div>
+					<div class="flex flex-col sm:flex-row sm:justify-end gap-3">
+						<button type="button" id="cancel-trip-delete" class="w-full sm:w-auto px-4 py-2.5 rounded-xl border border-gray-200 text-xs sm:text-sm font-medium text-gray-600 hover:bg-gray-100 transition">
+							Annuler
+						</button>
+						<button type="button" id="confirm-trip-delete" class="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-red-500 text-white text-xs sm:text-sm font-bold hover:bg-red-600 transition-colors">
+							Confirmer la suppression
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer class="footer -type-1">
+		<div class="footer__main">
+			<div class="container">
+				<div class="footer__info">
+					<div class="row y-gap-20 justify-between">
+						<div class="col-auto">
+							<div class="row y-gap-20 items-center">
+								<div class="col-auto">
+									<i class="icon-headphone text-50"></i>
+								</div>
+
+								<div class="col-auto">
+									<div class="text-20 fw-500">
+										Speak to our expert at <span class="text-accent-2">243 820 325 003</span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-auto">
+							<div class="footerSocials">
+								<div class="footerSocials__title">
+									Follow Us
+								</div>
+
+								<div class="footerSocials__icons">
+									<a href="#" class="icon-facebook"></a>
+									<a href="#" class="icon-twitter"></a>
+									<a href="#" class="icon-instagram"></a>
+									<a href="#" class="icon-linkedin"></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="footer__content">
+					<div class="row y-gap-40 justify-between">
+						<div class="col-lg-4 col-md-6">
+							<a href="index.html" class="flex items-center gap-2 z-50">
+								<img src="img/logo.svg" alt="logo icon">
+							</a>
+							<div class="y-gap-10 mt-4">
+								<p>La première plateforme de transport collaboratif de colis. Rentabilisez vos voyages ou envoyez moins cher. .</p>
+								<a class="d-block" href="#">hi@fretepal.com</a>
+							</div>
+						</div>
+
+						<div class="col-lg-auto col-6">
+							<h4 class="text-20 fw-500">Company</h4>
+
+							<div class="y-gap-10 mt-4">
+
+								<a class="d-block fw-500" href="about.html">
+									À propos
+								</a>
+
+								<a class="d-block fw-500" href="blog.html">
+									Blog
+								</a>
+
+								<a class="d-block fw-500" href="contact.html">
+									Nous contacter
+								</a>
+
+								<a class="d-block fw-500" href="trust.html">
+									Confiance et Sécurité
+								</a>
+
+							</div>
+						</div>
+
+						<div class="col-lg-auto col-6">
+							<h4 class="text-20 fw-500">Support</h4>
+
+							<div class="y-gap-10 mt-4">
+
+								<a class="d-block fw-500" href="suivi-colis.html">
+									Suivi de colis
+								</a>
+
+								<a class="d-block fw-500" href="faq.html">
+									FAQ
+								</a>
+
+								<a class="d-block fw-500" href="cgu.html">
+									CGU
+								</a>
+
+								<a class="d-block fw-500" href="how-it-works.html">
+									Comment ça marche ?
+								</a>
+
+							</div>
+						</div>
+
+						<div class="col-lg-3 col-md-6">
+							<h4 class="text-20 fw-500">Newsletter</h4>
+							<p class="mt-4">Subscribe to the free newsletter and stay up to date</p>
+
+							<div class="footer__newsletter">
+								<input type="Email" placeholder="Your email address">
+								<button>Send</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="container">
+			<div class="footer__bottom">
+				<div class="row y-gap-5 justify-between items-center">
+					<div class="col-auto">
+						<div>&copy; Copyright Fretpal 2023</div>
+					</div>
+
+					<div class="col-auto">
+						<div class="footer__images d-flex items-center x-gap-10">
+							<img src="img/footer/cards/1.png" alt="image">
+							<img src="img/footer/cards/2.png" alt="image">
+							<img src="img/footer/cards/3.png" alt="image">
+							<img src="img/footer/cards/4.png" alt="image">
+							<img src="img/footer/cards/5.png" alt="image">
+							<img src="img/footer/cards/6.png" alt="image">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<script src="js/mains.js"></script>
+	<script>
+		(function () {
+			var openButton = document.getElementById('open-trip-modal');
+			var modal = document.getElementById('trip-modal');
+			var backdrop = document.getElementById('trip-modal-backdrop');
+			var closeButton = document.getElementById('close-trip-modal');
+			var cancelButton = document.getElementById('cancel-trip-modal');
+			var form = document.getElementById('trip-form');
+			var submitButton = document.getElementById('submit-trip');
+			var submitLabel = document.getElementById('submit-trip-label');
+			var submitSpinner = document.getElementById('submit-trip-spinner');
+			var modalTitle = document.getElementById('trip-modal-title');
+			var formIdInput = document.getElementById('trip-form-id');
+			var alertBox = document.getElementById('trip-alert');
+			var alertMessage = document.getElementById('trip-alert-message');
+			var deleteModal = document.getElementById('trip-delete-modal');
+			var deleteBackdrop = document.getElementById('trip-delete-modal-backdrop');
+			var cancelDeleteButton = document.getElementById('cancel-trip-delete');
+			var confirmDeleteButton = document.getElementById('confirm-trip-delete');
+			var tripsList = document.getElementById('trips-list');
+			var lastFocusedElement = null;
+			var isProcessing = false;
+			var tripToDelete = null;
+
+			if (!openButton || !modal || !backdrop || !form) return;
+
+			function setTodayMin(input) {
+				if (!input) return;
+				var d = new Date();
+				var month = '' + (d.getMonth() + 1);
+				var day = '' + d.getDate();
+				var year = d.getFullYear();
+				if (month.length < 2) month = '0' + month;
+				if (day.length < 2) day = '0' + day;
+				var iso = year + '-' + month + '-' + day;
+				input.setAttribute('min', iso);
+			}
+
+			setTodayMin(document.getElementById('trip-date-start'));
+			setTodayMin(document.getElementById('trip-date-end'));
+
+			function openModal(mode, card) {
+				if (isProcessing) return;
+				lastFocusedElement = document.activeElement;
+				backdrop.classList.remove('hidden');
+				modal.classList.remove('pointer-events-none');
+				modal.firstElementChild.classList.remove('opacity-0', 'scale-95');
+				modal.firstElementChild.classList.add('opacity-100', 'scale-100');
+
+				if (mode === 'edit' && card) {
+					var from = card.querySelector('.trip-from');
+					var to = card.querySelector('.trip-to');
+					var price = card.querySelector('.trip-price');
+					var weight = card.querySelector('.trip-weight');
+					if (from) document.getElementById('trip-from').value = from.textContent || '';
+					if (to) document.getElementById('trip-to').value = to.textContent || '';
+					if (price) document.getElementById('trip-price').value = parseInt(price.textContent, 10) || 15;
+					if (weight) {
+						var w = parseInt((weight.textContent || '').replace(/\D/g, ''), 10);
+						document.getElementById('trip-weight').value = w || 10;
+					}
+					formIdInput.value = card.getAttribute('data-trip-id') || '';
+					modalTitle.textContent = 'Modifier le voyage';
+				} else {
+					formIdInput.value = '';
+					form.reset();
+					modalTitle.textContent = 'Créer un nouveau voyage';
+				}
+
+				var firstInput = document.getElementById('trip-from');
+				if (firstInput) firstInput.focus();
+				document.addEventListener('keydown', handleKeydown);
+			}
+
+			function closeModal() {
+				if (isProcessing) return;
+				modal.firstElementChild.classList.remove('opacity-100', 'scale-100');
+				modal.firstElementChild.classList.add('opacity-0', 'scale-95');
+				backdrop.classList.add('hidden');
+				modal.classList.add('pointer-events-none');
+				clearErrors();
+				if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+					lastFocusedElement.focus();
+				}
+				document.removeEventListener('keydown', handleKeydown);
+			}
+
+			function openDeleteModal(card) {
+				if (!card) return;
+				tripToDelete = card;
+				deleteBackdrop.classList.remove('hidden');
+				deleteModal.classList.remove('pointer-events-none');
+				deleteModal.firstElementChild.classList.remove('opacity-0', 'scale-95');
+				deleteModal.firstElementChild.classList.add('opacity-100', 'scale-100');
+			}
+
+			function closeDeleteModal() {
+				deleteModal.firstElementChild.classList.remove('opacity-100', 'scale-100');
+				deleteModal.firstElementChild.classList.add('opacity-0', 'scale-95');
+				deleteBackdrop.classList.add('hidden');
+				deleteModal.classList.add('pointer-events-none');
+				tripToDelete = null;
+			}
+
+			function handleKeydown(e) {
+				if (e.key === 'Escape') {
+					e.preventDefault();
+					closeModal();
+				}
+			}
+
+			function showAlert(message) {
+				if (!alertBox || !alertMessage) return;
+				alertMessage.textContent = message;
+				alertBox.classList.remove('hidden');
+			}
+
+			function clearAlert() {
+				if (!alertBox || !alertMessage) return;
+				alertMessage.textContent = '';
+				alertBox.classList.add('hidden');
+			}
+
+			function setProcessing(state) {
+				isProcessing = state;
+				if (!submitButton || !submitLabel || !submitSpinner) return;
+				submitButton.disabled = state;
+				if (state) {
+					submitSpinner.classList.remove('hidden');
+					submitLabel.textContent = 'Enregistrement...';
+				} else {
+					submitSpinner.classList.add('hidden');
+					submitLabel.textContent = 'Enregistrer le voyage';
+				}
+			}
+
+			function validateField(field) {
+				if (!field || !field.dataset) return true;
+				var type = field.dataset.type;
+				if (!type) return true;
+				var value = (field.value || '').trim();
+				var valid = true;
+
+				if (type === 'text') {
+					valid = value.length > 1;
+				} else if (type === 'date') {
+					valid = !!value;
+				} else if (type === 'date-optional') {
+					valid = true;
+				} else if (type === 'number') {
+					var n = parseFloat(value);
+					valid = !isNaN(n) && n > 0;
+				}
+
+				var wrapper = field.closest('[data-field-wrapper]');
+				if (!wrapper) return valid;
+				var errorEl = wrapper.querySelector('[data-error]');
+				if (!errorEl) return valid;
+
+				if (!valid) {
+					field.classList.add('border-red-500', 'focus:ring-red-500');
+					errorEl.classList.remove('hidden');
+				} else {
+					field.classList.remove('border-red-500', 'focus:ring-red-500');
+					errorEl.classList.add('hidden');
+				}
+
+				return valid;
+			}
+
+			function clearErrors() {
+				var fields = form ? Array.prototype.slice.call(form.querySelectorAll('[data-validate]')) : [];
+				fields.forEach(function (field) {
+					field.classList.remove('border-red-500', 'focus:ring-red-500');
+					var wrapper = field.closest('[data-field-wrapper]');
+					if (!wrapper) return;
+					var errorEl = wrapper.querySelector('[data-error]');
+					if (errorEl) errorEl.classList.add('hidden');
+				});
+			}
+
+			function validateAll() {
+				var fields = Array.prototype.slice.call(form.querySelectorAll('[data-validate]'));
+				var allValid = true;
+				fields.forEach(function (field) {
+					if (!field.offsetParent) return;
+					if (!validateField(field)) allValid = false;
+				});
+				return allValid;
+			}
+
+			openButton.addEventListener('click', function () {
+				clearAlert();
+				openModal('create', null);
+			});
+
+			closeButton.addEventListener('click', function () {
+				closeModal();
+			});
+
+			cancelButton.addEventListener('click', function () {
+				closeModal();
+			});
+
+			form.addEventListener('submit', function (event) {
+				event.preventDefault();
+				clearAlert();
+				if (!validateAll()) {
+					showAlert('Merci de vérifier les champs indiqués en rouge.');
+					return;
+				}
+
+				var id = formIdInput.value;
+				var from = document.getElementById('trip-from').value.trim();
+				var to = document.getElementById('trip-to').value.trim();
+				var price = document.getElementById('trip-price').value.trim();
+				var weight = document.getElementById('trip-weight').value.trim();
+				var dateStart = document.getElementById('trip-date-start').value;
+				var dateEnd = document.getElementById('trip-date-end').value;
+
+				setProcessing(true);
+				setTimeout(function () {
+					var targetCard = null;
+					if (id) {
+						targetCard = tripsList.querySelector('.trip-card[data-trip-id="' + id + '"]');
+					}
+					if (!targetCard) {
+						var cards = tripsList.querySelectorAll('.trip-card');
+						var maxId = 0;
+						for (var i = 0; i < cards.length; i++) {
+							var cid = parseInt(cards[i].getAttribute('data-trip-id') || '0', 10);
+							if (!isNaN(cid) && cid > maxId) maxId = cid;
+						}
+						var newId = maxId + 1;
+						var template = tripsList.querySelector('.trip-card');
+						if (template) {
+							targetCard = template.cloneNode(true);
+							targetCard.setAttribute('data-trip-id', String(newId));
+							tripsList.insertBefore(targetCard, tripsList.firstChild);
+						}
+					}
+					if (targetCard) {
+						var fromEl = targetCard.querySelector('.trip-from');
+						var toEl = targetCard.querySelector('.trip-to');
+						var priceEl = targetCard.querySelector('.trip-price');
+						var weightEl = targetCard.querySelector('.trip-weight');
+						var dateEl = targetCard.querySelector('.trip-date');
+						if (fromEl) fromEl.textContent = from;
+						if (toEl) toEl.textContent = to;
+						if (priceEl) priceEl.textContent = price || '15';
+						if (weightEl) weightEl.textContent = (weight || '10') + ' kg disponibles';
+						if (dateEl) {
+							if (dateStart && dateEnd) {
+								dateEl.textContent = 'Du ' + dateStart + ' au ' + dateEnd;
+							} else if (dateStart) {
+								dateEl.textContent = 'Départ le ' + dateStart;
+							} else {
+								dateEl.textContent = 'Dates flexibles';
+							}
+						}
+						attachCardHandlers(targetCard);
+					}
+
+					setProcessing(false);
+					closeModal();
+					showAlert('Le voyage a été enregistré avec succès.');
+				}, 500);
+			});
+
+			function attachCardHandlers(card) {
+				var editBtn = card.querySelector('.trip-edit');
+				var deleteBtn = card.querySelector('.trip-delete');
+				if (editBtn) {
+					editBtn.addEventListener('click', function () {
+						clearAlert();
+						openModal('edit', card);
+					});
+				}
+				if (deleteBtn) {
+					deleteBtn.addEventListener('click', function () {
+						clearAlert();
+						openDeleteModal(card);
+					});
+				}
+			}
+
+			var cards = tripsList.querySelectorAll('.trip-card');
+			for (var i = 0; i < cards.length; i++) {
+				attachCardHandlers(cards[i]);
+			}
+
+			cancelDeleteButton.addEventListener('click', function () {
+				closeDeleteModal();
+			});
+
+			confirmDeleteButton.addEventListener('click', function () {
+				if (tripToDelete && tripsList.contains(tripToDelete)) {
+					tripsList.removeChild(tripToDelete);
+					showAlert('Le voyage a été supprimé.');
+				}
+				closeDeleteModal();
+			});
+
+			deleteBackdrop.addEventListener('click', function () {
+				closeDeleteModal();
+			});
+
+			if (typeof lucide !== 'undefined' && lucide.createIcons) {
+				lucide.createIcons();
+			}
+		})();
+	</script>
+</body>
+</html>
+
