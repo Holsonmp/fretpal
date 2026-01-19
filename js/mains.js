@@ -43,6 +43,25 @@ document.addEventListener("DOMContentLoaded", () => {
   var lastFocusedElement = null;
   var isOpen = false;
 
+  function getTodayISO() {
+    var d = new Date();
+    var month = "" + (d.getMonth() + 1);
+    var day = "" + d.getDate();
+    var year = d.getFullYear();
+    if (month.length < 2) month = "0" + month;
+    if (day.length < 2) day = "0" + day;
+    return year + "-" + month + "-" + day;
+  }
+
+  var todayISO = getTodayISO();
+
+  if (startInput && todayISO) {
+    startInput.setAttribute("min", todayISO);
+  }
+  if (endInput && todayISO) {
+    endInput.setAttribute("min", todayISO);
+  }
+
   function formatDisplay(start, end) {
     if (!start && !end) return "Dates du voyage";
     var options = { day: "2-digit", month: "short" };
@@ -76,6 +95,14 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!startInput || !endInput) return;
     var startValue = startInput.value;
     var endValue = endInput.value;
+    if (todayISO && startValue && startValue < todayISO) {
+      startValue = todayISO;
+      startInput.value = todayISO;
+    }
+    if (todayISO && endValue && endValue < todayISO) {
+      endValue = todayISO;
+      endInput.value = todayISO;
+    }
     if (startValue && endValue && endValue < startValue) {
       endInput.value = startValue;
       endValue = startValue;

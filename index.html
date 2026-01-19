@@ -78,10 +78,10 @@
 			<nav class="hidden lg:flex items-center gap-8">
 				<a href="index.html" class="font-medium text-accent-2 transition-colors">Accueil</a>
 				<a href="search.html" class="font-medium text-dark-1 hover:text-accent-2 transition-colors">Trouver un trajet</a>
+				<a href="publish-trip.html" class="font-medium text-dark-1 hover:text-accent-2 transition-colors">Publier un voyage</a>
 			</nav>
 
 			<div class="hidden lg:flex items-center gap-4">
-				<a href="publish-trip.html" class="px-4 py-2 text-sm font-medium text-dark-1 hover:bg-gray-100 rounded-xl transition-colors">Publier un voyage</a>
 				<a href="login.html" class="button -sm -dark-1 bg-accent-1 rounded-200 ml-30">Connexion</a>
 			</div>
 
@@ -119,7 +119,7 @@
 					notre communauté.
 				</p>
 
-				<div class="bg-white p-4 rounded-2xl shadow-xl max-w-6xl mx-auto border border-gray-100 flex flex-col md:flex-row gap-4 relative">
+				<form class="bg-white p-4 rounded-2xl shadow-xl max-w-5xl mx-auto border border-gray-100 flex flex-col md:flex-row gap-4 relative" action="search.html">
 					<div class="flex-1 flex items-center bg-light-1 rounded-xl px-4 py-3">
 						<i data-lucide="map-pin" class="text-light-2 w-5 h-5 mr-3"></i>
 						<div class="text-left w-full">
@@ -145,13 +145,13 @@
 							<i data-lucide="calendar" class="text-light-2 w-5 h-5 mr-3"></i>
 							<div class="text-left w-full">
 								<span class="block text-xs font-bold text-dark-1 uppercase">Périodes</span>
-								<span id="hero-date-label" class="block text-sm text-light-2">Dates du voyage</span>
+								<span id="hero-date-label" class="block text-sm text-light-2">Périodes du voyage</span>
 							</div>
 						</button>
 
 						<div
 							id="hero-date-popover"
-							class="absolute z-90 mt-2 w-full md:w-[340px] right-0 origin-top-right bg-white rounded-2xl shadow-2xl border border-gray-100 p-4 opacity-0 scale-95 pointer-events-none transform transition-all duration-200"
+							class="absolute z-90 mt-2 w-full md:w-[360px] right-0 origin-top-right bg-white rounded-2xl shadow-2xl border border-gray-100 p-4 opacity-0 scale-95 pointer-events-none transform transition-all duration-200"
 							role="dialog"
 							aria-label="Sélection des dates de voyage"
 						>
@@ -195,12 +195,12 @@
 						</div>
 					</div>
 					<div class="md:w-48">
-						<a href="search.html"
+						<button type="submit"
 							class="flex items-center justify-center w-full h-full px-6 py-3 bg-accent-1 hover:bg-yellow-400 text-dark-1 font-bold rounded-xl transition-colors">
 							Rechercher
-						</a>
+						</button>
 					</div>
-				</div>
+				</form>
 			</div>
 		</section>
 		<!-- Recent Trips -->
