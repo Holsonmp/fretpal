@@ -155,7 +155,7 @@
 					<div class="space-y-4 pt-4 border-t border-gray-100">
 						<h2 class="text-xl font-bold flex items-center gap-2"><i data-lucide="weight"
 								class="w-5 h-5 text-accent-2"></i> Capacité & Prix</h2>
-						<div class="grid md:grid-cols-2 gap-4">
+						<div class="grid md:grid-cols-3 gap-4">
 							<div>
 								<label class="block text-sm font-medium text-gray-700 mb-1">Kilos disponibles</label>
 								<div class="relative">
@@ -166,10 +166,289 @@
 							</div>
 							<div>
 								<label class="block text-sm font-medium text-gray-700 mb-1">Prix par kilo souhaité</label>
-								<div class="relative">
-									<input type="number" placeholder="10"
-										class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-accent-1 bg-gray-50 pr-10">
-									<span class="absolute right-4 top-3 text-gray-400 text-sm font-medium">€</span>
+								<input type="number" placeholder="10"
+									class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-accent-1 bg-gray-50">
+							</div>
+							<div>
+								<label class="block text-sm font-medium text-gray-700 mb-1">Devise</label>
+								<select class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-accent-1 bg-gray-50">
+									<option value="EUR" selected>Euro (€)</option>
+									<option value="USD">Dollar ($)</option>
+								</select>
+							</div>
+						</div>
+					</div>
+
+					<!-- Accepted Packages -->
+					<div class="space-y-4 pt-4 border-t border-gray-100">
+						<h2 class="text-xl font-bold flex items-center gap-2"><i data-lucide="package-check" class="w-5 h-5 text-accent-2"></i> Colis Acceptés</h2>
+						<p class="text-sm text-gray-500">Cochez les types de colis que vous acceptez de transporter.</p>
+						
+						<div class="space-y-6">
+							<!-- Documents & petits objets -->
+							<div>
+								<h3 class="text-sm font-bold text-dark-1 uppercase mb-3">Documents & petits objets</h3>
+								<div class="grid md:grid-cols-2 gap-3">
+									<label class="flex items-center gap-2 text-sm cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-colors">
+										<input type="checkbox" class="w-4 h-4 rounded text-accent-1 focus:ring-accent-1 border-gray-300">
+										<span class="text-gray-700">Documents (papiers, contrats...)</span>
+									</label>
+									<label class="flex items-center gap-2 text-sm cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-colors">
+										<input type="checkbox" class="w-4 h-4 rounded text-accent-1 focus:ring-accent-1 border-gray-300">
+										<span class="text-gray-700">Lettres et enveloppes</span>
+									</label>
+									<label class="flex items-center gap-2 text-sm cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-colors">
+										<input type="checkbox" class="w-4 h-4 rounded text-accent-1 focus:ring-accent-1 border-gray-300">
+										<span class="text-gray-700">Livres et cahiers</span>
+									</label>
+									<label class="flex items-center gap-2 text-sm cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-colors">
+										<input type="checkbox" class="w-4 h-4 rounded text-accent-1 focus:ring-accent-1 border-gray-300">
+										<span class="text-gray-700">Photos, albums, souvenirs</span>
+									</label>
+								</div>
+							</div>
+
+							<!-- Vêtements & effets personnels -->
+							<div>
+								<h3 class="text-sm font-bold text-dark-1 uppercase mb-3">Vêtements & effets personnels</h3>
+								<div class="grid md:grid-cols-2 gap-3">
+									<label class="flex items-center gap-2 text-sm cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-colors">
+										<input type="checkbox" class="w-4 h-4 rounded text-accent-1 focus:ring-accent-1 border-gray-300">
+										<span class="text-gray-700">Vêtements</span>
+									</label>
+									<label class="flex items-center gap-2 text-sm cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-colors">
+										<input type="checkbox" class="w-4 h-4 rounded text-accent-1 focus:ring-accent-1 border-gray-300">
+										<span class="text-gray-700">Chaussures</span>
+									</label>
+									<label class="flex items-center gap-2 text-sm cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-colors">
+										<input type="checkbox" class="w-4 h-4 rounded text-accent-1 focus:ring-accent-1 border-gray-300">
+										<span class="text-gray-700">Accessoires (sacs, bijoux...)</span>
+									</label>
+									<label class="flex items-center gap-2 text-sm cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-colors">
+										<input type="checkbox" class="w-4 h-4 rounded text-accent-1 focus:ring-accent-1 border-gray-300">
+										<span class="text-gray-700">Effets personnels</span>
+									</label>
+								</div>
+							</div>
+
+							<!-- Électronique -->
+							<div>
+								<h3 class="text-sm font-bold text-dark-1 uppercase mb-3">Électronique (sous réserve)</h3>
+								<div class="grid md:grid-cols-2 gap-3">
+									<label class="flex items-center gap-2 text-sm cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-colors">
+										<input type="checkbox" class="w-4 h-4 rounded text-accent-1 focus:ring-accent-1 border-gray-300">
+										<span class="text-gray-700">Téléphones portables</span>
+									</label>
+									<label class="flex items-center gap-2 text-sm cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-colors">
+										<input type="checkbox" class="w-4 h-4 rounded text-accent-1 focus:ring-accent-1 border-gray-300">
+										<span class="text-gray-700">Ordinateurs portables</span>
+									</label>
+									<label class="flex items-center gap-2 text-sm cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-colors">
+										<input type="checkbox" class="w-4 h-4 rounded text-accent-1 focus:ring-accent-1 border-gray-300">
+										<span class="text-gray-700">Tablettes</span>
+									</label>
+									<label class="flex items-center gap-2 text-sm cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-colors">
+										<input type="checkbox" class="w-4 h-4 rounded text-accent-1 focus:ring-accent-1 border-gray-300">
+										<span class="text-gray-700">Accessoires électroniques</span>
+									</label>
+								</div>
+							</div>
+
+							<!-- Produits du quotidien -->
+							<div>
+								<h3 class="text-sm font-bold text-dark-1 uppercase mb-3">Produits du quotidien</h3>
+								<div class="grid md:grid-cols-2 gap-3">
+									<label class="flex items-center gap-2 text-sm cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-colors">
+										<input type="checkbox" class="w-4 h-4 rounded text-accent-1 focus:ring-accent-1 border-gray-300">
+										<span class="text-gray-700">Cosmétiques non liquides</span>
+									</label>
+									<label class="flex items-center gap-2 text-sm cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-colors">
+										<input type="checkbox" class="w-4 h-4 rounded text-accent-1 focus:ring-accent-1 border-gray-300">
+										<span class="text-gray-700">Produits de toilette solides</span>
+									</label>
+									<label class="flex items-center gap-2 text-sm cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-colors">
+										<input type="checkbox" class="w-4 h-4 rounded text-accent-1 focus:ring-accent-1 border-gray-300">
+										<span class="text-gray-700">Petits accessoires maison</span>
+									</label>
+									<label class="flex items-center gap-2 text-sm cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-colors">
+										<input type="checkbox" class="w-4 h-4 rounded text-accent-1 focus:ring-accent-1 border-gray-300">
+										<span class="text-gray-700">Cadeaux non fragiles</span>
+									</label>
+								</div>
+							</div>
+
+							<!-- Produits culturels -->
+							<div>
+								<h3 class="text-sm font-bold text-dark-1 uppercase mb-3">Produits culturels</h3>
+								<div class="grid md:grid-cols-2 gap-3">
+									<label class="flex items-center gap-2 text-sm cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-colors">
+										<input type="checkbox" class="w-4 h-4 rounded text-accent-1 focus:ring-accent-1 border-gray-300">
+										<span class="text-gray-700">CD/DVD / Vinyles</span>
+									</label>
+									<label class="flex items-center gap-2 text-sm cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-colors">
+										<input type="checkbox" class="w-4 h-4 rounded text-accent-1 focus:ring-accent-1 border-gray-300">
+										<span class="text-gray-700">Instruments compacts</span>
+									</label>
+									<label class="flex items-center gap-2 text-sm cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-colors">
+										<input type="checkbox" class="w-4 h-4 rounded text-accent-1 focus:ring-accent-1 border-gray-300">
+										<span class="text-gray-700">Œuvres d’art, tableaux</span>
+									</label>
+								</div>
+							</div>
+
+							<!-- Autres -->
+							<div>
+								<h3 class="text-sm font-bold text-dark-1 uppercase mb-3">Autres (à préciser)</h3>
+								<div class="space-y-3">
+									<label class="flex items-center gap-2 text-sm cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-colors">
+										<input type="checkbox" class="w-4 h-4 rounded text-accent-1 focus:ring-accent-1 border-gray-300">
+										<span class="text-gray-700">Autres petits objets</span>
+									</label>
+									<input type="text" placeholder="Description obligatoire si coché" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-accent-1 bg-gray-50 text-sm">
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Refused Packages -->
+					<div class="space-y-4 pt-4 border-t border-gray-100">
+						<h2 class="text-xl font-bold flex items-center gap-2"><i data-lucide="ban" class="w-5 h-5 text-red-500"></i> Colis Refusés</h2>
+						<p class="text-sm text-gray-500">Sélectionnez les objets que vous refusez catégoriquement.</p>
+						
+						<div class="space-y-6">
+							<!-- Produits interdits -->
+							<div>
+								<h3 class="text-sm font-bold text-red-500 uppercase mb-3">Interdits / Réglementés</h3>
+								<div class="grid md:grid-cols-2 gap-3">
+									<label class="flex items-center gap-2 text-sm cursor-pointer hover:bg-red-50 p-2 rounded-lg transition-colors">
+										<input type="checkbox" class="w-4 h-4 rounded text-red-500 focus:ring-red-500 border-gray-300" checked>
+										<span class="text-gray-700">Drogues, stupéfiants</span>
+									</label>
+									<label class="flex items-center gap-2 text-sm cursor-pointer hover:bg-red-50 p-2 rounded-lg transition-colors">
+										<input type="checkbox" class="w-4 h-4 rounded text-red-500 focus:ring-red-500 border-gray-300" checked>
+										<span class="text-gray-700">Médicaments sur ordonnance</span>
+									</label>
+									<label class="flex items-center gap-2 text-sm cursor-pointer hover:bg-red-50 p-2 rounded-lg transition-colors">
+										<input type="checkbox" class="w-4 h-4 rounded text-red-500 focus:ring-red-500 border-gray-300" checked>
+										<span class="text-gray-700">Produits non autorisés</span>
+									</label>
+									<label class="flex items-center gap-2 text-sm cursor-pointer hover:bg-red-50 p-2 rounded-lg transition-colors">
+										<input type="checkbox" class="w-4 h-4 rounded text-red-500 focus:ring-red-500 border-gray-300" checked>
+										<span class="text-gray-700">Substances dangereuses</span>
+									</label>
+								</div>
+							</div>
+
+							<!-- Objets dangereux -->
+							<div>
+								<h3 class="text-sm font-bold text-red-500 uppercase mb-3">Objets dangereux</h3>
+								<div class="grid md:grid-cols-2 gap-3">
+									<label class="flex items-center gap-2 text-sm cursor-pointer hover:bg-red-50 p-2 rounded-lg transition-colors">
+										<input type="checkbox" class="w-4 h-4 rounded text-red-500 focus:ring-red-500 border-gray-300" checked>
+										<span class="text-gray-700">Armes, munitions, explosifs</span>
+									</label>
+									<label class="flex items-center gap-2 text-sm cursor-pointer hover:bg-red-50 p-2 rounded-lg transition-colors">
+										<input type="checkbox" class="w-4 h-4 rounded text-red-500 focus:ring-red-500 border-gray-300" checked>
+										<span class="text-gray-700">Objets coupants non protégés</span>
+									</label>
+								</div>
+							</div>
+
+							<!-- Liquides & produits sensibles -->
+							<div>
+								<h3 class="text-sm font-bold text-dark-1 uppercase mb-3">Liquides & produits sensibles</h3>
+								<div class="grid md:grid-cols-2 gap-3">
+									<label class="flex items-center gap-2 text-sm cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-colors">
+										<input type="checkbox" class="w-4 h-4 rounded text-red-500 focus:ring-red-500 border-gray-300">
+										<span class="text-gray-700">Liquides inflammables</span>
+									</label>
+									<label class="flex items-center gap-2 text-sm cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-colors">
+										<input type="checkbox" class="w-4 h-4 rounded text-red-500 focus:ring-red-500 border-gray-300">
+										<span class="text-gray-700">Parfums en grande quantité</span>
+									</label>
+									<label class="flex items-center gap-2 text-sm cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-colors">
+										<input type="checkbox" class="w-4 h-4 rounded text-red-500 focus:ring-red-500 border-gray-300">
+										<span class="text-gray-700">Aérosols / Produits corrosifs</span>
+									</label>
+								</div>
+							</div>
+
+							<!-- Produits alimentaires -->
+							<div>
+								<h3 class="text-sm font-bold text-dark-1 uppercase mb-3">Produits alimentaires</h3>
+								<div class="grid md:grid-cols-2 gap-3">
+									<label class="flex items-center gap-2 text-sm cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-colors">
+										<input type="checkbox" class="w-4 h-4 rounded text-red-500 focus:ring-red-500 border-gray-300">
+										<span class="text-gray-700">Nourriture fraîche / périssable</span>
+									</label>
+									<label class="flex items-center gap-2 text-sm cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-colors">
+										<input type="checkbox" class="w-4 h-4 rounded text-red-500 focus:ring-red-500 border-gray-300">
+										<span class="text-gray-700">Viande, poisson, laitages</span>
+									</label>
+									<label class="flex items-center gap-2 text-sm cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-colors">
+										<input type="checkbox" class="w-4 h-4 rounded text-red-500 focus:ring-red-500 border-gray-300">
+										<span class="text-gray-700">Aliments faits maison</span>
+									</label>
+								</div>
+							</div>
+
+							<!-- Valeurs & objets sensibles -->
+							<div>
+								<h3 class="text-sm font-bold text-dark-1 uppercase mb-3">Valeurs & objets sensibles</h3>
+								<div class="grid md:grid-cols-2 gap-3">
+									<label class="flex items-center gap-2 text-sm cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-colors">
+										<input type="checkbox" class="w-4 h-4 rounded text-red-500 focus:ring-red-500 border-gray-300">
+										<span class="text-gray-700">Argent liquide, Or, Diamants</span>
+									</label>
+									<label class="flex items-center gap-2 text-sm cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-colors">
+										<input type="checkbox" class="w-4 h-4 rounded text-red-500 focus:ring-red-500 border-gray-300">
+										<span class="text-gray-700">Œuvres d’art de grande valeur</span>
+									</label>
+								</div>
+							</div>
+
+							<!-- Animaux & êtres vivants -->
+							<div>
+								<h3 class="text-sm font-bold text-dark-1 uppercase mb-3">Animaux & êtres vivants</h3>
+								<div class="grid md:grid-cols-2 gap-3">
+									<label class="flex items-center gap-2 text-sm cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-colors">
+										<input type="checkbox" class="w-4 h-4 rounded text-red-500 focus:ring-red-500 border-gray-300">
+										<span class="text-gray-700">Animaux vivants</span>
+									</label>
+									<label class="flex items-center gap-2 text-sm cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-colors">
+										<input type="checkbox" class="w-4 h-4 rounded text-red-500 focus:ring-red-500 border-gray-300">
+										<span class="text-gray-700">Plantes, graines</span>
+									</label>
+								</div>
+							</div>
+
+							<!-- Produits commerciaux -->
+							<div>
+								<h3 class="text-sm font-bold text-dark-1 uppercase mb-3">Produits commerciaux</h3>
+								<div class="grid md:grid-cols-2 gap-3">
+									<label class="flex items-center gap-2 text-sm cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-colors">
+										<input type="checkbox" class="w-4 h-4 rounded text-red-500 focus:ring-red-500 border-gray-300">
+										<span class="text-gray-700">Marchandises en quantité</span>
+									</label>
+									<label class="flex items-center gap-2 text-sm cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-colors">
+										<input type="checkbox" class="w-4 h-4 rounded text-red-500 focus:ring-red-500 border-gray-300">
+										<span class="text-gray-700">Produits pour revente</span>
+									</label>
+								</div>
+							</div>
+
+							<!-- Autres refus -->
+							<div>
+								<h3 class="text-sm font-bold text-dark-1 uppercase mb-3">Autres refus</h3>
+								<div class="grid md:grid-cols-2 gap-3">
+									<label class="flex items-center gap-2 text-sm cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-colors">
+										<input type="checkbox" class="w-4 h-4 rounded text-red-500 focus:ring-red-500 border-gray-300">
+										<span class="text-gray-700">Objets fragiles non protégés</span>
+									</label>
+									<label class="flex items-center gap-2 text-sm cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-colors">
+										<input type="checkbox" class="w-4 h-4 rounded text-red-500 focus:ring-red-500 border-gray-300" checked>
+										<span class="text-gray-700">Tout objet non déclaré</span>
+									</label>
 								</div>
 							</div>
 						</div>
