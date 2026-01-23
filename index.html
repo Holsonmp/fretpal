@@ -91,12 +91,10 @@
 		<div id="mobile-menu" class="hidden fixed inset-0 bg-white z-40 flex flex-col pt-24 px-6 gap-6 lg:hidden">
 			<a href="index.html" class="text-xl font-medium text-accent-2">Accueil</a>
 			<a href="search.html" class="text-xl font-medium">Rechercher</a>
-			<a href="how-it-works.html" class="text-xl font-medium">Comment ça marche</a>
-			<a href="blog.html" class="text-xl font-medium">Blog</a>
+			<a href="publish-trip.html" class="text-xl font-medium">Publier un voyage</a>
 			<a href="dashboard.html" class="text-xl font-medium">Mon Compte</a>
 			<div class="h-px bg-gray-100 w-full my-2"></div>
-			<a href="login.html" class="w-full text-center px-6 py-3 bg-accent-1 text-dark-1 font-bold rounded-xl">Se
-				connecter</a>
+			<a href="login.html" class="w-full text-center px-6 py-3 bg-accent-1 text-dark-1 font-bold rounded-xl">Se connecter</a>
 		</div>
 	</header>
 
@@ -217,9 +215,8 @@
 				</div>
 
 				<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-					<!-- Trip Card 1 -->
-					<div
-						class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+
+					<div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
 						<div class="flex items-center gap-4 mb-6">
 							<img src="https://picsum.photos/50/50?random=1" alt="Alice"
 								class="w-12 h-12 rounded-full object-cover" />
@@ -233,8 +230,15 @@
 								<span>Paris</span> <i data-lucide="arrow-right" class="w-4 h-4 text-gray-300"></i>
 								<span>Kinshasa</span>
 							</div>
-							<div class="flex items-center gap-2 text-sm text-gray-500">
-								<i data-lucide="calendar" class="w-4 h-4"></i> 15 Nov 2024
+							<div class="flex justify-between gap-1.5 text-sm text-gray-500">
+								<div class="flex items-center gap-2">
+									<i data-lucide="calendar" class="w-4 h-4 text-gray-400"></i>
+									<span class="font-medium">Départ :</span> 15/11/2024
+								</div>
+								<div class="flex items-center gap-2">
+									<i data-lucide="calendar-check" class="w-4 h-4 text-gray-400"></i>
+									<span class="font-medium">Arrivée :</span> 16/11/2024
+								</div>
 							</div>
 						</div>
 						<div class="border-t border-gray-100 pt-4 flex justify-between items-center">
@@ -250,7 +254,6 @@
 						<a href="details-voyage.html" class="block mt-4 w-full py-2 text-center border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors font-medium">Voir l'offre</a>
 					</div>
 
-					<!-- Trip Card 2 -->
 					<div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
 						<div class="flex items-center gap-4 mb-6">
 							<img src="https://picsum.photos/50/50?random=2" alt="Marc" class="w-12 h-12 rounded-full object-cover" />
@@ -264,8 +267,15 @@
 								<span>Lyon</span> <i data-lucide="arrow-right" class="w-4 h-4 text-gray-300"></i>
 								<span>Lubumbashi</span>
 							</div>
-							<div class="flex items-center gap-2 text-sm text-gray-500">
-								<i data-lucide="calendar" class="w-4 h-4"></i> 20 Nov 2024
+							<div class="flex justify-between gap-1.5 text-sm text-gray-500">
+								<div class="flex items-center gap-2">
+									<i data-lucide="calendar" class="w-4 h-4 text-gray-400"></i>
+									<span class="font-medium">20/11/2024</span> 
+								</div>
+								<div class="flex items-center gap-2">
+									<i data-lucide="calendar-check" class="w-4 h-4 text-gray-400"></i>
+									<span class="font-medium">21/11/2024</span> 
+								</div>
 							</div>
 						</div>
 						<div class="border-t border-gray-100 pt-4 flex justify-between items-center">
@@ -281,7 +291,6 @@
 						<a href="details-voyage.html" class="block mt-4 w-full py-2 text-center border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors font-medium">Voir l'offre</a>
 					</div>
 
-					<!-- Trip Card 3 -->
 					<div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
 						<div class="flex items-center gap-4 mb-6">
 							<img src="https://picsum.photos/50/50?random=3" alt="Sophie" class="w-12 h-12 rounded-full object-cover" />
@@ -295,8 +304,15 @@
 								<span>Bruxelles</span> <i data-lucide="arrow-right" class="w-4 h-4 text-gray-300"></i>
 								<span>Kinshasa</span>
 							</div>
-							<div class="flex items-center gap-2 text-sm text-gray-500">
-								<i data-lucide="calendar" class="w-4 h-4"></i> 05 Dec 2024
+							<div class="flex flex-col gap-1.5 text-sm text-gray-500">
+								<div class="flex items-center gap-2">
+									<i data-lucide="calendar" class="w-4 h-4 text-gray-400"></i>
+									<span class="font-medium">Départ :</span> 05/12/2024
+								</div>
+								<div class="flex items-center gap-2">
+									<i data-lucide="calendar-check" class="w-4 h-4 text-gray-400"></i>
+									<span class="font-medium">Arrivée :</span> 06/12/2024
+								</div>
 							</div>
 						</div>
 						<div class="border-t border-gray-100 pt-4 flex justify-between items-center">
@@ -311,6 +327,7 @@
 						</div>
 						<a href="details-voyage.html" class="block mt-4 w-full py-2 text-center border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors font-medium">Voir l'offre</a>
 					</div>
+					
 				</div>
 			</div>
 		</section>
