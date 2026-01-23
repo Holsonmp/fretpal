@@ -3321,15 +3321,15 @@ h6 {
 }
 
 .footer.-type-1 .footer__info {
-	padding-top: 80px;
-	padding-bottom: 48px;
+	padding-top: 20px;
+	padding-bottom: 20px;
 	border-bottom: 1px solid rgba(235, 102, 43, 0.15);
 }
 
 @media (max-width: 767px) {
 	.footer.-type-1 .footer__info {
-		padding-top: 40px;
-		padding-bottom: 40px;
+		padding-top: 10px;
+		padding-bottom: 10px;
 	}
 }
 
