@@ -5,12 +5,15 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Trouver un trajet - FretPal</title>
-	<meta name="description" content="Recherchez un voyageur pour transporter votre colis. Comparez les prix, les dates et les avis pour un envoi collaboratif sécurisé." />
+	<meta name="description"
+		content="Recherchez un voyageur pour transporter votre colis. Comparez les prix, les dates et les avis pour un envoi collaboratif sécurisé." />
 
 	<!-- Google Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
+	<link
+		href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap"
+		rel="stylesheet">
 
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="css/vendors.css">
@@ -77,7 +80,8 @@
 			<nav class="hidden lg:flex items-center gap-8">
 				<a href="index.html" class="font-medium text-dark-1 hover:text-accent-2 transition-colors">Accueil</a>
 				<a href="search.html" class="font-medium text-accent-2 transition-colors">Trouver un trajet</a>
-				<a href="publish-trip.html" class="font-medium text-dark-1 hover:text-accent-2 transition-colors">Publier un voyage</a>
+				<a href="publish-trip.html"
+					class="font-medium text-dark-1 hover:text-accent-2 transition-colors">Publier un voyage</a>
 			</nav>
 
 			<div class="hidden lg:flex items-center gap-4">
@@ -93,7 +97,8 @@
 			<a href="publish-trip.html" class="text-xl font-medium">Publier un voyage</a>
 			<a href="dashboard.html" class="text-xl font-medium">Mon Compte</a>
 			<div class="h-px bg-gray-100 w-full my-2"></div>
-			<a href="login.html" class="w-full text-center px-6 py-3 bg-accent-1 text-dark-1 font-bold rounded-xl">Se connecter</a>
+			<a href="login.html" class="w-full text-center px-6 py-3 bg-accent-1 text-dark-1 font-bold rounded-xl">Se
+				connecter</a>
 		</div>
 	</header>
 
@@ -102,7 +107,8 @@
 	<main class="flex-grow pt-[80px] py-8 ">
 		<section class="relative pt-20 pb-32">
 			<div class="absolute inset-0 z-0">
-				<img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-4.0.3&auto=format&fit=crop&w=2021&q=80" alt="Voyageur" class="w-full h-full object-cover opacity-10" />
+				<img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-4.0.3&auto=format&fit=crop&w=2021&q=80"
+					alt="Voyageur" class="w-full h-full object-cover opacity-10" />
 				<div class="absolute inset-0 bg-gradient-to-b from-white/0 to-white"></div>
 			</div>
 
@@ -112,70 +118,51 @@
 						<i data-lucide="map-pin" class="text-light-2 w-5 h-5 mr-3"></i>
 						<div class="text-left w-full">
 							<label class="block text-xs font-bold text-dark-1 uppercase">Départ</label>
-							<input type="text" placeholder="Paris, France" class="w-full bg-transparent outline-none text-sm" />
+							<input type="text" placeholder="Paris, France"
+								class="w-full bg-transparent outline-none text-sm" />
 						</div>
 					</div>
 					<div class="flex-1 flex items-center bg-light-1 rounded-xl px-4 py-3">
 						<i data-lucide="map-pin" class="text-light-2 w-5 h-5 mr-3"></i>
 						<div class="text-left w-full">
 							<label class="block text-xs font-bold text-dark-1 uppercase">Arrivée</label>
-							<input type="text" placeholder="Kinshasa, RDC" class="w-full bg-transparent outline-none text-sm" />
+							<input type="text" placeholder="Kinshasa, RDC"
+								class="w-full bg-transparent outline-none text-sm" />
 						</div>
 					</div>
 					<div class="flex-1 relative">
-						<button type="button"
-							id="hero-date-trigger"
+						<button type="button" id="hero-date-trigger"
 							class="w-full flex items-center bg-light-1 rounded-xl px-4 py-3 border border-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-1 focus-visible:ring-offset-2 focus-visible:ring-offset-white transition-colors"
-							aria-haspopup="dialog"
-							aria-expanded="false"
-							aria-controls="hero-date-popover"
-						>
+							aria-haspopup="dialog" aria-expanded="false" aria-controls="hero-date-popover">
 							<i data-lucide="calendar" class="text-light-2 w-5 h-5 mr-3"></i>
 							<div class="text-left w-full">
 								<span class="block text-xs font-bold text-dark-1 uppercase">Périodes</span>
-								<span id="hero-date-label" class="block text-sm text-light-2">Périodes du voyage</span>
+								<span id="hero-date-label" class="block text-xs text-light-2">Périodes du voyage</span>
 							</div>
 						</button>
 
-						<div
-							id="hero-date-popover"
+						<div id="hero-date-popover"
 							class="absolute z-90 mt-2 w-full md:w-[360px] right-0 origin-top-right bg-white rounded-2xl shadow-2xl border border-gray-100 p-4 opacity-0 scale-95 pointer-events-none transform transition-all duration-200"
-							role="dialog"
-							aria-label="Sélection des dates de voyage"
-						>
+							role="dialog" aria-label="Sélection des dates de voyage">
 							<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
 								<div>
-									<label for="hero-date-start" class="block text-xs font-medium text-gray-600 mb-1">Date de départ</label>
-									<input
-										id="hero-date-start"
-										type="date"
-										class="w-full rounded-xl border border-gray-300 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-accent-1 focus:border-accent-1"
-									>
+									<label for="hero-date-start"
+										class="block text-xs font-medium text-gray-600 mb-1">Date de départ</label>
+									<input id="hero-date-start" type="date"
+										class="w-full rounded-xl border border-gray-300 px-3 py-2 text-xs outline-none focus:ring-2 focus:ring-accent-1 focus:border-accent-1">
 								</div>
 								<div>
 									<label for="hero-date-end" class="block text-xs font-medium text-gray-600 mb-1">Date d'arrivée</label>
-									<input
-										id="hero-date-end"
-										type="date"
-										class="w-full rounded-xl border border-gray-300 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-accent-1 focus:border-accent-1"
-									>
+									<input id="hero-date-end" type="date" class="w-full rounded-xl border border-gray-300 px-3 py-2 text-xs outline-none focus:ring-2 focus:ring-accent-1 focus:border-accent-1">
 								</div>
 							</div>
 							<div class="flex items-center justify-between pt-2 border-t border-gray-100">
-								<button
-									type="button"
-									id="hero-date-clear"
-									class="text-xs sm:text-sm text-gray-500 hover:text-gray-700 px-2 py-1 rounded-lg transition-colors"
-								>
+								<button type="button" id="hero-date-clear" class="text-xs sm:text-sm text-gray-500 hover:text-gray-700 px-2 py-1 rounded-lg transition-colors">
 									Effacer
 								</button>
 								<div class="flex items-center gap-2">
 									<span id="hero-date-summary" class="hidden text-xs text-gray-500"></span>
-									<button
-										type="button"
-										id="hero-date-apply"
-										class="px-4 py-2 rounded-xl bg-accent-1 text-dark-1 text-xs sm:text-sm font-semibold hover:bg-yellow-400 transition-colors"
-									>
+									<button type="button" id="hero-date-apply" class="px-4 py-2 rounded-xl bg-accent-1 text-dark-1 text-xs sm:text-sm font-semibold hover:bg-yellow-400 transition-colors">
 										Appliquer
 									</button>
 								</div>
@@ -195,10 +182,10 @@
 			<div class="flex flex-col lg:flex-row gap-8">
 				<!-- Sidebar Filters -->
 				<aside class="w-full lg:w-80 flex-shrink-0">
-					<div class="bg-white p-6 rounded-xl border border-gray-200 sticky top-24">
-						<div class="flex items-center justify-between mb-6">
-							<h3 class="font-bold text-lg">Filtres</h3>
-							<button class="text-sm text-accent-2 font-medium">Réinitialiser</button>
+					<div class="bg-white p-6 rounded-2xl shadow-xl border border-gray-100 sticky top-24">
+						<div class="flex items-center justify-between mb-6 pb-4 border-b border-gray-100">
+							<h3 class="font-bold text-lg text-dark-1">Filtres</h3>
+							<button class="text-sm text-accent-2 font-bold hover:underline">Réinitialiser</button>
 						</div>
 
 						<!-- Filter Groups -->
@@ -249,10 +236,11 @@
 
 							<div class="pt-6 border-t border-gray-100">
 								<h4 class="font-medium mb-3">Type de colis</h4>
-								
+
 								<!-- Accepted Packages -->
 								<details class="group mb-4">
-									<summary class="flex items-center justify-between cursor-pointer list-none text-sm font-medium text-dark-1 hover:text-accent-2 transition-colors">
+									<summary
+										class="flex items-center justify-between cursor-pointer list-none text-sm font-medium text-dark-1 hover:text-accent-2 transition-colors">
 										<span>Colis ACCEPTÉS</span>
 										<span class="transition-transform group-open:rotate-180">
 											<i data-lucide="chevron-down" class="w-4 h-4"></i>
@@ -261,22 +249,27 @@
 									<div class="mt-3 space-y-4 pl-2">
 										<!-- Documents -->
 										<div>
-											<h5 class="text-xs font-bold text-gray-500 uppercase mb-2">Documents & petits objets</h5>
+											<h5 class="text-xs font-bold text-gray-500 uppercase mb-2">Documents &
+												petits objets</h5>
 											<div class="space-y-2">
 												<label class="flex items-center gap-2 text-sm cursor-pointer">
-													<input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
+													<input type="checkbox"
+														class="rounded text-accent-1 focus:ring-accent-1">
 													<span class="text-gray-600">Documents (papiers, contrats...)</span>
 												</label>
 												<label class="flex items-center gap-2 text-sm cursor-pointer">
-													<input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
+													<input type="checkbox"
+														class="rounded text-accent-1 focus:ring-accent-1">
 													<span class="text-gray-600">Lettres et enveloppes</span>
 												</label>
 												<label class="flex items-center gap-2 text-sm cursor-pointer">
-													<input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
+													<input type="checkbox"
+														class="rounded text-accent-1 focus:ring-accent-1">
 													<span class="text-gray-600">Livres et cahiers</span>
 												</label>
 												<label class="flex items-center gap-2 text-sm cursor-pointer">
-													<input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
+													<input type="checkbox"
+														class="rounded text-accent-1 focus:ring-accent-1">
 													<span class="text-gray-600">Photos, albums, souvenirs</span>
 												</label>
 											</div>
@@ -284,22 +277,27 @@
 
 										<!-- Clothes -->
 										<div>
-											<h5 class="text-xs font-bold text-gray-500 uppercase mb-2">Vêtements & effets</h5>
+											<h5 class="text-xs font-bold text-gray-500 uppercase mb-2">Vêtements &
+												effets</h5>
 											<div class="space-y-2">
 												<label class="flex items-center gap-2 text-sm cursor-pointer">
-													<input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
+													<input type="checkbox"
+														class="rounded text-accent-1 focus:ring-accent-1">
 													<span class="text-gray-600">Vêtements</span>
 												</label>
 												<label class="flex items-center gap-2 text-sm cursor-pointer">
-													<input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
+													<input type="checkbox"
+														class="rounded text-accent-1 focus:ring-accent-1">
 													<span class="text-gray-600">Chaussures</span>
 												</label>
 												<label class="flex items-center gap-2 text-sm cursor-pointer">
-													<input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
+													<input type="checkbox"
+														class="rounded text-accent-1 focus:ring-accent-1">
 													<span class="text-gray-600">Accessoires (sacs, bijoux...)</span>
 												</label>
 												<label class="flex items-center gap-2 text-sm cursor-pointer">
-													<input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
+													<input type="checkbox"
+														class="rounded text-accent-1 focus:ring-accent-1">
 													<span class="text-gray-600">Effets personnels</span>
 												</label>
 											</div>
@@ -310,86 +308,102 @@
 											<h5 class="text-xs font-bold text-gray-500 uppercase mb-2">Électronique</h5>
 											<div class="space-y-2">
 												<label class="flex items-center gap-2 text-sm cursor-pointer">
-													<input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
+													<input type="checkbox"
+														class="rounded text-accent-1 focus:ring-accent-1">
 													<span class="text-gray-600">Téléphones portables</span>
 												</label>
 												<label class="flex items-center gap-2 text-sm cursor-pointer">
-													<input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
+													<input type="checkbox"
+														class="rounded text-accent-1 focus:ring-accent-1">
 													<span class="text-gray-600">Ordinateurs portables</span>
 												</label>
 												<label class="flex items-center gap-2 text-sm cursor-pointer">
-													<input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
+													<input type="checkbox"
+														class="rounded text-accent-1 focus:ring-accent-1">
 													<span class="text-gray-600">Tablettes</span>
 												</label>
 												<label class="flex items-center gap-2 text-sm cursor-pointer">
-													<input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
+													<input type="checkbox"
+														class="rounded text-accent-1 focus:ring-accent-1">
 													<span class="text-gray-600">Accessoires électroniques</span>
 												</label>
 											</div>
 										</div>
-                                        
-                                        <!-- Daily Products -->
-                                        <div>
-                                            <h5 class="text-xs font-bold text-gray-500 uppercase mb-2">Produits du quotidien</h5>
-                                            <div class="space-y-2">
-                                                <label class="flex items-center gap-2 text-sm cursor-pointer">
-                                                    <input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
-                                                    <span class="text-gray-600">Cosmétiques non liquides</span>
-                                                </label>
-                                                <label class="flex items-center gap-2 text-sm cursor-pointer">
-                                                    <input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
-                                                    <span class="text-gray-600">Produits de toilette solides</span>
-                                                </label>
-                                                <label class="flex items-center gap-2 text-sm cursor-pointer">
-                                                    <input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
-                                                    <span class="text-gray-600">Petits accessoires maison</span>
-                                                </label>
-                                                <label class="flex items-center gap-2 text-sm cursor-pointer">
-                                                    <input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
-                                                    <span class="text-gray-600">Cadeaux non fragiles</span>
-                                                </label>
-                                            </div>
-                                        </div>
 
-                                        <!-- Cultural -->
-                                        <div>
-                                            <h5 class="text-xs font-bold text-gray-500 uppercase mb-2">Produits culturels</h5>
-                                            <div class="space-y-2">
-                                                <label class="flex items-center gap-2 text-sm cursor-pointer">
-                                                    <input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
-                                                    <span class="text-gray-600">CD/DVD</span>
-                                                </label>
-                                                <label class="flex items-center gap-2 text-sm cursor-pointer">
-                                                    <input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
-                                                    <span class="text-gray-600">Vinyles</span>
-                                                </label>
-                                                <label class="flex items-center gap-2 text-sm cursor-pointer">
-                                                    <input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
-                                                    <span class="text-gray-600">Instruments compacts</span>
-                                                </label>
-                                                <label class="flex items-center gap-2 text-sm cursor-pointer">
-                                                    <input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
-                                                    <span class="text-gray-600">Œuvres d’art, tableaux</span>
-                                                </label>
-                                            </div>
-                                        </div>
+										<!-- Daily Products -->
+										<div>
+											<h5 class="text-xs font-bold text-gray-500 uppercase mb-2">Produits du
+												quotidien</h5>
+											<div class="space-y-2">
+												<label class="flex items-center gap-2 text-sm cursor-pointer">
+													<input type="checkbox"
+														class="rounded text-accent-1 focus:ring-accent-1">
+													<span class="text-gray-600">Cosmétiques non liquides</span>
+												</label>
+												<label class="flex items-center gap-2 text-sm cursor-pointer">
+													<input type="checkbox"
+														class="rounded text-accent-1 focus:ring-accent-1">
+													<span class="text-gray-600">Produits de toilette solides</span>
+												</label>
+												<label class="flex items-center gap-2 text-sm cursor-pointer">
+													<input type="checkbox"
+														class="rounded text-accent-1 focus:ring-accent-1">
+													<span class="text-gray-600">Petits accessoires maison</span>
+												</label>
+												<label class="flex items-center gap-2 text-sm cursor-pointer">
+													<input type="checkbox"
+														class="rounded text-accent-1 focus:ring-accent-1">
+													<span class="text-gray-600">Cadeaux non fragiles</span>
+												</label>
+											</div>
+										</div>
 
-                                        <!-- Others -->
-                                        <div>
-                                            <h5 class="text-xs font-bold text-gray-500 uppercase mb-2">Autres</h5>
-                                            <div class="space-y-2">
-                                                <label class="flex items-center gap-2 text-sm cursor-pointer">
-                                                    <input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
-                                                    <span class="text-gray-600">Autres petits objets</span>
-                                                </label>
-                                            </div>
-                                        </div>
+										<!-- Cultural -->
+										<div>
+											<h5 class="text-xs font-bold text-gray-500 uppercase mb-2">Produits
+												culturels</h5>
+											<div class="space-y-2">
+												<label class="flex items-center gap-2 text-sm cursor-pointer">
+													<input type="checkbox"
+														class="rounded text-accent-1 focus:ring-accent-1">
+													<span class="text-gray-600">CD/DVD</span>
+												</label>
+												<label class="flex items-center gap-2 text-sm cursor-pointer">
+													<input type="checkbox"
+														class="rounded text-accent-1 focus:ring-accent-1">
+													<span class="text-gray-600">Vinyles</span>
+												</label>
+												<label class="flex items-center gap-2 text-sm cursor-pointer">
+													<input type="checkbox"
+														class="rounded text-accent-1 focus:ring-accent-1">
+													<span class="text-gray-600">Instruments compacts</span>
+												</label>
+												<label class="flex items-center gap-2 text-sm cursor-pointer">
+													<input type="checkbox"
+														class="rounded text-accent-1 focus:ring-accent-1">
+													<span class="text-gray-600">Œuvres d’art, tableaux</span>
+												</label>
+											</div>
+										</div>
+
+										<!-- Others -->
+										<div>
+											<h5 class="text-xs font-bold text-gray-500 uppercase mb-2">Autres</h5>
+											<div class="space-y-2">
+												<label class="flex items-center gap-2 text-sm cursor-pointer">
+													<input type="checkbox"
+														class="rounded text-accent-1 focus:ring-accent-1">
+													<span class="text-gray-600">Autres petits objets</span>
+												</label>
+											</div>
+										</div>
 									</div>
 								</details>
 
 								<!-- Refused Packages -->
 								<details class="group">
-									<summary class="flex items-center justify-between cursor-pointer list-none text-sm font-medium text-dark-1 hover:text-accent-2 transition-colors">
+									<summary
+										class="flex items-center justify-between cursor-pointer list-none text-sm font-medium text-dark-1 hover:text-accent-2 transition-colors">
 										<span>Colis REFUSÉS</span>
 										<span class="transition-transform group-open:rotate-180">
 											<i data-lucide="chevron-down" class="w-4 h-4"></i>
@@ -398,163 +412,192 @@
 									<div class="mt-3 space-y-4 pl-2">
 										<!-- Prohibited -->
 										<div>
-											<h5 class="text-xs font-bold text-gray-500 uppercase mb-2">Interdits / Réglementés</h5>
+											<h5 class="text-xs font-bold text-gray-500 uppercase mb-2">Interdits /
+												Réglementés</h5>
 											<div class="space-y-2">
 												<label class="flex items-center gap-2 text-sm cursor-pointer">
-													<input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
+													<input type="checkbox"
+														class="rounded text-accent-1 focus:ring-accent-1">
 													<span class="text-gray-600">Drogues, stupéfiants</span>
 												</label>
 												<label class="flex items-center gap-2 text-sm cursor-pointer">
-													<input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
+													<input type="checkbox"
+														class="rounded text-accent-1 focus:ring-accent-1">
 													<span class="text-gray-600">Médicaments sur ordonnance</span>
 												</label>
 												<label class="flex items-center gap-2 text-sm cursor-pointer">
-													<input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
+													<input type="checkbox"
+														class="rounded text-accent-1 focus:ring-accent-1">
 													<span class="text-gray-600">Produits non autorisés</span>
 												</label>
 												<label class="flex items-center gap-2 text-sm cursor-pointer">
-													<input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
+													<input type="checkbox"
+														class="rounded text-accent-1 focus:ring-accent-1">
 													<span class="text-gray-600">Substances dangereuses</span>
 												</label>
 											</div>
 										</div>
 
-                                        <!-- Dangerous -->
-                                        <div>
-                                            <h5 class="text-xs font-bold text-gray-500 uppercase mb-2">Objets dangereux</h5>
-                                            <div class="space-y-2">
-                                                <label class="flex items-center gap-2 text-sm cursor-pointer">
-                                                    <input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
-                                                    <span class="text-gray-600">Armes à feu/blanches</span>
-                                                </label>
-                                                <label class="flex items-center gap-2 text-sm cursor-pointer">
-                                                    <input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
-                                                    <span class="text-gray-600">Munitions</span>
-                                                </label>
-                                                <label class="flex items-center gap-2 text-sm cursor-pointer">
-                                                    <input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
-                                                    <span class="text-gray-600">Explosifs, feux d’artifice</span>
-                                                </label>
-                                                <label class="flex items-center gap-2 text-sm cursor-pointer">
-                                                    <input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
-                                                    <span class="text-gray-600">Objets coupants</span>
-                                                </label>
-                                            </div>
-                                        </div>
+										<!-- Dangerous -->
+										<div>
+											<h5 class="text-xs font-bold text-gray-500 uppercase mb-2">Objets dangereux
+											</h5>
+											<div class="space-y-2">
+												<label class="flex items-center gap-2 text-sm cursor-pointer">
+													<input type="checkbox"
+														class="rounded text-accent-1 focus:ring-accent-1">
+													<span class="text-gray-600">Armes à feu/blanches</span>
+												</label>
+												<label class="flex items-center gap-2 text-sm cursor-pointer">
+													<input type="checkbox"
+														class="rounded text-accent-1 focus:ring-accent-1">
+													<span class="text-gray-600">Munitions</span>
+												</label>
+												<label class="flex items-center gap-2 text-sm cursor-pointer">
+													<input type="checkbox"
+														class="rounded text-accent-1 focus:ring-accent-1">
+													<span class="text-gray-600">Explosifs, feux d’artifice</span>
+												</label>
+												<label class="flex items-center gap-2 text-sm cursor-pointer">
+													<input type="checkbox"
+														class="rounded text-accent-1 focus:ring-accent-1">
+													<span class="text-gray-600">Objets coupants</span>
+												</label>
+											</div>
+										</div>
 
-                                        <!-- Liquids -->
-                                        <div>
-                                            <h5 class="text-xs font-bold text-gray-500 uppercase mb-2">Liquides & Sensibles</h5>
-                                            <div class="space-y-2">
-                                                <label class="flex items-center gap-2 text-sm cursor-pointer">
-                                                    <input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
-                                                    <span class="text-gray-600">Liquides inflammables</span>
-                                                </label>
-                                                <label class="flex items-center gap-2 text-sm cursor-pointer">
-                                                    <input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
-                                                    <span class="text-gray-600">Parfums (gde qté)</span>
-                                                </label>
-                                                <label class="flex items-center gap-2 text-sm cursor-pointer">
-                                                    <input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
-                                                    <span class="text-gray-600">Aérosols</span>
-                                                </label>
-                                                <label class="flex items-center gap-2 text-sm cursor-pointer">
-                                                    <input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
-                                                    <span class="text-gray-600">Produits corrosifs</span>
-                                                </label>
-                                            </div>
-                                        </div>
+										<!-- Liquids -->
+										<div>
+											<h5 class="text-xs font-bold text-gray-500 uppercase mb-2">Liquides &
+												Sensibles</h5>
+											<div class="space-y-2">
+												<label class="flex items-center gap-2 text-sm cursor-pointer">
+													<input type="checkbox"
+														class="rounded text-accent-1 focus:ring-accent-1">
+													<span class="text-gray-600">Liquides inflammables</span>
+												</label>
+												<label class="flex items-center gap-2 text-sm cursor-pointer">
+													<input type="checkbox"
+														class="rounded text-accent-1 focus:ring-accent-1">
+													<span class="text-gray-600">Parfums (gde qté)</span>
+												</label>
+												<label class="flex items-center gap-2 text-sm cursor-pointer">
+													<input type="checkbox"
+														class="rounded text-accent-1 focus:ring-accent-1">
+													<span class="text-gray-600">Aérosols</span>
+												</label>
+												<label class="flex items-center gap-2 text-sm cursor-pointer">
+													<input type="checkbox"
+														class="rounded text-accent-1 focus:ring-accent-1">
+													<span class="text-gray-600">Produits corrosifs</span>
+												</label>
+											</div>
+										</div>
 
-                                        <!-- Food -->
-                                        <div>
-                                            <h5 class="text-xs font-bold text-gray-500 uppercase mb-2">Alimentaire</h5>
-                                            <div class="space-y-2">
-                                                <label class="flex items-center gap-2 text-sm cursor-pointer">
-                                                    <input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
-                                                    <span class="text-gray-600">Nourriture fraîche</span>
-                                                </label>
-                                                <label class="flex items-center gap-2 text-sm cursor-pointer">
-                                                    <input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
-                                                    <span class="text-gray-600">Produits périssables</span>
-                                                </label>
-                                                <label class="flex items-center gap-2 text-sm cursor-pointer">
-                                                    <input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
-                                                    <span class="text-gray-600">Viande, poisson...</span>
-                                                </label>
-                                                <label class="flex items-center gap-2 text-sm cursor-pointer">
-                                                    <input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
-                                                    <span class="text-gray-600">Aliments faits maison</span>
-                                                </label>
-                                            </div>
-                                        </div>
+										<!-- Food -->
+										<div>
+											<h5 class="text-xs font-bold text-gray-500 uppercase mb-2">Alimentaire</h5>
+											<div class="space-y-2">
+												<label class="flex items-center gap-2 text-sm cursor-pointer">
+													<input type="checkbox"
+														class="rounded text-accent-1 focus:ring-accent-1">
+													<span class="text-gray-600">Nourriture fraîche</span>
+												</label>
+												<label class="flex items-center gap-2 text-sm cursor-pointer">
+													<input type="checkbox"
+														class="rounded text-accent-1 focus:ring-accent-1">
+													<span class="text-gray-600">Produits périssables</span>
+												</label>
+												<label class="flex items-center gap-2 text-sm cursor-pointer">
+													<input type="checkbox"
+														class="rounded text-accent-1 focus:ring-accent-1">
+													<span class="text-gray-600">Viande, poisson...</span>
+												</label>
+												<label class="flex items-center gap-2 text-sm cursor-pointer">
+													<input type="checkbox"
+														class="rounded text-accent-1 focus:ring-accent-1">
+													<span class="text-gray-600">Aliments faits maison</span>
+												</label>
+											</div>
+										</div>
 
-                                        <!-- Valuables -->
-                                        <div>
-                                            <h5 class="text-xs font-bold text-gray-500 uppercase mb-2">Valeurs</h5>
-                                            <div class="space-y-2">
-                                                <label class="flex items-center gap-2 text-sm cursor-pointer">
-                                                    <input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
-                                                    <span class="text-gray-600">Argent liquide</span>
-                                                </label>
-                                                <label class="flex items-center gap-2 text-sm cursor-pointer">
-                                                    <input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
-                                                    <span class="text-gray-600">Or, bijoux précieux</span>
-                                                </label>
-                                                <label class="flex items-center gap-2 text-sm cursor-pointer">
-                                                    <input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
-                                                    <span class="text-gray-600">Art de grande valeur</span>
-                                                </label>
-                                                <label class="flex items-center gap-2 text-sm cursor-pointer">
-                                                    <input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
-                                                    <span class="text-gray-600">Objets non déclarés</span>
-                                                </label>
-                                            </div>
-                                        </div>
-                                        
-                                        <!-- Living -->
-                                        <div>
-                                            <h5 class="text-xs font-bold text-gray-500 uppercase mb-2">Vivant</h5>
-                                            <div class="space-y-2">
-                                                <label class="flex items-center gap-2 text-sm cursor-pointer">
-                                                    <input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
-                                                    <span class="text-gray-600">Animaux vivants</span>
-                                                </label>
-                                                <label class="flex items-center gap-2 text-sm cursor-pointer">
-                                                    <input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
-                                                    <span class="text-gray-600">Plantes, graines</span>
-                                                </label>
-                                            </div>
-                                        </div>
+										<!-- Valuables -->
+										<div>
+											<h5 class="text-xs font-bold text-gray-500 uppercase mb-2">Valeurs</h5>
+											<div class="space-y-2">
+												<label class="flex items-center gap-2 text-sm cursor-pointer">
+													<input type="checkbox"
+														class="rounded text-accent-1 focus:ring-accent-1">
+													<span class="text-gray-600">Argent liquide</span>
+												</label>
+												<label class="flex items-center gap-2 text-sm cursor-pointer">
+													<input type="checkbox"
+														class="rounded text-accent-1 focus:ring-accent-1">
+													<span class="text-gray-600">Or, bijoux précieux</span>
+												</label>
+												<label class="flex items-center gap-2 text-sm cursor-pointer">
+													<input type="checkbox"
+														class="rounded text-accent-1 focus:ring-accent-1">
+													<span class="text-gray-600">Art de grande valeur</span>
+												</label>
+												<label class="flex items-center gap-2 text-sm cursor-pointer">
+													<input type="checkbox"
+														class="rounded text-accent-1 focus:ring-accent-1">
+													<span class="text-gray-600">Objets non déclarés</span>
+												</label>
+											</div>
+										</div>
 
-                                        <!-- Commercial -->
-                                        <div>
-                                            <h5 class="text-xs font-bold text-gray-500 uppercase mb-2">Commercial</h5>
-                                            <div class="space-y-2">
-                                                <label class="flex items-center gap-2 text-sm cursor-pointer">
-                                                    <input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
-                                                    <span class="text-gray-600">Marchandises (gde qté)</span>
-                                                </label>
-                                                <label class="flex items-center gap-2 text-sm cursor-pointer">
-                                                    <input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
-                                                    <span class="text-gray-600">Pour revente</span>
-                                                </label>
-                                            </div>
-                                        </div>
+										<!-- Living -->
+										<div>
+											<h5 class="text-xs font-bold text-gray-500 uppercase mb-2">Vivant</h5>
+											<div class="space-y-2">
+												<label class="flex items-center gap-2 text-sm cursor-pointer">
+													<input type="checkbox"
+														class="rounded text-accent-1 focus:ring-accent-1">
+													<span class="text-gray-600">Animaux vivants</span>
+												</label>
+												<label class="flex items-center gap-2 text-sm cursor-pointer">
+													<input type="checkbox"
+														class="rounded text-accent-1 focus:ring-accent-1">
+													<span class="text-gray-600">Plantes, graines</span>
+												</label>
+											</div>
+										</div>
 
-                                        <!-- Others -->
-                                        <div>
-                                            <h5 class="text-xs font-bold text-gray-500 uppercase mb-2">Autres</h5>
-                                            <div class="space-y-2">
-                                                <label class="flex items-center gap-2 text-sm cursor-pointer">
-                                                    <input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
-                                                    <span class="text-gray-600">Fragiles non protégés</span>
-                                                </label>
-                                                <label class="flex items-center gap-2 text-sm cursor-pointer">
-                                                    <input type="checkbox" class="rounded text-accent-1 focus:ring-accent-1">
-                                                    <span class="text-gray-600">Non déclaré / dissimulé</span>
-                                                </label>
-                                            </div>
-                                        </div>
+										<!-- Commercial -->
+										<div>
+											<h5 class="text-xs font-bold text-gray-500 uppercase mb-2">Commercial</h5>
+											<div class="space-y-2">
+												<label class="flex items-center gap-2 text-sm cursor-pointer">
+													<input type="checkbox"
+														class="rounded text-accent-1 focus:ring-accent-1">
+													<span class="text-gray-600">Marchandises (gde qté)</span>
+												</label>
+												<label class="flex items-center gap-2 text-sm cursor-pointer">
+													<input type="checkbox"
+														class="rounded text-accent-1 focus:ring-accent-1">
+													<span class="text-gray-600">Pour revente</span>
+												</label>
+											</div>
+										</div>
+
+										<!-- Others -->
+										<div>
+											<h5 class="text-xs font-bold text-gray-500 uppercase mb-2">Autres</h5>
+											<div class="space-y-2">
+												<label class="flex items-center gap-2 text-sm cursor-pointer">
+													<input type="checkbox"
+														class="rounded text-accent-1 focus:ring-accent-1">
+													<span class="text-gray-600">Fragiles non protégés</span>
+												</label>
+												<label class="flex items-center gap-2 text-sm cursor-pointer">
+													<input type="checkbox"
+														class="rounded text-accent-1 focus:ring-accent-1">
+													<span class="text-gray-600">Non déclaré / dissimulé</span>
+												</label>
+											</div>
+										</div>
 									</div>
 								</details>
 							</div>
@@ -562,27 +605,43 @@
 					</div>
 				</aside>
 
-				<!-- Results List -->
 				<div class="flex-1">
-					<div class="flex justify-between items-end mb-6">
-						<h1 class="text-2xl font-bold">Voyages disponibles</h1>
-						<span class="text-gray-500 text-sm">3 résultats trouvés</span>
+					<div
+						class="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-4 border-b border-gray-100">
+						<div>
+							<h1 class="text-3xl font-bold text-dark-1">Résultats de recherche</h1>
+							<p class="text-gray-500 mt-1">3 voyages correspondants à vos critères</p>
+						</div>
+						<div class="flex items-center gap-2 mt-4 md:mt-0">
+							<span class="text-sm font-medium text-gray-700">Trier par :</span>
+							<select
+								class="text-sm border-none bg-gray-50 rounded-lg px-3 py-2 font-bold focus:ring-2 focus:ring-accent-1 cursor-pointer outline-none">
+								<option>Prix croissant</option>
+								<option>Prix décroissant</option>
+								<option>Date de départ</option>
+							</select>
+						</div>
 					</div>
 
-					<div class="space-y-4">
+					<div class="space-y-6">
 
-						<div class="bg-white p-6 rounded-xl border border-gray-200 hover:shadow-md transition-shadow flex flex-col md:flex-row gap-6">
-							<div class="md:w-48 flex-shrink-0 flex flex-col items-center md:items-start border-b md:border-b-0 md:border-r border-gray-100 pb-4 md:pb-0 md:pr-4">
+						<div
+							class="bg-white p-6 rounded-xl border border-gray-200 hover:shadow-md transition-shadow flex flex-col md:flex-row gap-6">
+							<div
+								class="md:w-48 flex-shrink-0 flex flex-col items-center md:items-start border-b md:border-b-0 md:border-r border-gray-100 pb-4 md:pb-0 md:pr-4">
 								<div class="relative mb-2">
-									<img src="https://picsum.photos/64/64?random=1" alt="Alice Kapinga"	class="w-16 h-16 rounded-full object-cover">
-									<div class="absolute -bottom-1 -right-1 bg-green-500 w-4 h-4 rounded-full border-2 border-white">
+									<img src="https://picsum.photos/64/64?random=1" alt="Alice Kapinga"
+										class="w-16 h-16 rounded-full object-cover">
+									<div
+										class="absolute -bottom-1 -right-1 bg-green-500 w-4 h-4 rounded-full border-2 border-white">
 									</div>
 								</div>
 								<h3 class="font-bold text-center md:text-left">Alice Kapinga</h3>
 								<div class="text-sm text-yellow-500 mb-1 flex items-center gap-1">
 									<i data-lucide="star" class="w-3 h-3 fill-current"></i> 4.8 (24 avis)
 								</div>
-								<span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full font-medium flex items-center gap-1">
+								<span
+									class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full font-medium flex items-center gap-1">
 									<i data-lucide="shield-check" class="w-3 h-3"></i> Vérifié
 								</span>
 							</div>
@@ -592,7 +651,8 @@
 									<div class="flex flex-wrap items-center gap-2 text-lg font-bold mb-1">
 										Paris <i data-lucide="arrow-right" class="text-gray-300 w-5 h-5"></i> Kinshasa
 									</div>
-									<div class="flex flex-col md:flex-row md:justify-between gap-1.5 text-sm text-gray-500">
+									<div
+										class="flex flex-col md:flex-row md:justify-between gap-1.5 text-sm text-gray-500">
 										<div class="flex items-center gap-2">
 											<i data-lucide="calendar" class="w-4 h-4 text-gray-400"></i>
 											<span class="font-medium">Départ :</span> 15/11/2023
@@ -624,24 +684,30 @@
 									<span class="block text-3xl font-bold text-dark-1">15$</span>
 									<span class="text-sm text-gray-500">par kilo</span>
 								</div>
-								<a href="details-voyage.html" class="w-full px-6 py-3 bg-accent-1 hover:bg-yellow-400 text-dark-1 font-medium rounded-200 transition-colors text-center">
+								<a href="details-voyage.html"
+									class="w-full px-6 py-3 bg-accent-1 hover:bg-yellow-400 text-dark-1 font-medium rounded-200 transition-colors text-center">
 									Voir l'offre
 								</a>
 							</div>
 						</div>
 
-						<div class="bg-white p-6 rounded-xl border border-gray-200 hover:shadow-md transition-shadow flex flex-col md:flex-row gap-6">
-							<div class="md:w-48 flex-shrink-0 flex flex-col items-center md:items-start border-b md:border-b-0 md:border-r border-gray-100 pb-4 md:pb-0 md:pr-4">
+						<div
+							class="bg-white p-6 rounded-xl border border-gray-200 hover:shadow-md transition-shadow flex flex-col md:flex-row gap-6">
+							<div
+								class="md:w-48 flex-shrink-0 flex flex-col items-center md:items-start border-b md:border-b-0 md:border-r border-gray-100 pb-4 md:pb-0 md:pr-4">
 								<div class="relative mb-2">
-									<img src="https://picsum.photos/64/64?random=2" alt="Alice Kapinga"	class="w-16 h-16 rounded-full object-cover">
-									<div class="absolute -bottom-1 -right-1 bg-green-500 w-4 h-4 rounded-full border-2 border-white">
+									<img src="https://picsum.photos/64/64?random=2" alt="Alice Kapinga"
+										class="w-16 h-16 rounded-full object-cover">
+									<div
+										class="absolute -bottom-1 -right-1 bg-green-500 w-4 h-4 rounded-full border-2 border-white">
 									</div>
 								</div>
 								<h3 class="font-bold text-center md:text-left">Marc Kasongo</h3>
 								<div class="text-sm text-yellow-500 mb-1 flex items-center gap-1">
 									<i data-lucide="star" class="w-3 h-3 fill-current"></i> 3.8 (14 avis)
 								</div>
-								<span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full font-medium flex items-center gap-1">
+								<span
+									class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full font-medium flex items-center gap-1">
 									<i data-lucide="shield-check" class="w-3 h-3"></i> Vérifié
 								</span>
 							</div>
@@ -651,7 +717,8 @@
 									<div class="flex flex-wrap items-center gap-2 text-lg font-bold mb-1">
 										Lyon <i data-lucide="arrow-right" class="text-gray-300 w-5 h-5"></i> Lubumbashi
 									</div>
-									<div class="flex flex-col md:flex-row md:justify-between gap-1.5 text-sm text-gray-500">
+									<div
+										class="flex flex-col md:flex-row md:justify-between gap-1.5 text-sm text-gray-500">
 										<div class="flex items-center gap-2">
 											<i data-lucide="calendar" class="w-4 h-4 text-gray-400"></i>
 											<span class="font-medium">Départ :</span> 13/11/2023
@@ -683,24 +750,30 @@
 									<span class="block text-3xl font-bold text-dark-1">12$</span>
 									<span class="text-sm text-gray-500">par kilo</span>
 								</div>
-								<a href="details-voyage.html" class="w-full px-6 py-3 bg-accent-1 hover:bg-yellow-400 text-dark-1 font-medium rounded-200 transition-colors text-center">
+								<a href="details-voyage.html"
+									class="w-full px-6 py-3 bg-accent-1 hover:bg-yellow-400 text-dark-1 font-medium rounded-200 transition-colors text-center">
 									Voir l'offre
 								</a>
 							</div>
 						</div>
 
-						<div class="bg-white p-6 rounded-xl border border-gray-200 hover:shadow-md transition-shadow flex flex-col md:flex-row gap-6">
-							<div class="md:w-48 flex-shrink-0 flex flex-col items-center md:items-start border-b md:border-b-0 md:border-r border-gray-100 pb-4 md:pb-0 md:pr-4">
+						<div
+							class="bg-white p-6 rounded-xl border border-gray-200 hover:shadow-md transition-shadow flex flex-col md:flex-row gap-6">
+							<div
+								class="md:w-48 flex-shrink-0 flex flex-col items-center md:items-start border-b md:border-b-0 md:border-r border-gray-100 pb-4 md:pb-0 md:pr-4">
 								<div class="relative mb-2">
-									<img src="https://picsum.photos/64/64?random=3" alt="Alice Kapinga"	class="w-16 h-16 rounded-full object-cover">
-									<div class="absolute -bottom-1 -right-1 bg-green-500 w-4 h-4 rounded-full border-2 border-white">
+									<img src="https://picsum.photos/64/64?random=3" alt="Alice Kapinga"
+										class="w-16 h-16 rounded-full object-cover">
+									<div
+										class="absolute -bottom-1 -right-1 bg-green-500 w-4 h-4 rounded-full border-2 border-white">
 									</div>
 								</div>
 								<h3 class="font-bold text-center md:text-left">Sophie Kitenge</h3>
 								<div class="text-sm text-yellow-500 mb-1 flex items-center gap-1">
 									<i data-lucide="star" class="w-3 h-3 fill-current"></i> 4.2 (34 avis)
 								</div>
-								<span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full font-medium flex items-center gap-1">
+								<span
+									class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full font-medium flex items-center gap-1">
 									<i data-lucide="shield-check" class="w-3 h-3"></i> Vérifié
 								</span>
 							</div>
@@ -708,9 +781,11 @@
 							<div class="flex-1 space-y-4">
 								<div>
 									<div class="flex flex-wrap items-center gap-2 text-lg font-bold mb-1">
-										Bruxelles <i data-lucide="arrow-right" class="text-gray-300 w-5 h-5"></i> Lubumbashi
+										Bruxelles <i data-lucide="arrow-right" class="text-gray-300 w-5 h-5"></i>
+										Lubumbashi
 									</div>
-									<div class="flex flex-col md:flex-row md:justify-between gap-1.5 text-sm text-gray-500">
+									<div
+										class="flex flex-col md:flex-row md:justify-between gap-1.5 text-sm text-gray-500">
 										<div class="flex items-center gap-2">
 											<i data-lucide="calendar" class="w-4 h-4 text-gray-400"></i>
 											<span class="font-medium">Départ :</span> 12/11/2023
@@ -742,37 +817,53 @@
 									<span class="block text-3xl font-bold text-dark-1">12$</span>
 									<span class="text-sm text-gray-500">par kilo</span>
 								</div>
-								<a href="details-voyage.html" class="w-full px-6 py-3 bg-accent-1 hover:bg-yellow-400 text-dark-1 font-medium rounded-200 transition-colors text-center">
+								<a href="details-voyage.html"
+									class="w-full px-6 py-3 bg-accent-1 hover:bg-yellow-400 text-dark-1 font-medium rounded-200 transition-colors text-center">
 									Voir l'offre
 								</a>
 							</div>
 						</div>
-
 					</div>
 
-					<div class="d-flex justify-center flex-column mt-10">
-						<div class="pagination justify-center">
-							<button class="pagination__button button -accent-1 mr-15 -prev">
-								<i class="icon-arrow-left text-15"></i>
-							</button>
+					<div class="mt-12 flex flex-col items-center">
+						<div class="flex items-center gap-2">
+							<!-- Previous Button -->
+							<a href="#"
+								class="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-gray-200 text-gray-600 font-bold hover:bg-gray-50 hover:text-dark-1 transition-all hover:-translate-x-0.5">
+								<i data-lucide="arrow-left" class="w-4 h-4"></i>
+								<span class="hidden sm:inline">Précédent</span>
+							</a>
 
-							<div class="pagination__count">
-								<a href="#">1</a>
-								<a href="#" class="is-active">2</a>
-								<a href="#">3</a>
-								<div>...</div>
-								<a href="#">5</a>
+							<!-- Page Numbers -->
+							<div class="flex items-center gap-1 mx-2 sm:mx-4">
+								<a href="#"
+									class="w-10 h-10 flex items-center justify-center rounded-xl text-gray-600 font-medium hover:bg-gray-50 hover:text-dark-1 transition-colors">1</a>
+								<a href="#"
+									class="w-10 h-10 flex items-center justify-center rounded-xl bg-accent-1 text-dark-1 font-bold shadow-lg shadow-accent-1/20 transform scale-110">2</a>
+								<a href="#"
+									class="w-10 h-10 flex items-center justify-center rounded-xl text-gray-600 font-medium hover:bg-gray-50 hover:text-dark-1 transition-colors">3</a>
+								<span
+									class="w-10 h-10 flex items-center justify-center text-gray-400 font-medium">...</span>
+								<a href="#"
+									class="w-10 h-10 flex items-center justify-center rounded-xl text-gray-600 font-medium hover:bg-gray-50 hover:text-dark-1 transition-colors">5</a>
 							</div>
 
-							<button class="pagination__button button -accent-1 ml-15 -next">
-								<i class="icon-arrow-right text-15"></i>
-							</button>
+							<!-- Next Button -->
+							<a href="#"
+								class="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-gray-200 text-gray-600 font-bold hover:bg-gray-50 hover:text-dark-1 transition-all hover:translate-x-0.5">
+								<span class="hidden sm:inline">Suivant</span>
+								<i data-lucide="arrow-right" class="w-4 h-4"></i>
+							</a>
 						</div>
-						<div class="text-14 text-center mt-10">Showing results 1-30 of 1,415</div>
-					</div>
-					</div>
 
+						<div
+							class="text-gray-500 text-sm mt-6 bg-gray-50 px-4 py-2 rounded-full border border-gray-100">
+							Affichage des résultats <span class="font-bold text-dark-1">1-30</span> sur <span
+								class="font-bold text-dark-1">1,415</span>
+						</div>
+					</div>
 				</div>
+
 			</div>
 		</div>
 	</main>
