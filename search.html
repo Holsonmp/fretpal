@@ -105,70 +105,62 @@
 
 	<!-- Main Content -->
 	<main class="flex-grow pt-[80px] py-8 ">
-		<section class="relative pt-20 pb-32">
+		<section class="relative pt-20 pb-28">
 			<div class="absolute inset-0 z-0">
 				<img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-4.0.3&auto=format&fit=crop&w=2021&q=80" alt="Voyageur" class="w-full h-full object-cover opacity-10" />
 				<div class="absolute inset-0 bg-gradient-to-b from-white/0 to-white"></div>
 			</div>
 
 			<div class="container mx-auto px-4 relative z-10 text-center">
-				<form class="bg-white p-4 rounded-2xl shadow-xl max-w-5xl mx-auto border border-gray-100 flex flex-col md:flex-row gap-4 relative" action="search.html">
+
+				<form class="bg-white p-4 rounded-2xl shadow-2xl  mx-auto flex flex-col md:flex-row gap-4 relative" action="search.html">
 					<div class="flex-1 flex items-center bg-light-1 rounded-xl px-4 py-3">
 						<i data-lucide="map-pin" class="text-light-2 w-5 h-5 mr-3"></i>
 						<div class="text-left w-full">
 							<label class="block text-xs font-bold text-dark-1 uppercase">Départ</label>
-							<input type="text" placeholder="Paris, France" class="w-full bg-transparent outline-none text-xs" />
+							<input type="text" placeholder="Paris, France" class="w-full bg-transparent outline-none text-sm" />
 						</div>
 					</div>
 					<div class="flex-1 flex items-center bg-light-1 rounded-xl px-4 py-3">
 						<i data-lucide="map-pin" class="text-light-2 w-5 h-5 mr-3"></i>
 						<div class="text-left w-full">
-							<label class="block text-xs font-bold text-dark-1 uppercase">Arrivée</label>
-							<input type="text" placeholder="Kinshasa, RDC" class="w-full bg-transparent outline-none text-xs" />
+							<label class="block text-xs font-bold text-dark-1 uppercase">Destination</label>
+							<input type="text" placeholder="Kinshasa, RDC" class="w-full bg-transparent outline-none text-sm" />
 						</div>
 					</div>
-					<div class="flex-1 relative">
-						<button type="button" id="hero-date-trigger" class="w-full flex items-center bg-light-1  rounded-xl px-4 py-3 border border-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-1 focus-visible:ring-offset-2 focus-visible:ring-offset-white transition-colors"
-							aria-haspopup="dialog" aria-expanded="false" aria-controls="hero-date-popover">
-							<i data-lucide="calendar" class="text-light-2 w-5 h-5 mr-3"></i>
-							<div class="text-left w-full">
-								<span class="block text-xs font-bold text-dark-1 uppercase">Périodes</span>
-								<span id="hero-date-label" class="block text-sm text-light-2">Périodes du voyage</span>
-							</div>
-						</button>
-
-						<div id="hero-date-popover"
-							class="absolute z-90 mt-2 w-full md:w-[360px] right-0 origin-top-right bg-white rounded-2xl shadow-2xl border border-gray-100 p-4 opacity-0 scale-95 pointer-events-none transform transition-all duration-200"
-							role="dialog" aria-label="Sélection des dates de voyage">
-							<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
-								<div>
-									<label for="hero-date-start" class="block text-xs font-medium text-gray-600 mb-1">Date de départ</label>
-									<input id="hero-date-start" type="date" class="w-full rounded-xl border border-gray-300 px-3 py-2 text-xs outline-none focus:ring-2 focus:ring-accent-1 focus:border-accent-1">
-								</div>
-								<div>
-									<label for="hero-date-end" class="block text-xs font-medium text-gray-600 mb-1">Date d'arrivée</label>
-									<input id="hero-date-end" type="date" class="w-full rounded-xl border border-gray-300 px-3 py-2 text-xs outline-none focus:ring-2 focus:ring-accent-1 focus:border-accent-1">
-								</div>
-							</div>
-							<div class="flex items-center justify-between pt-2 border-t border-gray-100">
-								<button type="button" id="hero-date-clear" class="text-xs sm:text-sm text-gray-500 hover:text-gray-700 px-2 py-1 rounded-lg transition-colors">
-									Effacer
-								</button>
-								<div class="flex items-center gap-2">
-									<span id="hero-date-summary" class="hidden text-xs text-gray-500"></span>
-									<button type="button" id="hero-date-apply" class="px-4 py-2 rounded-xl bg-accent-1 text-dark-1 text-xs sm:text-sm font-semibold hover:bg-yellow-400 transition-colors">
-										Appliquer
-									</button>
-								</div>
-							</div>
+					<div class="flex-1 flex items-center bg-light-1 rounded-xl px-4 py-3">
+						<i data-lucide="calendar" class="text-light-2 w-5 h-5 mr-3"></i>
+						<div class="text-left w-full">
+							<label for="hero-date-start" class="block text-xs font-bold text-dark-1 uppercase">Date de départ</label>
+							<input type="date" id="hero-date-start" class="w-full bg-transparent outline-none text-sm text-gray-600 placeholder-gray-400" />
+						</div>
+					</div>
+					<div class="flex-1 flex items-center bg-light-1 rounded-xl px-4 py-3">
+						<i data-lucide="calendar-check" class="text-light-2 w-5 h-5 mr-3"></i>
+						<div class="text-left w-full">
+							<label for="hero-date-end" class="block text-xs font-bold text-dark-1 uppercase">Date d'arrivée</label>
+							<input type="date" id="hero-date-end" class="w-full bg-transparent outline-none text-sm text-gray-600 placeholder-gray-400" />
+						</div>
+					</div>
+					<div class="flex-1 flex items-center bg-light-1 rounded-xl px-4 py-3">
+						<i data-lucide="weight" class="text-light-2 w-5 h-5 mr-3"></i>
+						<div class="text-left w-full">
+							<label class="block text-xs font-bold text-dark-1 uppercase">Poids</label>
+							<select class="w-full bg-transparent outline-none text-sm text-gray-600">
+								<option value="" disabled selected>Choisir...</option>
+								<option value="0-5">0 - 5 kg</option>
+								<option value="5-20">5 - 10 kg</option>
+								<option value="20+">+ 10 kg</option>
+							</select>
 						</div>
 					</div>
 					<div class="md:w-48">
-						<button type="submit" class="flex items-center justify-center w-full h-full px-6 py-3 bg-accent-2 hover:bg-yellow-400 text-light-1 font-bold rounded-xl transition-colors">
+						<button type="submit" class="flex items-center justify-center w-full h-full px-6 py-2 bg-dark-1 hover:bg-yellow-400 text-white font-bold rounded-xl transition-colors">
 							Rechercher
 						</button>
 					</div>
-				</form>
+				</form>				
+
 			</div>
 		</section>
 		<div class="container mx-auto px-4 ">
@@ -616,7 +608,7 @@
 
 					<div class="space-y-6">
 
-						<div class="group bg-white p-4 md:p-6 rounded-2xl border border-gray-200 hover:shadow-xs transition-all duration-300 flex flex-col md:flex-row gap-4 md:gap-6">
+						<div class="group bg-white p-4 md:p-6 rounded-2xl border border-gray-200 hover:shadow-md transition-shadow transition-all duration-300 flex flex-col md:flex-row gap-4 md:gap-6">
 							
 							<div class="md:w-48 flex-shrink-0 flex flex-col items-center  border-b md:border-b-0 md:border-r border-gray-100 pb-4 md:pb-0 md:pr-4">
 								<div class="relative mb-2">
@@ -629,7 +621,7 @@
 										<div class="text-xs text-yellow-500 flex items-center gap-0.5">
 											<i data-lucide="star" class="w-3 h-3 fill-current"></i> 4.8 (24)
 										</div>
-										<span class="px-1.5 py-0.5 bg-green-50 text-green-700 text-[10px] rounded-md font-medium flex items-center gap-0.5 border border-green-100">
+										<span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full font-medium flex items-center gap-1">
 											<i data-lucide="shield-check" class="w-3 h-3"></i> Vérifié
 										</span>
 									</div>
@@ -640,20 +632,15 @@
 									Paris <i data-lucide="arrow-right" class="text-gray-300 w-4 h-4 md:w-5 md:h-5"></i> Kinshasa
 								</div>
 								
-								<div class="flex justify-between items-center gap-2 sm:gap-3 text-sm text-gray-500">
+								<div class="flex justify-between items-center gap-2 sm:gap-3 text-sm text-gray-500 mb-3">
 									<div class="flex items-center gap-2">
 										<i data-lucide="calendar" class="w-4 h-4 text-accent-2"></i>
-										<span>Départ : <span class="font-medium text-gray-700">15/11/2023</span></span>
+										<span>Départ : <span class="font-medium text-gray-700">Ven. 23 janv.</span></span>
 									</div>
 									<div class="flex items-center gap-2">
 										<i data-lucide="calendar-check" class="w-4 h-4 text-accent-2"></i>
-										<span>Arrivée : <span class="font-medium text-gray-700">16/11/2023</span></span>
+										<span>Arrivée : <span class="font-medium text-gray-700">Dim. 25 janv.</span></span>
 									</div>
-								</div>
-
-								<div class="flex items-center gap-2 text-sm text-gray-500">
-									<i data-lucide="plane" class="w-4 h-4 text-gray-400"></i>
-									<span>Transport : Avion</span>
 								</div>
 
 								<div class="flex gap-4">
@@ -674,7 +661,7 @@
 									<span class="block text-2xl md:text-3xl font-bold text-dark-1">15$</span>
 									<span class="text-xs text-gray-400">par kilo</span>
 								</div>
-								<a href="details-voyage.html" class="px-6 py-2.5 bg-accent-2 hover:bg-yellow-400 text-light-1 text-sm font-bold rounded-xl transition-all shadow-sm hover:shadow-md active:scale-95">
+								<a href="details-voyage.html" class="px-6 py-3 bg-accent-1 hover:bg-yellow-400 text-dark-1 font-medium rounded-200 transition-colors text-center shadow-sm hover:shadow-md active:scale-95" >
 									Voir l'offre
 								</a>
 							</div>
@@ -693,8 +680,7 @@
 								<div class="text-sm text-yellow-500 mb-1 flex items-center gap-1">
 									<i data-lucide="star" class="w-3 h-3 fill-current"></i> 4.8 (24 avis)
 								</div>
-								<span
-									class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full font-medium flex items-center gap-1">
+								<span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full font-medium flex items-center gap-1">
 									<i data-lucide="shield-check" class="w-3 h-3"></i> Vérifié
 								</span>
 							</div>
