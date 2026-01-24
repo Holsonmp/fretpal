@@ -29,55 +29,165 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
 (function () {
-  var startInput = document.getElementById("hero-date-start");
-  var endInput = document.getElementById("hero-date-end");
+  const startInput = document.getElementById("hero-date-start");
+  const endInput = document.getElementById("hero-date-end");
 
   if (!startInput || !endInput) return;
 
-  function getTodayISO() {
-    var d = new Date();
-    var month = "" + (d.getMonth() + 1);
-    var day = "" + d.getDate();
-    var year = d.getFullYear();
-    if (month.length < 2) month = "0" + month;
-    if (day.length < 2) day = "0" + day;
-    return year + "-" + month + "-" + day;
-  }
+  const fpConfig = {
+    locale: "fr",
+    dateFormat: "Y-m-d",
+    altInput: true,
+    altFormat: "j F Y",
+    minDate: "today",
+    disableMobile: true,
+    theme: "light"
+  };
 
-  var todayISO = getTodayISO();
-
-  if (startInput && todayISO) {
-    startInput.setAttribute("min", todayISO);
-  }
-  if (endInput && todayISO) {
-    endInput.setAttribute("min", todayISO);
-  }
-
-  function syncDates() {
-    var startValue = startInput.value;
-    var endValue = endInput.value;
-
-    if (todayISO && startValue && startValue < todayISO) {
-      startValue = todayISO;
-      startInput.value = todayISO;
+  const startPicker = flatpickr(startInput, {
+    ...fpConfig,
+    onChange: function(selectedDates, dateStr, instance) {
+      if (selectedDates[0]) {
+        endPicker.set("minDate", selectedDates[0]);
+        if (endPicker.selectedDates[0] && endPicker.selectedDates[0] < selectedDates[0]) {
+          endPicker.setDate(selectedDates[0]);
+        }
+      }
     }
-    
-    // Update end date min based on start date
-    if (startValue) {
-      endInput.setAttribute("min", startValue);
-    } else if (todayISO) {
-      endInput.setAttribute("min", todayISO);
-    }
+  });
 
-    if (startValue && endValue && endValue < startValue) {
-      endInput.value = startValue;
-    }
-  }
-
-  startInput.addEventListener("change", syncDates);
-  endInput.addEventListener("change", syncDates);
-
-  // Initialize constraints
-  syncDates();
+  const endPicker = flatpickr(endInput, fpConfig);
 })();
+
+const Select = (function() {
+  function init(selector) {
+    document.querySelectorAll(selector).forEach((el) => singleSelect(el))
+    document.querySelectorAll('.js-multiple-select').forEach((el) => multipleSelect(el))
+  }
+
+  function multipleSelect(target) {
+    const button = target.querySelector('.js-button')
+    const title = button.querySelector('.js-button-title')
+    
+    button.addEventListener('click', () => {
+      let dropdown = target.querySelector('.js-dropdown')
+      
+      if (dropdown.classList.contains('-is-visible')) {
+        dropdown.classList.remove('-is-visible')
+      } else {
+        closeAlldropdowns()
+        dropdown.classList.add('-is-visible')
+      }
+    })
+
+    const dropdown = target.querySelector('.js-dropdown')
+    const options = dropdown.querySelectorAll('.js-options > *')
+
+    options.forEach((el) => {
+      el.addEventListener('click', () => {
+        let selectedValues = []
+        el.classList.toggle('-is-choosen')
+
+        const array = dropdown.querySelectorAll('.-is-choosen .js-target-title')
+        array.forEach((el2) => {
+          selectedValues.push(el2.innerHTML)
+        })
+
+        if (!array.length) {
+          title.innerHTML = "Default"
+          target.setAttribute("data-select-value", "")
+        } else {
+          title.innerHTML = selectedValues.join(', ')
+          target.setAttribute("data-select-value", selectedValues.join(', '))
+        }
+
+        const checkbox = el.querySelector('input')
+        checkbox.checked = !checkbox.checked
+      })
+    })
+  }
+
+  function singleSelect(target) {
+    const button = target.querySelector('.js-button')
+    const title = button.querySelector('.js-button-title')
+    
+    if (target.classList.contains('js-liveSearch')) {
+      liveSearch(target)
+    }
+
+    button.addEventListener('click', () => {
+      let dropdown = target.querySelector('.js-dropdown')
+      
+      if (dropdown.classList.contains('-is-visible')) {
+        dropdown.classList.remove('-is-visible')
+      } else {
+        closeAlldropdowns()
+        dropdown.classList.add('-is-visible')
+      }
+      
+      if (target.classList.contains('js-liveSearch')) {
+        target.querySelector('.js-search').focus()
+      }
+    })
+
+    const dropdown = target.querySelector('.js-dropdown')
+    const options = dropdown.querySelectorAll('.js-options > *')
+
+    options.forEach((el) => {
+      el.addEventListener('click', () => {
+        title.innerHTML = el.innerHTML
+        target.setAttribute("data-select-value", el.getAttribute('data-value'))
+        dropdown.classList.toggle('-is-visible')
+      })
+    })
+  }
+
+  function liveSearch(target) {
+    const search = target.querySelector('.js-search')
+    const options = target.querySelectorAll('.js-options > *')
+    
+    search.addEventListener('input', (event) => {
+      let searchTerm = event.target.value.toLowerCase()
+
+      options.forEach((el) => {
+        el.classList.add('d-none')
+
+        if (el.getAttribute('data-value').includes(searchTerm)) {
+          el.classList.remove('d-none')
+        }
+      })
+    })
+  }
+
+  function closeAlldropdowns() {
+    const targets = document.querySelectorAll('.js-select, .js-multiple-select')
+    if (!targets) return
+    
+    targets.forEach(el => {
+      if (el.querySelector('.-is-visible')) {
+        el.querySelector('.-is-visible').classList.remove('-is-visible')
+      }
+    })
+  }
+
+  return {
+    init: init,
+  }
+})()
+
+Select.init('.js-select');
+
+window.onclick = function(event) {
+  if (!event.target.closest('.js-select')) {
+    const targets = document.querySelectorAll('.js-select')
+    if (!targets) return
+    
+    targets.forEach(el => {
+      if (el.querySelector('.-is-visible')) {
+        el.querySelector('.-is-visible').classList.remove('-is-visible')
+      }
+    })
+  }
+}

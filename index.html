@@ -12,6 +12,11 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
 
+	<!-- Flatpickr -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+	<script src="https://npmcdn.com/flatpickr/dist/l10n/fr.js"></script>
+
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="css/vendors.css">
 	<!-- Owl Carousel CSS -->
@@ -36,7 +41,8 @@
 					colors: {
 						'accent-1': '#f6df33',
 						'accent-2': '#F28555',
-						'dark-1': '#05073C',
+						'dark-1': '#091295',
+						'dark-2': '#05073C',
 						'light-1': '#F5F5F5',
 						'light-2': '#717171',
 					},
@@ -58,7 +64,7 @@
 	<script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
-<body class="flex flex-col min-h-screen text-dark-1 bg-white">
+<body class="flex flex-col min-h-screen text-dark-2 bg-white">
 
 	<!-- Header -->
 	<header class="fixed top-0 left-0 right-0 bg-white z-50 border-b border-gray-100 h-[80px] flex items-center">
@@ -69,8 +75,8 @@
 
 			<nav class="hidden lg:flex items-center gap-8">
 				<a href="index.html" class="font-medium text-accent-2 transition-colors">Accueil</a>
-				<a href="search.html" class="font-medium text-dark-1 hover:text-accent-2 transition-colors">Trouver un trajet</a>
-				<a href="publish-trip.html" class="font-medium text-dark-1 hover:text-accent-2 transition-colors">Publier un voyage</a>
+				<a href="search.html" class="font-medium text-dark-2 hover:text-accent-2 transition-colors">Envoyer un colis</a>
+				<a href="publish-announcement.html" class="font-medium text-dark-2 hover:text-accent-2 transition-colors">Publier une annonce</a>
 			</nav>
 
 			<div class="hidden lg:flex items-center gap-4">
@@ -86,7 +92,7 @@
 			<a href="publish-trip.html" class="text-xl font-medium">Publier un voyage</a>
 			<a href="dashboard.html" class="text-xl font-medium">Mon Compte</a>
 			<div class="h-px bg-gray-100 w-full my-2"></div>
-			<a href="login.html" class="w-full text-center px-6 py-3 bg-accent-1 text-dark-1 font-bold rounded-xl">Se connecter</a>
+			<a href="login.html" class="w-full text-center px-6 py-3 bg-accent-1 text-dark-2 font-bold rounded-xl">Se connecter</a>
 		</div>
 	</header>
 
@@ -99,48 +105,51 @@
 			</div>
 
 			<div class="container mx-auto px-4 relative z-10 text-center">
-				<h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-5 text-dark-1 max-w-2xl mx-auto">
+				<h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-20 text-dark-1 max-w-2xl mx-auto">
 					Le transport collaboratif de colis.
 				</h1>
 				<form class="bg-accent-1 p-4 rounded-2xl shadow-2xl  mx-auto flex flex-col md:flex-row gap-4 relative" action="search.html">
 					<div class="flex-1 flex items-center bg-light-1 rounded-xl px-4 py-3">
 						<i data-lucide="map-pin" class="text-light-2 w-5 h-5 mr-3"></i>
 						<div class="text-left w-full">
-							<label class="block text-xs font-bold text-dark-1 uppercase">Départ</label>
-							<input type="text" placeholder="Paris, France" class="w-full bg-transparent outline-none text-sm" />
+							<input type="text" placeholder="Départ" class="w-full bg-transparent outline-none text-sm" />
 						</div>
 					</div>
 					<div class="flex-1 flex items-center bg-light-1 rounded-xl px-4 py-3">
 						<i data-lucide="map-pin" class="text-light-2 w-5 h-5 mr-3"></i>
 						<div class="text-left w-full">
-							<label class="block text-xs font-bold text-dark-1 uppercase">Destination</label>
-							<input type="text" placeholder="Kinshasa, RDC" class="w-full bg-transparent outline-none text-sm" />
+							<input type="text" placeholder="Destination" class="w-full bg-transparent outline-none text-sm" />
 						</div>
 					</div>
 					<div class="flex-1 flex items-center bg-light-1 rounded-xl px-4 py-3">
 						<i data-lucide="calendar" class="text-light-2 w-5 h-5 mr-3"></i>
 						<div class="text-left w-full">
-							<label for="hero-date-start" class="block text-xs font-bold text-dark-1 uppercase">Date de départ</label>
-							<input type="date" id="hero-date-start" class="w-full bg-transparent outline-none text-sm text-gray-600 placeholder-gray-400" />
+							<input type="text" id="hero-date-start" class="w-full bg-transparent outline-none text-sm text-gray-600 placeholder-gray-400" placeholder="Entre le" />
 						</div>
 					</div>
 					<div class="flex-1 flex items-center bg-light-1 rounded-xl px-4 py-3">
 						<i data-lucide="calendar-check" class="text-light-2 w-5 h-5 mr-3"></i>
 						<div class="text-left w-full">
-							<label for="hero-date-end" class="block text-xs font-bold text-dark-1 uppercase">Date d'arrivée</label>
-							<input type="date" id="hero-date-end" class="w-full bg-transparent outline-none text-sm text-gray-600 placeholder-gray-400" />
+							<input type="text" id="hero-date-end" class="w-full bg-transparent outline-none text-sm text-gray-600 placeholder-gray-400" placeholder="Et le" />
 						</div>
 					</div>
 					<div class="flex-1 flex items-center bg-light-1 rounded-xl px-4 py-3">
 						<i data-lucide="weight" class="text-light-2 w-5 h-5 mr-3"></i>
-						<div class="text-left w-full">
-							<label class="block text-xs font-bold text-dark-1 uppercase">Poids</label>
-							<select class="w-full bg-transparent outline-none text-sm text-gray-600">
-								<option value="" disabled selected>Choisir...</option>
-								<option value="0-5">0 - 5 kg</option>
-								<option value="5-20">5 - 10 kg</option>
-								<option value="20+">+ 10 kg</option>
-							</select>
+						<div class="text-left w-full relative js-select" data-select-value="">
+							<button class="js-button w-full bg-transparent outline-none text-sm text-gray-600 appearance-none cursor-pointer flex items-center justify-between" type="button">
+								<span class="js-button-title">Poids...</span>
+								<i data-lucide="chevron-down" class="w-4 h-4 text-gray-400"></i>
+							</button>
+							<div class="js-dropdown select__dropdown">
+								<div class="js-options select__options">
+									<div class="select__options__button" data-value="0-2">0 - 2 Kg</div>
+									<div class="select__options__button" data-value="2-5">2 - 5 Kg</div>
+									<div class="select__options__button" data-value="5-10">5 - 10 Kg</div>
+									<div class="select__options__button" data-value="10-15">10 - 15 Kg</div>
+									<div class="select__options__button" data-value="15-23">15 - 23 Kg</div>
+									<div class="select__options__button" data-value="23+">23 Kg +</div>
+								</div>
+							</div>
 						</div>
 					</div>
 					<div class="md:w-48">
@@ -156,7 +165,7 @@
 			<div class="container mx-auto px-4">
 				<div class="flex justify-between items-end mb-3">
 					<div>
-						<h2 class="text-3xl font-bold mb-0">Prochains départs</h2>
+						<h2 class="text-3xl font-bold mb-0">Annonces recente</h2>
 						<p class="text-light-2">Profite des espaces libres dans ces valises</p>
 					</div>
 					<a href="search.html" class="hidden md:flex items-center text-accent-2 font-bold hover:underline">
@@ -481,21 +490,21 @@
 							<i data-lucide="search" class="w-8 h-8"></i>
 						</div>
 						<h3 class="text-xl font-bold mb-3">1. Recherche</h3>
-						<p class="text-dark-1">Trouve un voyageur qui effectue le trajet dont tu as besoin ou publie ton propre voyage.</p>
+						<p class="text-dark-2">Trouve un voyageur qui effectue le trajet dont tu as besoin ou publie ton propre voyage.</p>
 					</div>
 					<div class="text-center p-6 rounded-2xl  group">
 						<div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6 text-accent-2 ">
 							<i data-lucide="package-check" class="w-8 h-8"></i>
 						</div>
 						<h3 class="text-xl font-bold mb-3">2. Réservation</h3>
-						<p class="text-dark-1">Réserve les kilos nécessaires et paye en ligne. L'argent est bloqué jusqu'à livraison.</p>
+						<p class="text-dark-2">Réserve les kilos nécessaires et paye en ligne. L'argent est bloqué jusqu'à livraison.</p>
 					</div>
 					<div class="text-center p-6 rounded-2xl  group">
 						<div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6 text-accent-2 ">
 							<i data-lucide="globe" class="w-8 h-8"></i>
 						</div>
 						<h3 class="text-xl font-bold mb-3">3. Livraison</h3>
-						<p class="text-dark-1">Remets le colis au voyageur. Il le livre au destinataire à l'arrivée.</p>
+						<p class="text-dark-2">Remets le colis au voyageur. Il le livre au destinataire à l'arrivée.</p>
 					</div>
 				</div>
 			</div>
@@ -511,20 +520,12 @@
 						</p>
 						<ul class="space-y-6">
 							<li class="flex items-start gap-4">
-								<div
-									class="w-12 h-12 rounded-xl bg-accent-1 flex items-center justify-center text-dark-1 flex-shrink-0">
-									<i data-lucide="shield-check" class="w-6 h-6"></i>
-								</div>
 								<div>
 									<h4 class="font-bold text-lg text-white">Profils vérifiés</h4>
 									<p class="text-gray-400 text-sm">Identité, téléphone et email vérifiés pour chaque membre.</p>
 								</div>
 							</li>
 							<li class="flex items-start gap-4">
-								<div
-									class="w-12 h-12 rounded-xl bg-accent-1 flex items-center justify-center text-dark-1 flex-shrink-0">
-									<i data-lucide="lock" class="w-6 h-6"></i>
-								</div>
 								<div>
 									<h4 class="font-bold text-lg text-white">Paiement sécurisé</h4>
 									<p class="text-gray-400 text-sm">L'argent est conservé sur un compte séquestre jusqu'à la livraison.</p>
@@ -533,9 +534,8 @@
 						</ul>
 							<!-- Add publish trip action button -->
 							<div class="mt-4">
-								<a href="publish-trip.html" class="inline-flex items-center justify-center w-25 px-6 py-3 bg-accent-1 hover:shadow-md text-dark-1 font-bold rounded-xl transition-colors">
-									<i data-lucide="plus-circle" class="w-5 h-5 mr-2"></i>
-									Publier un voyage
+								<a href="publish-trip.html" class="inline-flex items-center justify-center w-25 px-6 py-3 bg-accent-1 hover:shadow-md text-dark-2 font-bold rounded-xl transition-colors">
+									Publier une annonce
 								</a>
 							</div>
 
