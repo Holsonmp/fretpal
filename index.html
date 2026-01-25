@@ -693,14 +693,15 @@
 	<!-- Owl Carousel Initialization -->
 	<script>
 		$(document).ready(function(){
-			$(".owl-carousel").owlCarousel({
+			var owl = $(".owl-carousel");
+			owl.owlCarousel({
 				loop:true,
 				margin:24,
 				nav:false,
 				dots:true,
 				autoplay:true,
 				autoplayTimeout:5000,
-				autoplayHoverPause:true,
+				// autoplayHoverPause:true, // Désactivé pour utiliser la logique personnalisée
 				responsive:{
 					0:{
 						items:1
@@ -712,6 +713,18 @@
 						items:4
 					}
 				}
+			});
+
+			// Logique personnalisée de pause au survol
+			// 1. Identifiez les éléments (les items du carrousel) et ajoutez les écouteurs
+			owl.on('mouseenter', '.owl-item', function() {
+				// 3. Arrêter la rotation
+				owl.trigger('stop.owl.autoplay');
+			});
+
+			owl.on('mouseleave', '.owl-item', function() {
+				// 4. Reprendre la rotation
+				owl.trigger('play.owl.autoplay', [5000]);
 			});
 		});
 	</script>
