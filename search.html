@@ -107,51 +107,55 @@
 	<main class="flex-grow pt-[80px] py-8 ">
 		<section class="relative pt-20 pb-28">
 			<div class="absolute inset-0 z-0">
-				<img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-4.0.3&auto=format&fit=crop&w=2021&q=80" alt="Voyageur" class="w-full h-full object-cover opacity-10" />
+				<img src="img/bg.jpg" alt="Voyageur" class="w-full h-full object-cover opacity-80" />
 				<div class="absolute inset-0 bg-gradient-to-b from-white/0 to-white"></div>
 			</div>
 
 			<div class="container mx-auto px-4 relative z-10 text-center">
 
+
 				<form class="bg-accent-1 p-4 rounded-2xl shadow-2xl  mx-auto flex flex-col md:flex-row gap-4 relative" action="search.html">
 					<div class="flex-1 flex items-center bg-light-1 rounded-xl px-4 py-3">
 						<i data-lucide="map-pin" class="text-light-2 w-5 h-5 mr-3"></i>
 						<div class="text-left w-full">
-							<label class="block text-xs font-bold text-dark-1 uppercase">Départ</label>
-							<input type="text" placeholder="Paris, France" class="w-full bg-transparent outline-none text-sm" />
+							<input type="text" placeholder="Départ" class="w-full bg-transparent outline-none text-sm" />
 						</div>
 					</div>
 					<div class="flex-1 flex items-center bg-light-1 rounded-xl px-4 py-3">
 						<i data-lucide="map-pin" class="text-light-2 w-5 h-5 mr-3"></i>
 						<div class="text-left w-full">
-							<label class="block text-xs font-bold text-dark-1 uppercase">Destination</label>
-							<input type="text" placeholder="Kinshasa, RDC" class="w-full bg-transparent outline-none text-sm" />
+							<input type="text" placeholder="Destination" class="w-full bg-transparent outline-none text-sm" />
 						</div>
 					</div>
 					<div class="flex-1 flex items-center bg-light-1 rounded-xl px-4 py-3">
 						<i data-lucide="calendar" class="text-light-2 w-5 h-5 mr-3"></i>
 						<div class="text-left w-full">
-							<label for="hero-date-start" class="block text-xs font-bold text-dark-1 uppercase">Date de départ</label>
-							<input type="date" id="hero-date-start" class="w-full bg-transparent outline-none text-sm text-gray-600 placeholder-gray-400" />
+							<input type="text" id="hero-date-start" class="w-full bg-transparent outline-none text-sm text-gray-600 placeholder-gray-400" placeholder="Entre le" />
 						</div>
 					</div>
 					<div class="flex-1 flex items-center bg-light-1 rounded-xl px-4 py-3">
 						<i data-lucide="calendar-check" class="text-light-2 w-5 h-5 mr-3"></i>
 						<div class="text-left w-full">
-							<label for="hero-date-end" class="block text-xs font-bold text-dark-1 uppercase">Date d'arrivée</label>
-							<input type="date" id="hero-date-end" class="w-full bg-transparent outline-none text-sm text-gray-600 placeholder-gray-400" />
+							<input type="text" id="hero-date-end" class="w-full bg-transparent outline-none text-sm text-gray-600 placeholder-gray-400" placeholder="Et le" />
 						</div>
 					</div>
 					<div class="flex-1 flex items-center bg-light-1 rounded-xl px-4 py-3">
 						<i data-lucide="weight" class="text-light-2 w-5 h-5 mr-3"></i>
-						<div class="text-left w-full">
-							<label class="block text-xs font-bold text-dark-1 uppercase">Poids</label>
-							<select class="w-full bg-transparent outline-none text-sm text-gray-600">
-								<option value="" disabled selected>Choisir...</option>
-								<option value="0-5">0 - 5 kg</option>
-								<option value="5-20">5 - 10 kg</option>
-								<option value="20+">+ 10 kg</option>
-							</select>
+						<div class="text-left w-full relative js-select" data-select-value="">
+							<button class="js-button w-full bg-transparent outline-none text-sm text-gray-600 appearance-none cursor-pointer flex items-center justify-between" type="button">
+								<span class="js-button-title">Kilos</span>
+								<i data-lucide="chevron-down" class="w-4 h-4 text-gray-400"></i>
+							</button>
+							<div class="js-dropdown select__dropdown">
+								<div class="js-options select__options">
+									<div class="select__options__button" data-value="0-2">0 - 2</div>
+									<div class="select__options__button" data-value="2-5">2 - 5</div>
+									<div class="select__options__button" data-value="5-10">5 - 10</div>
+									<div class="select__options__button" data-value="10-15">10 - 15</div>
+									<div class="select__options__button" data-value="15-23">15 - 23</div>
+									<div class="select__options__button" data-value="23+">23+</div>
+								</div>
+							</div>
 						</div>
 					</div>
 					<div class="md:w-48">
@@ -159,7 +163,7 @@
 							Rechercher
 						</button>
 					</div>
-				</form>				
+				</form>		
 
 			</div>
 		</section>
