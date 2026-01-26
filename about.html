@@ -107,77 +107,226 @@
 	<main class="flex-grow pt-[80px]">
 
         <!-- Hero -->
-        <section class="py-20 bg-gray-50">
-            <div class="container mx-auto px-4 text-center max-w-3xl">
-                <h1 class="text-4xl md:text-5xl font-bold mb-6">À PROPOS</h1>
+        <section class="relative h-[60vh] min-h-[500px] flex items-center justify-center bg-dark-1 overflow-hidden">
+            <!-- Background Image with Parallax effect -->
+            <div class="absolute inset-0 z-0">
+                <img src="img/bg.jpg" alt="Background" class="w-full h-full object-cover opacity-90 scale-105" />
+                <div class="absolute inset-0 bg-gradient-to-b from-dark-1/20 via-dark-1/50 to-dark-1/90"></div>
+            </div>
+            
+            <div class="container mx-auto px-4 relative z-10 text-center">
+                <span class="inline-block py-1 px-3 rounded-full bg-accent-1/20 text-accent-1 text-sm font-bold tracking-wide mb-6 animate-fade-in-up">À PROPOS DE FRETPAL</span>
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight animate-fade-in-up" style="animation-delay: 0.1s;">
+                    Connecter le monde,<br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-1 to-accent-2">une valise à la fois.</span>
+                </h1>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in-up" style="animation-delay: 0.2s;">
+                    Découvrez l'histoire de ceux qui transforment chaque voyage en opportunité de partage.
+                </p>
+                <div class="animate-fade-in-up" style="animation-delay: 0.3s;">
+                    <a href="#histoire" class="inline-flex items-center justify-center px-8 py-4 bg-accent-1 text-dark-1 font-bold rounded-full hover:bg-white hover:scale-105 transition-all duration-300 shadow-lg shadow-accent-1/20">
+                        Découvrir notre histoire
+                        <i data-lucide="arrow-down" class="ml-2 w-5 h-5"></i>
+                    </a>
+                </div>
             </div>
         </section>
 
         <!-- Notre histoire -->
-        <section class="py-20 bg-white">
+        <section id="histoire" class="py-24 bg-white relative overflow-hidden">
             <div class="container mx-auto px-4">
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Notre histoire" class="rounded-3xl shadow-xl">
-                    </div>
-                    <div>
-                        <h2 class="text-3xl font-bold mb-6">Notre histoire</h2>
-                        <p class="text-gray-600 mb-4 leading-relaxed">
-                            Fretpal est né d’une question que nous, et beaucoup d’autres autour de nous, n’arrêtions pas de poser :
-                        </p>
-                        <div class="pl-4 border-l-4 border-accent-1 italic text-gray-700 mb-6 font-medium">
-                            <p class="mb-2">« Quelqu’un fait Bruxelles–Kinshasa cette semaine ? »</p>
-                            <p>« Quelqu’un fait Abidjan - Paris ? »</p>
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div class="relative group reveal-on-scroll">
+                        <div class="absolute -inset-4 bg-accent-1/20 rounded-3xl transform -rotate-2 group-hover:rotate-0 transition-transform duration-500"></div>
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Notre histoire" class="relative rounded-2xl shadow-2xl w-full object-cover transform transition-transform duration-500 group-hover:scale-[1.01]">
+                        
+                        <!-- Floating Stat Card -->
+                        <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-xl border border-gray-100 max-w-xs hidden md:block transform transition-transform duration-500 hover:-translate-y-2">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+                                    <i data-lucide="check-circle-2" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-500">Fondé en</p>
+                                    <p class="text-2xl font-bold text-dark-1">2023</p>
+                                </div>
+                            </div>
                         </div>
-                        <p class="text-gray-600 mb-4 leading-relaxed">
-                            Dans nos groupes WhatsApp, sur nos réseaux sociaux, au téléphone, entre amis, voisins en famille, la même scène se répétait sans cesse.
-                        </p>
-                        <p class="text-gray-600 mb-4 leading-relaxed">
-                            Parce que les gens ont toujours quelque chose à envoyer : un petit colis, un document, un médicament, un cadeau, un vêtement.
-                        </p>
-                        <p class="text-gray-600 mb-4 leading-relaxed">
-                            Et parce que, quelque part, quelqu’un fait déjà exactement ce trajet. Le vrai problème n’a jamais été l’absence de voyageurs. Ils existent, et ils voyagent tous les jours. Le vrai problème, c’est que ceux qui cherchent à envoyer et ceux qui voyagent ne sont pas connectés.
-                        </p>
-                        <p class="text-lg font-bold text-dark-1">
-                            Fretpal est né pour résoudre exactement cela.
-                        </p>
+                    </div>
+                    
+                    <div class="reveal-on-scroll delay-100">
+                        <h2 class="text-4xl font-bold mb-8 text-dark-1 relative inline-block">
+                            Notre histoire
+                            <span class="absolute bottom-0 left-0 w-1/3 h-1.5 bg-accent-1 rounded-full"></span>
+                        </h2>
+                        
+                        <div class="prose prose-lg text-gray-600 space-y-3">
+                            <p class="text-lg leading-relaxed">
+                                Fretpal est né d’une question que nous, et beaucoup d’autres autour de nous, n’arrêtions pas de poser :
+                            </p>
+                            
+                            <div class="bg-gray-50 p-6 rounded-2xl border-l-4 border-accent-1 italic text-gray-700 font-medium shadow-sm my-6 hover:shadow-md transition-shadow">
+                                <div class="flex items-start gap-3 mb-3">
+                                    <i data-lucide="message-circle" class="w-5 h-5 text-accent-2 mt-1"></i>
+                                    <p>« Quelqu’un fait Bruxelles–Kinshasa cette semaine ? »</p>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <i data-lucide="message-circle" class="w-5 h-5 text-accent-2 mt-1"></i>
+                                    <p>« Quelqu’un fait Abidjan - Paris ? »</p>
+                                </div>
+                            </div>
+                            
+                            <p>
+                                Dans nos groupes WhatsApp, sur nos réseaux sociaux, au téléphone, entre amis, voisins en famille, la même scène se répétait sans cesse.
+                            </p>
+                            <p>
+                                Parce que les gens ont toujours quelque chose à envoyer : <span class="text-dark-1 font-semibold">un petit colis, un document, un médicament, un cadeau, un vêtement.</span>
+                            </p>
+                            <p>
+                                Et parce que, quelque part, quelqu’un fait déjà exactement ce trajet. Le vrai problème n’a jamais été l’absence de voyageurs. Ils existent, et ils voyagent tous les jours. Le vrai problème, c’est que ceux qui cherchent à envoyer et ceux qui voyagent ne sont pas connectés.
+                            </p>
+                            
+                            <div class="pt-2">
+                                <p class="text-xl font-bold text-dark-1 inline-block pb-1">
+                                    Fretpal est né pour résoudre exactement cela.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Notre vision -->
-        <section class="py-20 bg-light-1">
-            <div class="container mx-auto px-4">
-                <div class="max-w-3xl mx-auto text-center">
-                    <h2 class="text-3xl font-bold mb-8">Notre vision</h2>
-                    <p class="text-xl text-dark-2 font-medium mb-6">
-                        Notre vision est simple : <br>Devenir la référence mondiale de la mise en relation de voyages pour colis.
-                    </p>
-                    <p class="text-gray-600 mb-6 leading-relaxed">
-                        Parce que ce besoin est universel. Partout dans le monde, des gens voyagent avec des kilos libres, des espaces vides et d’autres cherchent à envoyer de petits colis.
-                    </p>
-                    <p class="text-2xl font-bold text-accent-2">
-                        Fretpal veut devenir l’endroit où ces deux réalités se rencontrent.
-                    </p>
+        <section class="py-24 bg-dark-1 text-white relative overflow-hidden">
+            <!-- Decorative circles -->
+            <div class="absolute top-0 right-0 w-96 h-96 bg-accent-1/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+            <div class="absolute bottom-0 left-0 w-64 h-64 bg-accent-2/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="max-w-4xl mx-auto text-center reveal-on-scroll">
+                    <span class="text-accent-1 font-bold tracking-wider uppercase text-sm mb-4 block">Notre Ambition</span>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-12 text-white">Notre vision</h2>
+                    
+                    <div class="grid md:grid-cols-3 gap-8 mb-16">
+                        <div class="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors group">
+                            <div class="w-14 h-14 bg-accent-1 rounded-full flex items-center justify-center text-dark-1 mb-6 mx-auto group-hover:scale-110 transition-transform">
+                                <i data-lucide="globe-2" class="w-7 h-7"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3 text-accent-1">Universelle</h3>
+                            <p class="text-gray-300 text-sm">Devenir la référence mondiale de la mise en relation de voyages pour colis.</p>
+                        </div>
+                        
+                        <div class="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors group">
+                            <div class="w-14 h-14 bg-accent-1 rounded-full flex items-center justify-center text-dark-1 mb-6 mx-auto group-hover:scale-110 transition-transform">
+                                <i data-lucide="users" class="w-7 h-7"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3 text-accent-1">Connectée</h3>
+                            <p class="text-gray-300 text-sm">Partout, des gens voyagent avec des kilos libres et d’autres cherchent à envoyer.</p>
+                        </div>
+                        
+                        <div class="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors group">
+                            <div class="w-14 h-14 bg-accent-1 rounded-full flex items-center justify-center text-dark-1 mb-6 mx-auto group-hover:scale-110 transition-transform">
+                                <i data-lucide="heart-handshake" class="w-7 h-7"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3 text-accent-1">Humaine</h3>
+                            <p class="text-gray-300 text-sm">Fretpal veut devenir l’endroit où ces deux réalités se rencontrent.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-r from-accent-1 to-accent-2 p-[2px] rounded-2xl inline-block">
+                        <div class="bg-dark-1 rounded-2xl px-8 py-6">
+                            <p class="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-1 to-accent-2">
+                                "Rendre ce besoin universel, accessible à tous."
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Notre équipe -->
-        <section class="py-20 bg-white">
-            <div class="container mx-auto px-4 max-w-4xl">
-                <h2 class="text-3xl font-bold mb-12 text-center">Notre équipe</h2>
-                <div class="text-center space-y-6">
-                    <p class="text-gray-600 text-lg leading-relaxed">
-                        Nous sommes une petite équipe unie par une conviction commune : Les meilleures idées ne viennent pas toujours de la technologie, mais de l’observation de la vie réelle.
-                    </p>
-                    <p class="text-gray-600 text-lg leading-relaxed">
-                        Nous construisons Fretpal avec une seule obsession : rendre quelque chose qui existe déjà enfin simple, structuré et accessible à tous, en commençant par nous-mêmes.
-                    </p>
+        <section class="py-24 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+                    <div class="order-2 md:order-1 reveal-on-scroll">
+                        <h2 class="text-3xl font-bold mb-8 text-dark-1">Notre équipe</h2>
+                        <div class="space-y-6 text-lg text-gray-600">
+                            <p class="leading-relaxed">
+                                Nous sommes une petite équipe unie par une conviction commune : <span class="text-dark-1 font-medium bg-accent-1/20 px-1">Les meilleures idées ne viennent pas toujours de la technologie, mais de l’observation de la vie réelle.</span>
+                            </p>
+                            <p class="leading-relaxed">
+                                Nous construisons Fretpal avec une seule obsession : rendre quelque chose qui existe déjà enfin simple, structuré et accessible à tous, en commençant par nous-mêmes.
+                            </p>
+                            
+                            <div class="pt-6 flex items-center gap-4">
+                                <div class="flex -space-x-4">
+                                    <img class="w-12 h-12 rounded-full border-2 border-white" src="https://picsum.photos/100/100?random=1" alt="Team">
+                                    <img class="w-12 h-12 rounded-full border-2 border-white" src="https://picsum.photos/100/100?random=2" alt="Team">
+                                    <img class="w-12 h-12 rounded-full border-2 border-white" src="https://picsum.photos/100/100?random=3" alt="Team">
+                                    <div class="w-12 h-12 rounded-full border-2 border-white bg-gray-200 flex items-center justify-center text-xs font-bold text-gray-500">+5</div>
+                                </div>
+                                <span class="text-sm text-gray-500 font-medium">L'équipe FretPal</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-1 md:order-2 reveal-on-scroll delay-100">
+                        <div class="relative">
+                            <div class="absolute inset-0 bg-accent-2 rounded-full opacity-10 blur-3xl"></div>
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1471&q=80" alt="Team Collaboration" class="relative rounded-3xl shadow-2xl transform rotate-2 hover:rotate-0 transition-all duration-500">
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
+
+        <!-- Animation Script & Styles -->
+        <style>
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            .animate-fade-in-up {
+                opacity: 0;
+                animation: fadeInUp 0.8s ease-out forwards;
+            }
+            
+            .reveal-on-scroll {
+                opacity: 0;
+                transform: translateY(30px);
+                transition: all 1s ease-out;
+            }
+            .reveal-on-scroll.is-visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            .delay-100 { transition-delay: 0.1s; }
+            .delay-200 { transition-delay: 0.2s; }
+        </style>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                        }
+                    });
+                }, {
+                    threshold: 0.1
+                });
+                
+                document.querySelectorAll('.reveal-on-scroll').forEach((element) => {
+                    observer.observe(element);
+                });
+            });
+        </script>
     
 	</main>
 
